@@ -11,8 +11,9 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { Phone, Mail, ArrowRight, MessageSquare, Clock, Shield } from 'lucide-react';
+import { useParallax } from '@/hooks/useParallax';
 
 const benefits = [
   {
@@ -35,14 +36,19 @@ const benefits = [
 export default function CTASection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const prefersReducedMotion = useReducedMotion();
+  const backgroundY = useParallax(ref, { distance: 30, mobileDistance: 12 });
 
   return (
     <section ref={ref} className="py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-sinpetca-navy via-sinpetca-navy-dark to-industrial-dark" />
 
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full">
+      <motion.div
+        style={{ y: prefersReducedMotion ? 0 : backgroundY }}
+        className="absolute top-0 left-0 w-full h-full"
+        aria-hidden="true"
+      >
         {/* Grid pattern */}
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -56,7 +62,7 @@ export default function CTASection() {
         {/* Glowing orbs */}
         <div className="absolute top-1/4 -left-20 w-64 h-64 bg-sinpetca-orange/20 rounded-full blur-[100px]" />
         <div className="absolute bottom-1/4 -right-20 w-64 h-64 bg-sinpetca-blue/20 rounded-full blur-[100px]" />
-      </div>
+      </motion.div>
 
       {/* Top decorative border */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-sinpetca-orange to-transparent" />

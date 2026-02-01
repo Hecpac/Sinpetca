@@ -10,12 +10,13 @@
  * - Accessible design patterns
  */
 
-import { memo, useCallback, useState, useEffect } from 'react';
+import { memo, useCallback, useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowRight, type LucideIcon } from 'lucide-react';
+import { useParallax } from '@/hooks/useParallax';
 
 // Types
 export interface ServiceCardProps {
@@ -136,6 +137,7 @@ export const ServiceCard = memo(function ServiceCard({
   const [isHovered, setIsHovered] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const cardRef = useRef<HTMLElement | null>(null);
 
   // Intersection observer for lazy loading - use larger rootMargin for mobile
   const { ref, inView } = useInView({
@@ -143,6 +145,14 @@ export const ServiceCard = memo(function ServiceCard({
     triggerOnce: true,
     rootMargin: '100px 0px',
   });
+  const setRefs = useCallback(
+    (node: HTMLElement | null) => {
+      cardRef.current = node;
+      ref(node);
+    },
+    [ref]
+  );
+  const imageY = useParallax(cardRef, { distance: 24, mobileDistance: 10 });
 
   // Fallback: ensure cards become visible after mount even if observer fails
   useEffect(() => {
@@ -159,14 +169,14 @@ export const ServiceCard = memo(function ServiceCard({
 
   // Variant-specific styles
   const variantStyles = {
-    default: 'min-h-[280px]',
-    featured: 'min-h-[350px] md:col-span-2',
+    default: 'min-h-[240px] sm:min-h-[280px]',
+    featured: 'min-h-[300px] sm:min-h-[350px] md:col-span-2',
     compact: 'min-h-[200px]',
   };
 
   return (
     <motion.article
-      ref={ref}
+      ref={setRefs}
       variants={prefersReducedMotion ? undefined : cardVariants}
       initial={prefersReducedMotion ? 'visible' : 'hidden'}
       animate={isVisible ? 'visible' : 'hidden'}
@@ -195,15 +205,17 @@ export const ServiceCard = memo(function ServiceCard({
 
       {/* Optional Background Image */}
       {image && (
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={image}
-            alt={imageAlt || title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
-            loading="lazy"
-          />
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <motion.div style={{ y: imageY }} className="absolute inset-0">
+            <Image
+              src={image}
+              alt={imageAlt || title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+              loading="lazy"
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-industrial-dark via-industrial-dark/80 to-transparent" />
         </div>
       )}
@@ -234,12 +246,12 @@ export const ServiceCard = memo(function ServiceCard({
         </motion.div>
 
         {/* Title */}
-        <h3 className="text-xl md:text-2xl font-semibold text-text-primary mb-3 group-hover:text-sinpetca-orange transition-colors duration-300">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-text-primary mb-3 group-hover:text-sinpetca-orange transition-colors duration-300">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-text-secondary text-sm md:text-base leading-relaxed flex-grow">
+        <p className="text-text-secondary text-sm sm:text-base leading-relaxed flex-grow">
           {description}
         </p>
 
@@ -338,7 +350,7 @@ export const ServiceCardGrid = memo(function ServiceCardGrid({
     <div
       className={`
         grid grid-cols-1 ${columnClasses[columns]}
-        gap-6 md:gap-8
+        gap-5 sm:gap-6 md:gap-8
         ${className}
       `}
     >

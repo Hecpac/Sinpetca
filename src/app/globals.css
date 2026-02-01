@@ -31,7 +31,7 @@
   /* Text Colors */
   --text-primary: #FFFFFF;
   --text-secondary: #B0B0B0;
-  --text-muted: #707070;
+  --text-muted: #9A9A9A;
   
   /* Background for dark theme */
   --background: var(--industrial-dark);
@@ -79,9 +79,9 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   
-  /* Typography - Montserrat */
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  /* Typography - System stack (local-only) */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   
   /* Custom Font Sizes */
   --font-size-hero: 4rem;
@@ -186,6 +186,39 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Home section flow (lightweight, CSS-only) */
+.home-flow > section {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-flow > section::before,
+.home-flow > section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.home-flow > section::before {
+  top: -30px;
+  height: 120px;
+  background: radial-gradient(60% 60% at 50% 0%, rgba(245, 166, 35, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.home-flow > section::after {
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 166, 35, 0.55), transparent);
+}
+
+.home-flow > section:not(:first-child) {
+  scroll-margin-top: 88px;
 }
 
 /* Mobile-first typography - minimum 16px for readability */

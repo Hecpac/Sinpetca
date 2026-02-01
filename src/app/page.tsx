@@ -59,20 +59,22 @@ export default function HomePage() {
         breadcrumbs={[{ name: 'Inicio', url: 'https://sinpetca.com' }]}
       />
 
-      {/* Hero Carousel Section */}
-      <HeroCarousel />
+      <div className="home-flow">
+        {/* Hero Carousel Section */}
+        <HeroCarousel />
 
-      {/* Services Overview */}
-      <Services />
+        {/* Services Overview */}
+        <Services />
 
-      {/* Company Statistics */}
-      <Stats />
+        {/* Company Statistics */}
+        <Stats />
 
-      {/* Trusted Clients */}
-      <Clients />
+        {/* Trusted Clients */}
+        <Clients />
 
-      {/* Call to Action */}
-      <CTASection />
+        {/* Call to Action */}
+        <CTASection />
+      </div>
     </>
   );
 }

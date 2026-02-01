@@ -9,8 +9,9 @@
  * - Industrial trust-building design
  */
 
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
+import { useParallax } from '@/hooks/useParallax';
 
 // Client logos placeholder data
 // In production, replace with actual client logos
@@ -31,22 +32,30 @@ const duplicatedClients = [...clients, ...clients];
 export default function Clients() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const prefersReducedMotion = useReducedMotion();
+  const backgroundY = useParallax(ref, { distance: 24, mobileDistance: 10 });
 
   return (
     <section ref={ref} className="py-20 bg-industrial-dark relative overflow-hidden">
       {/* Top border gradient */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-industrial-gray-medium to-transparent" />
 
-      {/* Background subtle pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
-            backgroundSize: '32px 32px',
-          }}
-        />
-      </div>
+      <motion.div
+        style={{ y: prefersReducedMotion ? 0 : backgroundY }}
+        className="absolute inset-0"
+        aria-hidden="true"
+      >
+        {/* Background subtle pattern */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
+              backgroundSize: '32px 32px',
+            }}
+          />
+        </div>
+      </motion.div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}

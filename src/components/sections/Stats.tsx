@@ -12,6 +12,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { TrendingUp, Users, Briefcase, Award } from 'lucide-react';
+import { useParallax } from '@/hooks/useParallax';
 
 // Stats data
 const stats = [
@@ -147,23 +148,31 @@ function StatCard({
 export default function Stats() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const prefersReducedMotion = useReducedMotion();
+  const backgroundY = useParallax(ref, { distance: 28, mobileDistance: 12 });
 
   return (
     <section ref={ref} className="py-16 sm:py-20 md:py-24 bg-industrial-dark relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
-      </div>
+      <motion.div
+        style={{ y: prefersReducedMotion ? 0 : backgroundY }}
+        className="absolute inset-0"
+        aria-hidden="true"
+      >
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`,
+              backgroundSize: '40px 40px',
+            }}
+          />
+        </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-1/4 w-64 h-64 bg-sinpetca-navy/10 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-sinpetca-orange/5 rounded-full blur-[100px]" />
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-sinpetca-navy/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-sinpetca-orange/5 rounded-full blur-[100px]" />
+      </motion.div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}

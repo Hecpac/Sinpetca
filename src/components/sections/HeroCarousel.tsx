@@ -26,6 +26,7 @@ import {
   Shield,
   Award,
 } from 'lucide-react';
+import { useParallax } from '@/hooks/useParallax';
 
 // ============================================================================
 // TYPES
@@ -156,12 +157,14 @@ const cardVariants = {
 
 export default function HeroCarousel() {
   const prefersReducedMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const backgroundY = useParallax(sectionRef, { distance: 40, mobileDistance: 14 });
 
   // Auto-play
   useEffect(() => {
@@ -238,6 +241,7 @@ export default function HeroCarousel() {
 
   return (
     <section
+      ref={sectionRef}
       className="relative h-screen min-h-[600px] sm:min-h-[700px] max-h-[1200px] overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -262,19 +266,25 @@ export default function HeroCarousel() {
           className="absolute inset-0"
         >
           {/* Background Image */}
-          <div className="absolute inset-0">
+          <motion.div
+            style={{ y: prefersReducedMotion ? 0 : backgroundY }}
+            className="absolute inset-0"
+          >
             <Image
               src={currentSlideData.backgroundImage}
               alt={currentSlideData.headline}
               fill
               priority={currentSlide === 0}
+              fetchPriority={currentSlide === 0 ? 'high' : 'auto'}
+              loading="eager"
+              quality={70}
               className="object-cover"
               sizes="100vw"
             />
             {/* Overlay - rgba(0,0,0,0.5-0.6) as per spec */}
             <div className="absolute inset-0 bg-black/60" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
-          </div>
+          </motion.div>
 
           {/* Grid Pattern */}
           <div

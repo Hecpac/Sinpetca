@@ -12,11 +12,12 @@
  * - Scroll indicator animation
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Phone, Play, ChevronDown, Shield, Award, Clock } from 'lucide-react';
+import { useParallax } from '@/hooks/useParallax';
 
 // Animation variants
 const containerVariants = {
@@ -75,25 +76,32 @@ const trustBadges = [
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
   const [mounted, setMounted] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const backgroundY = useParallax(sectionRef, { distance: 50, mobileDistance: 18 });
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
-    <section className="relative min-h-[calc(100vh-5rem)] flex items-center overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative min-h-[calc(100vh-5rem)] flex items-center overflow-hidden"
+    >
       {/* Background Layers */}
       <div className="absolute inset-0 z-0">
         {/* 3D Industrial Machinery Background Image */}
-        <Image
-          src="/images/hero-bg.jpg"
-          alt="Maquinaria industrial de inspección 3D"
-          fill
-          priority
-          quality={90}
-          className="object-cover object-center"
-          sizes="100vw"
-        />
+        <motion.div style={{ y: backgroundY }} className="absolute inset-0">
+          <Image
+            src="/images/hero-bg.jpg"
+            alt="Maquinaria industrial de inspección 3D"
+            fill
+            priority
+            quality={90}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </motion.div>
 
         {/* Gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-industrial-dark via-industrial-dark/90 to-industrial-dark/60" />

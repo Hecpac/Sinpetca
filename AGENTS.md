@@ -1,126 +1,35 @@
-# SINPETCA Website - Agent Instructions
+# Repository Guidelines
 
-## Proyecto
-Website corporativo para SINPETCA (Servicios de Inspección Petrolera C.A.), empresa venezolana con 35+ años de experiencia en inspección industrial.
+## Project Structure & Module Organization
+- `src/app/` holds App Router pages, layouts, and route files.
+- `src/components/` contains UI building blocks (layout, sections, services, certifications, about, and shared UI).
+- `src/hooks/` and `src/lib/` provide shared hooks, helpers, and structured data (e.g., schema).
+- `src/types/` centralizes TypeScript types.
+- `public/` stores static assets served at the site root (images, icons, etc.).
+- `docs/` captures product and delivery notes (roadmap, progress, etc.).
 
-## Stack Técnico
-- **Framework:** Next.js 16.1.6 (App Router)
-- **UI:** React 19 + TypeScript
-- **Estilos:** Tailwind CSS v4
-- **Animaciones:** Framer Motion
-- **Iconos:** Lucide React
+## Build, Test, and Development Commands
+- `npm run dev` starts the Next.js dev server at `http://localhost:3000`.
+- `npm run build` creates a production build.
+- `npm run start` serves the production build locally.
+- `npm run lint` runs ESLint (Next.js core-web-vitals + TypeScript rules).
 
-## Estructura del Proyecto
+## Coding Style & Naming Conventions
+- TypeScript is strict (`tsconfig.json`), so keep types explicit and avoid `any`.
+- Follow existing formatting: 2-space indentation, single quotes in TS/TSX, and Tailwind utility classes for styling.
+- Use the `@/*` alias for imports under `src` (e.g., `@/components/layout/Navbar`).
+- Prefer function components and keep server/client separation clear in `src/app`.
 
-```
-sinpetca-website/
-├── src/
-│   ├── app/                    # Pages (App Router)
-│   │   ├── sitemap.ts         # Dynamic sitemap
-│   │   └── robots.ts          # Dynamic robots.txt
-│   ├── components/
-│   │   ├── layout/            # Navbar, Footer
-│   │   ├── sections/          # Home sections
-│   │   ├── services/          # Service page components
-│   │   ├── certifications/    # Certification components
-│   │   ├── about/             # About page components
-│   │   └── ui/                # Reusable UI
-│   └── lib/
-│       ├── hooks/             # Custom React hooks
-│       └── schema-data.ts     # SEO schema data
-├── public/                    # Static assets
-├── docs/                      # Documentation
-│   ├── WEBSITE_ROADMAP.md     # Development roadmap
-│   └── SINPETCA_PROGRESS.md   # Progress tracker
-└── .cursor/
-    ├── rules/                 # Cursor rules (.mdc)
-    │   ├── animation-standards.mdc
-    │   ├── accessibility-standards.mdc
-    │   ├── react-nextjs-patterns.mdc
-    │   └── image-optimization.mdc
-    └── skills/                # Agent skills
-        └── frontend-design/
-```
+## Testing Guidelines
+- No automated test framework is configured in this repository yet.
+- If adding tests, document the chosen framework and add a dedicated script in `package.json`.
 
-## Sistema de Diseño
+## Commit & Pull Request Guidelines
+- Commit history follows Conventional Commits (e.g., `feat: ...`, `fix: ...`).
+- Keep subjects short, imperative, and scoped to a single change.
+- PRs should include a concise description, testing notes (`npm run lint`, `npm run build`), and screenshots for UI changes.
+- Link related issues or roadmap items when applicable.
 
-### Colores
-```
-Primary:    #0D3B66 (Navy)
-Accent:     #F5A623 (Orange)
-Background: #121212 (Industrial Dark)
-Surface:    #1E1E1E (Gray)
-Text:       #FFFFFF / #B0B0B0
-```
-
-### Tipografía
-- **Font:** Montserrat
-- **Headings:** Bold
-- **Body:** Regular
-
-### Patrones de Componentes
-
-1. **Server Component (page.tsx):** Metadata y wrapper
-2. **Client Component (PageContent.tsx):** Lógica interactiva
-
-```tsx
-// page.tsx
-export const metadata = { title: '...', description: '...' };
-export default function Page() {
-  return <PageContent />;
-}
-
-// PageContent.tsx
-'use client';
-export default function PageContent() {
-  // Framer Motion, hooks, etc.
-}
-```
-
-## Reglas de Desarrollo
-
-### Código
-- TypeScript estricto
-- Componentes funcionales
-- Props tipadas con interfaces
-- Separar server/client components
-
-### Estilos
-- Tailwind CSS utilities
-- Design tokens en globals.css
-- Mobile-first responsive
-- Dark theme by default
-
-### Animaciones
-- Framer Motion para scroll animations
-- useInView con { once: true }
-- Respetar prefers-reduced-motion
-- Transiciones sutiles y profesionales
-
-### Accesibilidad
-- WCAG 2.2 AA objetivo
-- Semántica HTML correcta
-- Focus visible
-- Alt text en imágenes
-- Contraste verificado
-
-### SEO
-- Metadata por página
-- Open Graph tags
-- Estructura de headings correcta
-- Schema.org markup
-
-## Comandos
-
-```bash
-npm run dev      # Desarrollo (localhost:3000)
-npm run build    # Build producción
-npm run lint     # Linter
-```
-
-## Documentación
-
-- `docs/WEBSITE_ROADMAP.md` - Roadmap de desarrollo
-- `docs/SINPETCA_PROGRESS.md` - Progreso actual
-- `.cursor/rules/*.mdc` - Estándares de código
-- `.cursor/skills/frontend-design/SKILL.md` - Guía de diseño
+## Configuration Notes
+- Static assets belong in `public/` and should be referenced by root-relative paths (e.g., `/og-image.jpg`).
+- SEO metadata and schema live in `src/app` and `src/lib/schema-data.ts`—update both when adding pages.

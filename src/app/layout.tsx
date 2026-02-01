@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import { Montserrat } from 'next/font/google';
 import './globals.css';
 
 // Layout Components
@@ -9,14 +8,6 @@ import Footer from '@/components/layout/Footer';
 // SEO Components
 import { OrganizationMarkup } from '@/components/seo/SchemaMarkup';
 import { sinpetcaOrganization } from '@/lib/schema-data';
-
-// Montserrat - Primary Font for SINPETCA
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-montserrat',
-  weight: ['300', '400', '500', '600', '700', '800'],
-});
 
 // SEO Metadata Configuration
 export const metadata: Metadata = {
@@ -123,10 +114,6 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark">
       <head>
-        {/* Preconnect to Google Fonts for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
         {/* Touch Icons and PWA */}
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -139,7 +126,7 @@ export default function RootLayout({
         <OrganizationMarkup organization={sinpetcaOrganization} />
       </head>
       <body
-        className={`${montserrat.variable} font-sans antialiased bg-industrial-dark text-text-primary min-h-screen flex flex-col`}
+        className="font-sans antialiased bg-industrial-dark text-text-primary min-h-screen flex flex-col"
       >
         {/* Skip to main content - Accessibility */}
         <a
@@ -153,7 +140,7 @@ export default function RootLayout({
         <Navbar />
 
         {/* Main Content */}
-        <main id="main-content" className="flex-grow">
+        <main id="main-content" className="flex-grow relative">
           {children}
         </main>
 
