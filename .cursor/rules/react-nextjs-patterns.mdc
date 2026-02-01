@@ -1,0 +1,196 @@
+---
+description: Patrones de React y Next.js para SINPETCA
+globs: ["**/*.tsx", "**/*.ts"]
+alwaysApply: true
+---
+
+# React & Next.js Patterns - SINPETCA
+
+## Stack
+- **Next.js 16** con App Router
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS v4**
+- **Framer Motion**
+
+## Estructura de Archivos
+
+```
+src/
+├── app/                    # Pages (App Router)
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   └── [route]/
+│       ├── page.tsx       # Server component (metadata)
+│       └── PageContent.tsx # Client component (interactivo)
+├── components/
+│   ├── layout/            # Navbar, Footer
+│   ├── sections/          # Secciones de páginas
+│   ├── ui/                # Componentes reutilizables
+│   └── [feature]/         # Componentes por feature
+└── lib/                   # Utilidades
+```
+
+## Server vs Client Components
+
+### Server Components (default)
+```tsx
+// app/servicios/page.tsx
+import type { Metadata } from 'next';
+import ServiciosPageContent from './ServiciosPageContent';
+
+export const metadata: Metadata = {
+  title: 'Servicios',
+  description: '...',
+};
+
+export default function ServiciosPage() {
+  return <ServiciosPageContent />;
+}
+```
+
+### Client Components
+```tsx
+// app/servicios/ServiciosPageContent.tsx
+'use client';
+
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+
+export default function ServiciosPageContent() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  // ...
+}
+```
+
+## Patrones de Componentes
+
+### Componente con Props Tipadas
+```tsx
+interface ServiceCardProps {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  href: string;
+}
+
+export default function ServiceCard({ 
+  title, 
+  description, 
+  icon: Icon, 
+  href 
+}: ServiceCardProps) {
+  return (
+    <Link href={href} className="...">
+      <Icon className="w-6 h-6" />
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </Link>
+  );
+}
+```
+
+### Componente con Children
+```tsx
+interface SectionProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export default function Section({ children, className }: SectionProps) {
+  return (
+    <section className={cn('py-24', className)}>
+      <div className="container mx-auto px-4 lg:px-8">
+        {children}
+      </div>
+    </section>
+  );
+}
+```
+
+## Metadata y SEO
+
+```tsx
+// Por página
+export const metadata: Metadata = {
+  title: 'Página',  // Se combina con template del layout
+  description: 'Descripción de la página',
+  alternates: {
+    canonical: 'https://sinpetca.com/ruta',
+  },
+  openGraph: {
+    title: 'Título para redes',
+    description: 'Descripción para redes',
+    type: 'website',
+  },
+};
+```
+
+## Imágenes con Next.js
+
+```tsx
+import Image from 'next/image';
+
+<Image
+  src="/images/hero.jpg"
+  alt="Descripción clara"
+  width={1200}
+  height={600}
+  priority  // Para imágenes above-the-fold
+  className="object-cover"
+/>
+```
+
+## Links
+
+```tsx
+import Link from 'next/link';
+
+// Interno
+<Link href="/servicios" className="...">
+  Servicios
+</Link>
+
+// Externo
+<a 
+  href="https://external.com" 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  Link externo
+</a>
+```
+
+## Hooks Comunes
+
+### useInView para animaciones
+```tsx
+const ref = useRef(null);
+const isInView = useInView(ref, { 
+  once: true,      // Solo animar una vez
+  margin: '-50px'  // Trigger antes del viewport
+});
+```
+
+### useState para UI interactiva
+```tsx
+const [isOpen, setIsOpen] = useState(false);
+const [activeTab, setActiveTab] = useState(0);
+```
+
+## Convenciones de Código
+
+1. **Nombres de archivos:** PascalCase para componentes
+2. **Nombres de funciones:** camelCase
+3. **Props interfaces:** `ComponentNameProps`
+4. **Exports:** `export default` para componentes principales
+5. **Imports:** Agrupar por tipo (react, next, libs, local)
+
+## Performance
+
+1. **Separar client/server components**
+2. **Lazy load componentes pesados**
+3. **Optimizar imágenes con next/image**
+4. **Evitar re-renders innecesarios**
+5. **Usar React.memo cuando aplique**

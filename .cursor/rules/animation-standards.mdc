@@ -1,0 +1,81 @@
+---
+description: Estándares de animación para SINPETCA website
+globs: ["**/*.tsx", "**/*.ts"]
+alwaysApply: false
+---
+
+# Animation Standards - SINPETCA
+
+## Framework: Framer Motion
+
+Usamos Framer Motion para todas las animaciones del sitio.
+
+## Patrones de Animación
+
+### Fade In Up (entrada principal)
+```tsx
+initial={{ opacity: 0, y: 30 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ duration: 0.5 }}
+```
+
+### Stagger para listas
+```tsx
+transition={{ duration: 0.5, delay: index * 0.1 }}
+```
+
+### Scroll-triggered animations
+```tsx
+const ref = useRef(null);
+const isInView = useInView(ref, { once: true, margin: '-50px' });
+
+<motion.div
+  ref={ref}
+  initial={{ opacity: 0, y: 20 }}
+  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+/>
+```
+
+## Duraciones Estándar
+- **Fast:** 150ms (hover states)
+- **Normal:** 300ms (transiciones UI)
+- **Slow:** 500ms (animaciones de entrada)
+
+## Reglas Importantes
+
+1. **Reduced Motion:** Siempre respetar preferencias del usuario
+```tsx
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+```
+
+2. **No bloquear interacción:** Las animaciones no deben impedir clicks
+
+3. **Sutileza:** Animaciones industriales y profesionales, no llamativas
+
+4. **Performance:** Animar solo `transform` y `opacity` cuando sea posible
+
+## CSS Animations (globals.css)
+
+```css
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(245, 166, 35, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(245, 166, 35, 0.4); }
+}
+```
+
+## Hover Effects
+
+```css
+.card-hover {
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+```

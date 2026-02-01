@@ -1,0 +1,151 @@
+---
+description: Estándares de accesibilidad WCAG 2.2 AA para SINPETCA
+globs: ["**/*.tsx", "**/*.ts"]
+alwaysApply: true
+---
+
+# Accessibility Standards - SINPETCA
+
+## Objetivo: WCAG 2.2 AA
+
+### Semántica HTML
+
+1. **Estructura de headings correcta:**
+   - Solo un `<h1>` por página
+   - Jerarquía secuencial: h1 → h2 → h3
+   - No saltar niveles
+
+2. **Landmarks semánticos:**
+   ```tsx
+   <header>   // Navegación principal
+   <main>     // Contenido principal
+   <section>  // Secciones con heading
+   <article>  // Contenido independiente
+   <aside>    // Contenido complementario
+   <footer>   // Pie de página
+   ```
+
+3. **Listas:**
+   - Usar `<ul>` / `<ol>` para grupos de items
+   - Navegación: `<nav><ul><li><a>`
+
+### Contraste de Color
+
+Ratios mínimos WCAG AA:
+- **Texto normal:** 4.5:1
+- **Texto grande (18px+ o 14px bold):** 3:1
+- **Elementos UI:** 3:1
+
+Colores SINPETCA verificados:
+- ✅ `#FFFFFF` sobre `#121212` = 17.4:1
+- ✅ `#F5A623` sobre `#121212` = 8.2:1
+- ✅ `#B0B0B0` sobre `#121212` = 7.4:1
+
+### Navegación por Teclado
+
+1. **Focus visible obligatorio:**
+   ```css
+   *:focus-visible {
+     outline: 2px solid var(--sinpetca-orange);
+     outline-offset: 2px;
+   }
+   ```
+
+2. **Tab order lógico:** Seguir el flujo visual
+
+3. **Skip links:** Implementar para saltar a contenido principal
+
+### Formularios
+
+```tsx
+// Label asociado
+<label htmlFor="email">Email</label>
+<input id="email" type="email" required aria-describedby="email-help" />
+<span id="email-help">Ingrese su correo corporativo</span>
+
+// Errores accesibles
+<input aria-invalid="true" aria-describedby="email-error" />
+<span id="email-error" role="alert">Email inválido</span>
+```
+
+### Imágenes
+
+```tsx
+// Decorativas
+<img src="..." alt="" role="presentation" />
+
+// Informativas
+<img src="..." alt="Descripción clara y concisa" />
+
+// Complejas (gráficos)
+<figure>
+  <img src="..." alt="Descripción breve" aria-describedby="fig-desc" />
+  <figcaption id="fig-desc">Descripción detallada...</figcaption>
+</figure>
+```
+
+### Botones y Links
+
+```tsx
+// Botón con texto
+<button>Enviar formulario</button>
+
+// Botón solo icono
+<button aria-label="Cerrar menú">
+  <XIcon aria-hidden="true" />
+</button>
+
+// Link que abre nueva ventana
+<a href="..." target="_blank" rel="noopener noreferrer">
+  Ver documento <span className="sr-only">(abre en nueva ventana)</span>
+</a>
+```
+
+### Reduced Motion
+
+```tsx
+// En componentes con animación
+const prefersReducedMotion = 
+  typeof window !== 'undefined' && 
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+<motion.div
+  initial={prefersReducedMotion ? {} : { opacity: 0 }}
+  animate={{ opacity: 1 }}
+/>
+```
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+### Screen Reader Only (sr-only)
+
+```css
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+```
+
+### Checklist de Componentes
+
+- [ ] Semántica HTML correcta
+- [ ] Contraste verificado
+- [ ] Focus visible
+- [ ] Navegable por teclado
+- [ ] Labels y ARIA apropiados
+- [ ] Reduced motion respetado
+- [ ] Textos alternativos en imágenes

@@ -1,26 +1,359 @@
 @import "tailwindcss";
 
+/* =====================================================
+   SINPETCA Design System - Tailwind CSS v4
+   Based on SINPETCA_Style_Guide.docx
+   ===================================================== */
+
+/* CSS Custom Properties for SINPETCA Brand */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors */
+  --sinpetca-navy: #0D3B66;
+  --sinpetca-navy-light: #1E5A8A;
+  --sinpetca-navy-dark: #082847;
+  
+  /* Secondary/Blue Tones */
+  --sinpetca-blue: #1E5A8A;
+  --sinpetca-blue-light: #2B7AB8;
+  --sinpetca-blue-dark: #154264;
+  
+  /* Accent Colors - Industrial/Safety */
+  --sinpetca-orange: #F5A623;
+  --sinpetca-orange-light: #FFB84D;
+  --sinpetca-orange-dark: #D4891A;
+  
+  /* Industrial Dark Theme (Kontix Style) */
+  --industrial-dark: #121212;
+  --industrial-gray: #1E1E1E;
+  --industrial-gray-light: #2A2A2A;
+  --industrial-gray-medium: #3A3A3A;
+  
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #B0B0B0;
+  --text-muted: #707070;
+  
+  /* Background for dark theme */
+  --background: var(--industrial-dark);
+  --foreground: var(--text-primary);
+  
+  /* Surface colors */
+  --surface-primary: var(--industrial-gray);
+  --surface-secondary: var(--industrial-gray-light);
+  --surface-elevated: var(--industrial-gray-medium);
 }
 
+/* Tailwind v4 Theme Configuration */
 @theme inline {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  /* SINPETCA Primary Colors */
+  --color-sinpetca-navy: var(--sinpetca-navy);
+  --color-sinpetca-navy-light: var(--sinpetca-navy-light);
+  --color-sinpetca-navy-dark: var(--sinpetca-navy-dark);
+  
+  --color-sinpetca-blue: var(--sinpetca-blue);
+  --color-sinpetca-blue-light: var(--sinpetca-blue-light);
+  --color-sinpetca-blue-dark: var(--sinpetca-blue-dark);
+  
+  /* Accent Colors */
+  --color-sinpetca-orange: var(--sinpetca-orange);
+  --color-sinpetca-orange-light: var(--sinpetca-orange-light);
+  --color-sinpetca-orange-dark: var(--sinpetca-orange-dark);
+  
+  /* Industrial Theme Colors */
+  --color-industrial-dark: var(--industrial-dark);
+  --color-industrial-gray: var(--industrial-gray);
+  --color-industrial-gray-light: var(--industrial-gray-light);
+  --color-industrial-gray-medium: var(--industrial-gray-medium);
+  
+  /* Surface Colors */
+  --color-surface-primary: var(--surface-primary);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-elevated: var(--surface-elevated);
+  
+  /* Text Colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  
+  /* Typography - Montserrat */
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Custom Font Sizes */
+  --font-size-hero: 4rem;
+  --line-height-hero: 1.1;
+  
+  --font-size-section: 2.5rem;
+  --line-height-section: 1.2;
+  
+  --font-size-subsection: 1.75rem;
+  --line-height-subsection: 1.3;
+  
+  /* Spacing Scale */
+  --spacing-section: 6rem;
+  --spacing-component: 2rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  /* Shadows */
+  --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-glow-orange: 0 0 30px rgba(245, 166, 35, 0.3);
+  --shadow-glow-blue: 0 0 30px rgba(30, 90, 138, 0.3);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  /* Animations */
+  --animate-fade-in-up: fade-in-up 0.6s ease-out;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Keyframe Animations */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(245, 166, 35, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(245, 166, 35, 0.4);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes count-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection Style */
+::selection {
+  background-color: var(--sinpetca-orange);
+  color: var(--industrial-dark);
+}
+
+/* Scrollbar Styling (Dark Theme) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--industrial-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--industrial-gray-medium);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sinpetca-navy);
+}
+
+/* Focus Styles for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--sinpetca-orange);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.text-gradient-orange {
+  background: linear-gradient(135deg, var(--sinpetca-orange), var(--sinpetca-orange-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, var(--sinpetca-navy), var(--sinpetca-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-industrial {
+  background: linear-gradient(180deg, var(--industrial-dark) 0%, var(--industrial-gray) 100%);
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, var(--sinpetca-navy) 0%, var(--sinpetca-navy-dark) 100%);
+}
+
+/* Card Hover Effect */
+.card-hover {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Glow Effects */
+.glow-orange {
+  box-shadow: var(--shadow-glow-orange);
+}
+
+.glow-blue {
+  box-shadow: var(--shadow-glow-blue);
+}
+
+/* Industrial Border Style */
+.border-industrial {
+  border: 1px solid var(--industrial-gray-medium);
+}
+
+.border-accent {
+  border-left: 4px solid var(--sinpetca-orange);
+}
+
+/* =====================================================
+   Accessibility Utilities
+   ===================================================== */
+
+/* Screen Reader Only - Hidden visually but accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Show on focus (for skip links) */
+.sr-only-focusable:focus,
+.sr-only-focusable:focus-visible {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* =====================================================
+   Reduced Motion - Accessibility
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable specific animations */
+  .animate-pulse,
+  .animate-bounce,
+  .animate-spin {
+    animation: none !important;
+  }
+}
+
+/* =====================================================
+   High Contrast Mode Support
+   ===================================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    --sinpetca-orange: #FF9500;
+    --text-secondary: #D0D0D0;
+    --text-muted: #909090;
+  }
+  
+  .border-industrial-gray-medium {
+    border-color: #606060;
+  }
+}
+
+/* =====================================================
+   Focus Visible Enhancement
+   ===================================================== */
+
+/* Better focus for keyboard navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--sinpetca-orange);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove default focus ring for mouse users */
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
 }

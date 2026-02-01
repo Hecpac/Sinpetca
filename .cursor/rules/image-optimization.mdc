@@ -1,0 +1,123 @@
+---
+description: Optimización de imágenes para SINPETCA
+globs: ["**/*.tsx", "**/*.ts"]
+alwaysApply: false
+---
+
+# Image Optimization - SINPETCA
+
+## Next.js Image Component
+
+### Uso Básico
+```tsx
+import Image from 'next/image';
+
+<Image
+  src="/images/hero.jpg"
+  alt="Descripción clara y concisa"
+  width={1200}
+  height={600}
+  priority  // Solo para imágenes above-the-fold
+/>
+```
+
+### Imágenes Responsivas
+```tsx
+<Image
+  src="/images/service.jpg"
+  alt="Servicio de inspección"
+  fill
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+  className="object-cover"
+/>
+```
+
+### Con Placeholder Blur
+```tsx
+import heroImage from '@/public/images/hero.jpg';
+
+<Image
+  src={heroImage}
+  alt="Hero"
+  placeholder="blur"
+  priority
+/>
+```
+
+## Formatos Recomendados
+
+| Tipo | Formato | Uso |
+|------|---------|-----|
+| Fotos | WebP/AVIF | Proyectos, equipo |
+| Logos | SVG | Logos, iconos |
+| Iconos | SVG inline | UI icons |
+| Screenshots | PNG | Documentos |
+
+## Tamaños Estándar
+
+| Uso | Dimensiones | Max Size |
+|-----|-------------|----------|
+| Hero | 1920x1080 | 200KB |
+| Cards | 600x400 | 80KB |
+| Thumbnails | 300x200 | 30KB |
+| Logos | 200x60 | 10KB |
+
+## Lazy Loading
+
+```tsx
+// Imágenes below-the-fold (default)
+<Image
+  src="/images/gallery-1.jpg"
+  alt="Proyecto 1"
+  width={400}
+  height={300}
+  loading="lazy"  // Default, no necesario especificar
+/>
+
+// Imágenes above-the-fold
+<Image
+  src="/images/hero.jpg"
+  alt="Hero"
+  priority  // Carga inmediata
+/>
+```
+
+## Background Images con CSS
+
+```tsx
+// Para fondos decorativos sin contenido semántico
+<div 
+  className="bg-cover bg-center"
+  style={{ backgroundImage: 'url(/images/pattern.svg)' }}
+  role="presentation"
+  aria-hidden="true"
+/>
+```
+
+## Optimización Manual
+
+### Compresión antes de subir
+- **Herramientas:** Squoosh, TinyPNG, ImageOptim
+- **Target:** < 100KB para imágenes grandes
+- **Calidad WebP:** 80-85%
+
+### Directorio de imágenes
+```
+public/
+└── images/
+    ├── hero/
+    ├── services/
+    ├── team/
+    ├── projects/
+    └── logos/
+```
+
+## Checklist de Imágenes
+
+- [ ] Formato correcto (WebP/AVIF para fotos, SVG para logos)
+- [ ] Dimensiones apropiadas (no más grandes de lo necesario)
+- [ ] Compresión aplicada (< 100KB)
+- [ ] Alt text descriptivo
+- [ ] Lazy loading para below-the-fold
+- [ ] Priority para above-the-fold
+- [ ] Sizes attribute para responsividad
