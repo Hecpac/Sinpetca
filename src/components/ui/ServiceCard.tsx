@@ -10,7 +10,7 @@
  * - Accessible design patterns
  */
 
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -134,14 +134,24 @@ export const ServiceCard = memo(function ServiceCard({
   animationDelay = 0,
 }: ServiceCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
-  // Intersection observer for lazy loading
+  // Intersection observer for lazy loading - use larger rootMargin for mobile
   const { ref, inView } = useInView({
-    threshold: 0.1,
+    threshold: 0,
     triggerOnce: true,
-    rootMargin: '50px',
+    rootMargin: '100px 0px',
   });
+
+  // Fallback: ensure cards become visible after mount even if observer fails
+  useEffect(() => {
+    const timer = setTimeout(() => setIsMounted(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Card is visible if in view OR mounted (fallback)
+  const isVisible = inView || isMounted;
 
   // Handlers
   const handleMouseEnter = useCallback(() => setIsHovered(true), []);
@@ -158,8 +168,8 @@ export const ServiceCard = memo(function ServiceCard({
     <motion.article
       ref={ref}
       variants={prefersReducedMotion ? undefined : cardVariants}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
+      initial={prefersReducedMotion ? 'visible' : 'hidden'}
+      animate={isVisible ? 'visible' : 'hidden'}
       whileHover={prefersReducedMotion ? undefined : 'hover'}
       custom={animationDelay}
       onMouseEnter={handleMouseEnter}
