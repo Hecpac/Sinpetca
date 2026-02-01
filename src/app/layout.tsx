@@ -5,6 +5,9 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
+// Analytics
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
+
 // SEO Components
 import { OrganizationMarkup } from '@/components/seo/SchemaMarkup';
 import { sinpetcaOrganization } from '@/lib/schema-data';
@@ -114,7 +117,10 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark">
       <head>
+        <GoogleAnalytics />
         {/* Touch Icons and PWA */}
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

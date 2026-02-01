@@ -25,7 +25,7 @@ export const sinpetcaAddress: PostalAddressSchema = {
 export const sinpetcaContactPoints: ContactPointSchema[] = [
   {
     '@type': 'ContactPoint',
-    telephone: '+58-XXX-XXXXXXX', // Update with actual phone
+    telephone: '+58-281-2671109',
     contactType: 'customer service',
     email: 'info@sinpetca.com',
     areaServed: ['VE', 'CO', 'MX', 'US'],
@@ -33,7 +33,7 @@ export const sinpetcaContactPoints: ContactPointSchema[] = [
   },
   {
     '@type': 'ContactPoint',
-    telephone: '+58-XXX-XXXXXXX', // Update with actual phone
+    telephone: '+58-281-2671109',
     contactType: 'sales',
     email: 'ventas@sinpetca.com',
     areaServed: ['VE', 'CO', 'MX', 'US'],
@@ -92,7 +92,7 @@ export const sinpetcaLocalBusiness: LocalBusinessSchema = {
     'https://sinpetca.com/images/facility-2.jpg',
   ],
   url: 'https://sinpetca.com',
-  telephone: '+58-XXX-XXXXXXX', // Update with actual phone
+  telephone: '+58-281-2671109',
   email: 'info@sinpetca.com',
   address: sinpetcaAddress,
   geo: {

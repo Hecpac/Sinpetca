@@ -188,7 +188,7 @@ export default function Footer() {
               </li>
 
               <li>
-                <a href="tel:+58XXXXXXXXX" className="flex items-start gap-3 group">
+                <a href="tel:+582812671109" className="flex items-start gap-3 group">
                   <div className="w-10 h-10 rounded-lg bg-sinpetca-navy/30 border border-sinpetca-navy/50 flex items-center justify-center flex-shrink-0 group-hover:bg-sinpetca-orange/20 group-hover:border-sinpetca-orange transition-colors duration-200">
                     <Phone className="w-5 h-5 text-sinpetca-orange" />
                   </div>
@@ -197,7 +197,7 @@ export default function Footer() {
                       Teléfono
                     </span>
                     <p className="text-text-secondary text-sm mt-0.5 group-hover:text-text-primary transition-colors">
-                      +58 XXX-XXX-XXXX
+                      +58 281-267-1109
                     </p>
                   </div>
                 </a>
