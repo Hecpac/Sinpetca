@@ -336,14 +336,14 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Toggle - 44px touch target */}
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden p-2 text-text-primary hover:bg-white/10 rounded-lg transition-colors"
+              className="lg:hidden w-11 h-11 flex items-center justify-center text-text-primary hover:bg-white/10 rounded-lg transition-colors"
               aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
               aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
         </nav>
       </header>
@@ -374,10 +374,10 @@ export default function Navbar() {
                 <span className="text-lg font-bold text-text-primary">Menú</span>
                 <button
                   onClick={toggleMobileMenu}
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                  className="w-11 h-11 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors"
                   aria-label="Cerrar menú"
                 >
-                  <X className="w-5 h-5 text-text-primary" />
+                  <X className="w-6 h-6 text-text-primary" />
                 </button>
               </div>
 
@@ -397,7 +397,7 @@ export default function Navbar() {
                           <button
                             onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                             className={`
-                              w-full flex items-center justify-between px-4 py-3 rounded-xl
+                              w-full flex items-center justify-between px-4 py-3 min-h-[48px] rounded-xl
                               text-base font-medium transition-colors
                               ${
                                 isActiveLink(link.href)
@@ -429,19 +429,19 @@ export default function Navbar() {
                                     <li key={service.href}>
                                       <Link
                                         href={service.href}
-                                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors"
+                                        className="flex items-center gap-3 px-4 py-3 min-h-[48px] rounded-xl text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors"
                                       >
                                         <service.icon className="w-5 h-5 text-sinpetca-orange" />
-                                        <span className="text-sm">{service.label}</span>
+                                        <span className="text-base">{service.label}</span>
                                       </Link>
                                     </li>
                                   ))}
                                   <li>
                                     <Link
                                       href="/servicios"
-                                      className="flex items-center gap-3 px-4 py-3 rounded-xl text-sinpetca-orange hover:bg-sinpetca-orange/10 transition-colors"
+                                      className="flex items-center gap-3 px-4 py-3 min-h-[48px] rounded-xl text-sinpetca-orange hover:bg-sinpetca-orange/10 transition-colors"
                                     >
-                                      <span className="text-sm font-medium">Ver todos</span>
+                                      <span className="text-base font-medium">Ver todos</span>
                                     </Link>
                                   </li>
                                 </div>
@@ -453,7 +453,7 @@ export default function Navbar() {
                         <Link
                           href={link.href}
                           className={`
-                            block px-4 py-3 rounded-xl text-base font-medium
+                            block px-4 py-3 min-h-[48px] flex items-center rounded-xl text-base font-medium
                             transition-colors
                             ${
                               isActiveLink(link.href)

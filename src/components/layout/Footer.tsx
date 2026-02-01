@@ -102,15 +102,15 @@ export default function Footer() {
               destructivos con los más altos estándares de calidad y seguridad.
             </p>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
+            {/* Social Links - 44px touch targets */}
+            <div className="flex items-center gap-2">
               {socialLinks.map(social => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-industrial-gray border border-industrial-gray-medium flex items-center justify-center text-text-muted hover:text-sinpetca-orange hover:border-sinpetca-orange transition-colors duration-200"
+                  className="w-11 h-11 rounded-lg bg-industrial-gray border border-industrial-gray-medium flex items-center justify-center text-text-muted hover:text-sinpetca-orange hover:border-sinpetca-orange transition-colors duration-200"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -124,12 +124,12 @@ export default function Footer() {
             <h3 className="text-text-primary font-semibold text-sm uppercase tracking-wider mb-6">
               Navegación
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {quickLinks.map(link => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-text-secondary hover:text-sinpetca-orange transition-colors duration-200 text-sm inline-flex items-center gap-1 group"
+                    className="text-text-secondary hover:text-sinpetca-orange transition-colors duration-200 text-base py-2 inline-flex items-center gap-1 group"
                   >
                     <span>{link.label}</span>
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
@@ -141,12 +141,12 @@ export default function Footer() {
             <h3 className="text-text-primary font-semibold text-sm uppercase tracking-wider mb-4 mt-8">
               Servicios
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {serviceLinks.map(link => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-text-secondary hover:text-sinpetca-orange transition-colors duration-200 text-sm inline-flex items-center gap-1 group"
+                    className="text-text-secondary hover:text-sinpetca-orange transition-colors duration-200 text-base py-2 inline-flex items-center gap-1 group"
                   >
                     <span>{link.label}</span>
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
@@ -285,26 +285,26 @@ export default function Footer() {
             </p>
 
             {/* Legal Links */}
-            <div className="flex flex-wrap items-center justify-center gap-6">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
               <Link
                 href="/politica-privacidad"
-                className="text-text-muted hover:text-text-secondary text-sm transition-colors"
+                className="text-text-muted hover:text-text-secondary text-base py-2 transition-colors"
               >
                 Política de Privacidad
               </Link>
               <Link
                 href="/terminos-condiciones"
-                className="text-text-muted hover:text-text-secondary text-sm transition-colors"
+                className="text-text-muted hover:text-text-secondary text-base py-2 transition-colors"
               >
                 Términos y Condiciones
               </Link>
               {/* Sustainability Policy - W3C WSG Compliance */}
               <Link
                 href="/sostenibilidad"
-                className="text-text-muted hover:text-sinpetca-orange text-sm transition-colors inline-flex items-center gap-1.5"
+                className="text-text-muted hover:text-sinpetca-orange text-base py-2 transition-colors inline-flex items-center gap-1.5"
               >
                 <Leaf className="w-4 h-4" />
-                Política de Sostenibilidad
+                Sostenibilidad
               </Link>
             </div>
           </div>

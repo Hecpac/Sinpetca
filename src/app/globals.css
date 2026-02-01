@@ -181,9 +181,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mobile-first typography - minimum 16px for readability */
+p, a, span, li {
+  font-size: 1rem; /* 16px minimum */
+}
+
+/* Ensure inputs don't zoom on iOS */
+input, textarea, select {
+  font-size: 16px;
+}
+
+/* Touch-friendly minimum sizes */
+button, a, [role="button"] {
+  min-height: 44px;
+}
+
+/* Allow smaller touch targets only with explicit class */
+.touch-target-sm {
+  min-height: auto;
 }
 
 /* Selection Style */

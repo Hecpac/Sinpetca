@@ -392,9 +392,9 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      {/* Slide Indicators */}
+      {/* Slide Indicators - Touch-friendly 44px minimum */}
       <div
-        className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3"
+        className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1"
         role="tablist"
         aria-label="Indicadores de slides"
       >
@@ -403,14 +403,18 @@ export default function HeroCarousel() {
             key={slide.id}
             onClick={() => goToSlide(index)}
             disabled={isAnimating}
-            className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sinpetca-orange focus-visible:ring-offset-2 focus-visible:ring-offset-industrial-dark ${index === currentSlide
-              ? 'bg-sinpetca-orange w-8'
-              : 'bg-white/30 hover:bg-white/50'
-              }`}
+            className="relative w-11 h-11 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-sinpetca-orange focus-visible:ring-offset-2 focus-visible:ring-offset-industrial-dark"
             role="tab"
             aria-selected={index === currentSlide}
             aria-label={`Ir al slide ${index + 1}`}
-          />
+          >
+            <span
+              className={`block rounded-full transition-all duration-300 ${index === currentSlide
+                ? 'bg-sinpetca-orange w-8 h-3'
+                : 'bg-white/30 hover:bg-white/50 w-3 h-3'
+                }`}
+            />
+          </button>
         ))}
       </div>
 
