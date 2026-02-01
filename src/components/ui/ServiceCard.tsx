@@ -201,7 +201,7 @@ export const ServiceCard = memo(function ServiceCard({
       {/* Content */}
       <Link
         href={href}
-        className="relative z-10 flex flex-col h-full p-6 md:p-8 focus:outline-none"
+        className="relative z-10 flex flex-col h-full p-5 sm:p-6 md:p-8 focus:outline-none"
       >
         {/* Icon Container */}
         <motion.div
@@ -209,7 +209,7 @@ export const ServiceCard = memo(function ServiceCard({
           initial="rest"
           animate={isHovered ? 'hover' : 'rest'}
           className="
-            w-14 h-14 mb-5 rounded-lg
+            w-12 h-12 sm:w-14 sm:h-14 mb-4 sm:mb-5 rounded-lg
             bg-sinpetca-navy/50 border border-sinpetca-navy
             flex items-center justify-center
             group-hover:bg-sinpetca-orange/20 group-hover:border-sinpetca-orange
@@ -217,7 +217,7 @@ export const ServiceCard = memo(function ServiceCard({
           "
         >
           <Icon
-            className="w-7 h-7 text-sinpetca-orange"
+            className="w-6 h-6 sm:w-7 sm:h-7 text-sinpetca-orange"
             strokeWidth={1.5}
             aria-hidden="true"
           />

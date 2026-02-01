@@ -188,24 +188,24 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 mb-12"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-12"
           >
             {/* Primary CTA */}
             <Link
               href="/contacto"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-sinpetca-orange hover:bg-sinpetca-orange-dark text-industrial-dark font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-sinpetca-orange/25 hover:shadow-sinpetca-orange/40 hover:scale-[1.02]"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-sinpetca-orange hover:bg-sinpetca-orange-dark text-industrial-dark font-semibold text-sm sm:text-base rounded-xl transition-all duration-300 shadow-lg shadow-sinpetca-orange/25 hover:shadow-sinpetca-orange/40 hover:scale-[1.02] min-h-[48px]"
             >
-              <Phone className="w-5 h-5" />
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
               Solicitar Cotización
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
 
             {/* Secondary CTA */}
             <Link
               href="/servicios"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-sinpetca-blue text-text-primary font-semibold rounded-xl transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-sinpetca-blue text-text-primary font-semibold text-sm sm:text-base rounded-xl transition-all duration-300 min-h-[48px]"
             >
-              <Play className="w-5 h-5 text-sinpetca-blue" />
+              <Play className="w-4 h-4 sm:w-5 sm:h-5 text-sinpetca-blue" />
               Ver Servicios
             </Link>
           </motion.div>
@@ -213,21 +213,21 @@ export default function Hero() {
           {/* Trust Badges */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center gap-6 md:gap-8"
+            className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8"
           >
             {trustBadges.map((badge, index) => (
               <div
                 key={badge.label}
-                className="flex items-center gap-3 group"
+                className="flex items-center gap-2 sm:gap-3 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-sinpetca-navy/50 border border-sinpetca-navy flex items-center justify-center group-hover:border-sinpetca-orange group-hover:bg-sinpetca-orange/10 transition-colors duration-300">
-                  <badge.icon className="w-6 h-6 text-sinpetca-orange" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-sinpetca-navy/50 border border-sinpetca-navy flex items-center justify-center group-hover:border-sinpetca-orange group-hover:bg-sinpetca-orange/10 transition-colors duration-300">
+                  <badge.icon className="w-5 h-5 sm:w-6 sm:h-6 text-sinpetca-orange" />
                 </div>
                 <div>
-                  <span className="block text-text-primary font-semibold text-sm">
+                  <span className="block text-text-primary font-semibold text-xs sm:text-sm">
                     {badge.label}
                   </span>
-                  <span className="block text-text-muted text-xs">{badge.sublabel}</span>
+                  <span className="block text-text-muted text-[10px] sm:text-xs">{badge.sublabel}</span>
                 </div>
                 {index < trustBadges.length - 1 && (
                   <div className="hidden md:block w-px h-8 bg-industrial-gray-medium ml-4" />

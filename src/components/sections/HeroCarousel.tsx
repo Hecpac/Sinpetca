@@ -238,7 +238,7 @@ export default function HeroCarousel() {
 
   return (
     <section
-      className="relative h-screen min-h-[700px] max-h-[1200px] overflow-hidden"
+      className="relative h-screen min-h-[600px] sm:min-h-[700px] max-h-[1200px] overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
@@ -291,7 +291,7 @@ export default function HeroCarousel() {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 h-full container mx-auto px-5 md:px-10 lg:px-20">
+      <div className="relative z-10 h-full container mx-auto px-4 sm:px-5 md:px-10 lg:px-20">
         <div className="h-full flex items-center">
           <div className="w-full">
             {/* Content */}
@@ -334,10 +334,10 @@ export default function HeroCarousel() {
                   <motion.div custom={0.8} variants={contentVariants}>
                     <Link
                       href={currentSlideData.ctaLink}
-                      className="group inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-sinpetca-orange hover:bg-sinpetca-orange-dark text-industrial-dark font-semibold text-base rounded-xl transition-all duration-300 shadow-lg shadow-sinpetca-orange/25 hover:shadow-sinpetca-orange/40 hover:scale-105"
+                      className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 bg-sinpetca-orange hover:bg-sinpetca-orange-dark text-industrial-dark font-semibold text-sm sm:text-base rounded-xl transition-all duration-300 shadow-lg shadow-sinpetca-orange/25 hover:shadow-sinpetca-orange/40 hover:scale-105 min-h-[48px]"
                     >
                       {currentSlideData.ctaText}
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </motion.div>
 
@@ -345,15 +345,15 @@ export default function HeroCarousel() {
                   <motion.div
                     custom={1.0}
                     variants={contentVariants}
-                    className="flex flex-wrap items-center gap-6 mt-10 md:mt-12"
+                    className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-6 mt-8 sm:mt-10 md:mt-12"
                   >
                     {/* Rating */}
                     <div className="flex items-center gap-2">
-                      <Star className="w-5 h-5 text-sinpetca-orange fill-sinpetca-orange" />
-                      <span className="text-text-primary text-sm font-medium">
+                      <Star className="w-4 h-4 sm:w-5 sm:h-5 text-sinpetca-orange fill-sinpetca-orange" />
+                      <span className="text-text-primary text-xs sm:text-sm font-medium">
                         Calificación 4.9/5
                       </span>
-                      <span className="text-text-muted text-sm">de +500 proyectos</span>
+                      <span className="text-text-muted text-xs sm:text-sm">de +500 proyectos</span>
                     </div>
 
                     {/* Separator */}
@@ -361,11 +361,11 @@ export default function HeroCarousel() {
 
                     {/* Client Avatars */}
                     <div className="flex items-center">
-                      <div className="flex -space-x-3">
+                      <div className="flex -space-x-2 sm:-space-x-3">
                         {clientAvatars.map((avatar, index) => (
                           <div
                             key={avatar.id}
-                            className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white overflow-hidden"
+                            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border-2 border-white overflow-hidden"
                             style={{ zIndex: clientAvatars.length - index }}
                           >
                             <Image
@@ -377,11 +377,11 @@ export default function HeroCarousel() {
                             />
                           </div>
                         ))}
-                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white bg-sinpetca-orange flex items-center justify-center">
-                          <Plus className="w-4 h-4 text-industrial-dark" />
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border-2 border-white bg-sinpetca-orange flex items-center justify-center">
+                          <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-industrial-dark" />
                         </div>
                       </div>
-                      <span className="ml-4 text-text-secondary text-sm">+100 clientes</span>
+                      <span className="ml-3 sm:ml-4 text-text-secondary text-xs sm:text-sm">+100 clientes</span>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -415,14 +415,14 @@ export default function HeroCarousel() {
       </div>
 
       {/* Trust Badges - Bottom Left */}
-      <div className="absolute bottom-8 md:bottom-10 left-5 md:left-10 z-20 hidden md:flex items-center gap-4">
-        <div className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg">
-          <Shield className="w-4 h-4 text-sinpetca-orange" />
-          <span className="text-text-primary text-xs font-medium">ISO 17020</span>
+      <div className="absolute bottom-20 sm:bottom-8 md:bottom-10 left-5 md:left-10 z-20 flex items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg">
+          <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sinpetca-orange" />
+          <span className="text-text-primary text-[10px] sm:text-xs font-medium">ISO 17020</span>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg">
-          <Award className="w-4 h-4 text-sinpetca-orange" />
-          <span className="text-text-primary text-xs font-medium">+35 Años</span>
+        <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg">
+          <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sinpetca-orange" />
+          <span className="text-text-primary text-[10px] sm:text-xs font-medium">+35 Años</span>
         </div>
       </div>
 

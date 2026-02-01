@@ -112,7 +112,7 @@ function StatCard({
       }}
       className="relative group"
     >
-      <div className="relative p-8 bg-industrial-gray border border-industrial-gray-medium rounded-2xl overflow-hidden hover:border-sinpetca-navy transition-colors duration-300">
+      <div className="relative p-5 sm:p-6 md:p-8 bg-industrial-gray border border-industrial-gray-medium rounded-2xl overflow-hidden hover:border-sinpetca-navy transition-colors duration-300">
         {/* Accent border */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sinpetca-orange via-sinpetca-orange to-transparent" />
 
@@ -120,16 +120,16 @@ function StatCard({
         <div className="absolute inset-0 bg-gradient-to-br from-sinpetca-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
         {/* Icon */}
-        <div className="relative w-14 h-14 mb-6 rounded-xl bg-sinpetca-navy/30 border border-sinpetca-navy/50 flex items-center justify-center group-hover:bg-sinpetca-orange/20 group-hover:border-sinpetca-orange transition-colors duration-300">
-          <stat.icon className="w-7 h-7 text-sinpetca-orange" />
+        <div className="relative w-12 h-12 sm:w-14 sm:h-14 mb-4 sm:mb-6 rounded-xl bg-sinpetca-navy/30 border border-sinpetca-navy/50 flex items-center justify-center group-hover:bg-sinpetca-orange/20 group-hover:border-sinpetca-orange transition-colors duration-300">
+          <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 text-sinpetca-orange" />
         </div>
 
         {/* Value */}
         <div className="relative mb-2">
-          <span className="text-5xl md:text-6xl font-bold text-text-primary">
+          <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-text-primary">
             {count}
           </span>
-          <span className="text-4xl md:text-5xl font-bold text-sinpetca-orange">
+          <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-sinpetca-orange">
             {stat.suffix}
           </span>
         </div>
@@ -149,7 +149,7 @@ export default function Stats() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-24 bg-industrial-dark relative overflow-hidden">
+    <section ref={ref} className="py-16 sm:py-20 md:py-24 bg-industrial-dark relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div

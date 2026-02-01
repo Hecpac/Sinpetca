@@ -57,7 +57,7 @@ export default function Services() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section ref={ref} className="py-24 bg-industrial-gray relative overflow-hidden">
+    <section ref={ref} className="py-16 sm:py-20 md:py-24 bg-industrial-gray relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-sinpetca-navy/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-sinpetca-orange/5 rounded-full blur-[120px]" />

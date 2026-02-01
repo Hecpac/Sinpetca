@@ -70,8 +70,8 @@ export default function Footer() {
       aria-label="Pie de página"
     >
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+      <div className="container mx-auto px-4 lg:px-8 py-12 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-8">
           {/* Column 1: Company Identity */}
           <div className="lg:col-span-1">
             {/* Logo */}
@@ -244,11 +244,11 @@ export default function Footer() {
             <h3 className="text-text-primary font-semibold text-sm uppercase tracking-wider mb-6">
               Certificaciones
             </h3>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               {certifications.map(cert => (
                 <div
                   key={cert.name}
-                  className="p-4 bg-industrial-gray border border-industrial-gray-medium rounded-lg hover:border-sinpetca-navy transition-colors duration-200"
+                  className="p-3 sm:p-4 bg-industrial-gray border border-industrial-gray-medium rounded-lg hover:border-sinpetca-navy transition-colors duration-200"
                 >
                   <div className="flex items-center gap-2 mb-2">
                     <Shield className="w-4 h-4 text-sinpetca-orange" />

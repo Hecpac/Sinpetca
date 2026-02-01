@@ -491,7 +491,7 @@ export default function Navbar() {
       </AnimatePresence>
 
       {/* Spacer to prevent content from going under fixed header */}
-      <div className="h-24" />
+      <div className="h-20 lg:h-24" />
     </>
   );
 }
