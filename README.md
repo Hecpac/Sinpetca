@@ -62,3 +62,5 @@ Además, registra eventos de conversión en GA4:
 - `cta_primary_click`
 - `cta_secondary_click`
 - `contact_form_submitted`
+
+Guía de hardening de despliegue: `docs/DEPLOY_HARDENING.md`.
