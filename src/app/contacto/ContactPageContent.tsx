@@ -5,12 +5,13 @@
  * Handles form state and interactive elements
  */
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function ContactPageContent() {
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         company: '',
@@ -18,7 +19,9 @@ export default function ContactPageContent() {
         phone: '',
         service: '',
         message: '',
+        website: '', // honeypot
     });
+    const startedAtRef = useRef(Date.now());
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -28,10 +31,26 @@ export default function ContactPageContent() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setFormStatus('submitting');
+        setErrorMessage('');
 
-        // Simulate API call
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...formData,
+                    startedAt: startedAtRef.current,
+                }),
+            });
+
+            const result = (await response.json()) as { success?: boolean; message?: string };
+
+            if (!response.ok || !result.success) {
+                throw new Error(result.message || 'No se pudo enviar el mensaje.');
+            }
+
             setFormStatus('success');
             setFormData({
                 name: '',
@@ -40,9 +59,16 @@ export default function ContactPageContent() {
                 phone: '',
                 service: '',
                 message: '',
+                website: '',
             });
-        } catch {
+            startedAtRef.current = Date.now();
+        } catch (error) {
             setFormStatus('error');
+            setErrorMessage(
+                error instanceof Error
+                    ? error.message
+                    : 'Hubo un error al enviar su mensaje. Por favor intente nuevamente.'
+            );
         }
     };
 
@@ -108,9 +134,24 @@ export default function ContactPageContent() {
                                     {formStatus === 'error' && (
                                         <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 flex items-center gap-3 text-red-500 text-sm">
                                             <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                                            Hubo un error al enviar su mensaje. Por favor intente nuevamente.
+                                            {errorMessage || 'Hubo un error al enviar su mensaje. Por favor intente nuevamente.'}
                                         </div>
                                     )}
+
+                                    {/* Honeypot field (should remain empty) */}
+                                    <div className="hidden" aria-hidden="true">
+                                        <label htmlFor="website">Sitio web</label>
+                                        <input
+                                            type="text"
+                                            id="website"
+                                            name="website"
+                                            value={formData.website}
+                                            onChange={handleChange}
+                                            tabIndex={-1}
+                                            autoComplete="off"
+                                            disabled={formStatus === 'submitting'}
+                                        />
+                                    </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>

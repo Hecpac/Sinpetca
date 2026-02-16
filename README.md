@@ -36,10 +36,12 @@ npm run start
 
 Crea un `.env.local` con base en `.env.example`.
 
-Variables públicas soportadas:
+Variables soportadas:
 
 - `NEXT_PUBLIC_GA_MEASUREMENT_ID`: habilita Google Analytics 4.
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`: código de verificación de Google Search Console.
+- `CONTACT_WEBHOOK_URL`: destino del formulario `/api/contact` (Zapier/Make/Slack webhook).
+- `CONTACT_WEBHOOK_TOKEN` (opcional): secreto enviado en header `x-contact-token`.
 
 ## Estructura
 
