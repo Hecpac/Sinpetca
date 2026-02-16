@@ -51,14 +51,10 @@ function useCounter(end: number, duration: number = 2000, start: boolean = false
   const [count, setCount] = useState(0);
   const countRef = useRef(0);
   const prefersReducedMotion = useReducedMotion();
+  const shouldAnimate = start && !prefersReducedMotion;
 
   useEffect(() => {
-    if (!start) return;
-
-    if (prefersReducedMotion) {
-      setCount(end);
-      return;
-    }
+    if (!shouldAnimate) return;
 
     const startTime = Date.now();
     const startValue = 0;
@@ -84,7 +80,11 @@ function useCounter(end: number, duration: number = 2000, start: boolean = false
     };
 
     requestAnimationFrame(updateCount);
-  }, [end, duration, start, prefersReducedMotion]);
+  }, [end, duration, shouldAnimate]);
+
+  if (prefersReducedMotion && start) {
+    return end;
+  }
 
   return count;
 }

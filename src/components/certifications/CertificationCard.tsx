@@ -14,7 +14,6 @@ import {
   Globe,
   Target,
   FileText,
-  type LucideIcon,
 } from 'lucide-react';
 
 export interface CertificationDetails {

@@ -9,12 +9,10 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
   FileCheck,
-  Download,
   Eye,
   Shield,
   Calendar,
   Building2,
-  ExternalLink,
 } from 'lucide-react';
 
 export interface CertificationDocument {

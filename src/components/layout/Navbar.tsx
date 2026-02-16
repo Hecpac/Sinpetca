@@ -116,12 +116,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-    setIsMobileServicesOpen(false);
-  }, [pathname]);
-
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -136,6 +130,11 @@ export default function Navbar() {
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(prev => !prev);
+  }, []);
+
+  const closeMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
   }, []);
 
   const isActiveLink = (href: string) => {
@@ -358,7 +357,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
-              onClick={toggleMobileMenu}
+              onClick={closeMobileMenu}
             />
 
             {/* Mobile Menu Panel */}
@@ -373,7 +372,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between p-4 border-b border-white/10">
                 <span className="text-lg font-bold text-text-primary">Menú</span>
                 <button
-                  onClick={toggleMobileMenu}
+                  onClick={closeMobileMenu}
                   className="w-11 h-11 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors"
                   aria-label="Cerrar menú"
                 >
@@ -429,6 +428,7 @@ export default function Navbar() {
                                     <li key={service.href}>
                                       <Link
                                         href={service.href}
+                                        onClick={closeMobileMenu}
                                         className="flex items-center gap-3 px-4 py-3 min-h-[48px] rounded-xl text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors"
                                       >
                                         <service.icon className="w-5 h-5 text-sinpetca-orange" />
@@ -439,6 +439,7 @@ export default function Navbar() {
                                   <li>
                                     <Link
                                       href="/servicios"
+                                      onClick={closeMobileMenu}
                                       className="flex items-center gap-3 px-4 py-3 min-h-[48px] rounded-xl text-sinpetca-orange hover:bg-sinpetca-orange/10 transition-colors"
                                     >
                                       <span className="text-base font-medium">Ver todos</span>
@@ -452,6 +453,7 @@ export default function Navbar() {
                       ) : (
                         <Link
                           href={link.href}
+                          onClick={closeMobileMenu}
                           className={`
                             block px-4 py-3 min-h-[48px] flex items-center rounded-xl text-base font-medium
                             transition-colors
@@ -473,6 +475,7 @@ export default function Navbar() {
                 <div className="mt-8 pt-8 border-t border-white/10">
                   <Link
                     href="/contacto"
+                    onClick={closeMobileMenu}
                     className="
                       flex items-center justify-center gap-2 w-full px-6 py-4
                       bg-sinpetca-orange hover:bg-sinpetca-orange-dark

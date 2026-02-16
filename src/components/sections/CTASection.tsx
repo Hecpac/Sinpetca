@@ -118,7 +118,7 @@ export default function CTASection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
-            {benefits.map((benefit, index) => (
+            {benefits.map((benefit) => (
               <div
                 key={benefit.title}
                 className="group p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:border-sinpetca-orange/30 transition-colors duration-300"

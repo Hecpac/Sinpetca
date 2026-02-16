@@ -138,19 +138,6 @@ const contentVariants = {
   }),
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: (index: number) => ({
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      delay: 0.6 + index * 0.15,
-      ease: [0.25, 0.1, 0.25, 1] as const,
-    },
-  }),
-};
-
 // ============================================================================
 // COMPONENT
 // ============================================================================
@@ -180,20 +167,6 @@ export default function HeroCarousel() {
     return () => clearInterval(interval);
   }, [isPaused, isAnimating, prefersReducedMotion]);
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
-        goToPrevSlide();
-      } else if (e.key === 'ArrowRight') {
-        goToNextSlide();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isAnimating]);
-
   const goToNextSlide = useCallback(() => {
     if (isAnimating) return;
     setDirection(1);
@@ -214,6 +187,20 @@ export default function HeroCarousel() {
     },
     [isAnimating, currentSlide]
   );
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        goToPrevSlide();
+      } else if (e.key === 'ArrowRight') {
+        goToNextSlide();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [goToNextSlide, goToPrevSlide]);
 
   // Touch handlers
   const handleTouchStart = (e: React.TouchEvent) => {

@@ -41,7 +41,7 @@ export default function ContactPageContent() {
                 service: '',
                 message: '',
             });
-        } catch (error) {
+        } catch {
             setFormStatus('error');
         }
     };

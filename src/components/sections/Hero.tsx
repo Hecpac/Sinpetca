@@ -12,7 +12,7 @@
  * - Scroll indicator animation
  */
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -75,13 +75,8 @@ const trustBadges = [
 
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
   const backgroundY = useParallax(sectionRef, { distance: 50, mobileDistance: 18 });
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <section
@@ -124,7 +119,7 @@ export default function Hero() {
         <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-sinpetca-orange/10 rounded-full blur-[120px]" />
 
         {/* Floating geometric elements */}
-        {mounted && !prefersReducedMotion && (
+        {!prefersReducedMotion && (
           <>
             <motion.div
               variants={floatingVariants}
@@ -147,7 +142,7 @@ export default function Hero() {
         )}
 
         {/* Animated gradient orb */}
-        {mounted && !prefersReducedMotion && (
+        {!prefersReducedMotion && (
           <motion.div
             variants={pulseVariants}
             animate="animate"
@@ -247,7 +242,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      {mounted && !prefersReducedMotion && (
+      {!prefersReducedMotion && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

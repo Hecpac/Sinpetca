@@ -88,7 +88,7 @@ export default function MissionVision() {
 
                 <div className="mt-6 pt-6 border-t border-sinpetca-navy-light/20">
                   <p className="text-sinpetca-orange font-medium italic">
-                    "Garantizando seguridad e integridad en cada inspección"
+                    &ldquo;Garantizando seguridad e integridad en cada inspección&rdquo;
                   </p>
                 </div>
               </div>
@@ -121,7 +121,7 @@ export default function MissionVision() {
 
                 <div className="mt-6 pt-6 border-t border-industrial-gray-medium">
                   <p className="text-sinpetca-blue font-medium italic">
-                    "Líderes en inspección industrial en Latinoamérica"
+                    &ldquo;Líderes en inspección industrial en Latinoamérica&rdquo;
                   </p>
                 </div>
               </div>

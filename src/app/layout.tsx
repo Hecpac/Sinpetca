@@ -12,6 +12,8 @@ import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import { OrganizationMarkup } from '@/components/seo/SchemaMarkup';
 import { sinpetcaOrganization } from '@/lib/schema-data';
 
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 // SEO Metadata Configuration
 export const metadata: Metadata = {
   metadataBase: new URL('https://sinpetca.com'),
@@ -85,15 +87,13 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'google-site-verification-code', // Replace with actual code
-  },
+  verification: googleSiteVerification
+    ? {
+        google: googleSiteVerification,
+      }
+    : undefined,
   alternates: {
     canonical: 'https://sinpetca.com',
-    languages: {
-      'es-VE': 'https://sinpetca.com',
-      'en-US': 'https://sinpetca.com/en',
-    },
   },
   category: 'Industrial Services',
 };
