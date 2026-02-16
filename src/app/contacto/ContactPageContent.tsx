@@ -8,6 +8,7 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
 
 export default function ContactPageContent() {
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -52,6 +53,10 @@ export default function ContactPageContent() {
             }
 
             setFormStatus('success');
+            trackEvent('contact_form_submitted', {
+                source: 'contact_page',
+                service: formData.service || 'sin_servicio',
+            });
             setFormData({
                 name: '',
                 company: '',

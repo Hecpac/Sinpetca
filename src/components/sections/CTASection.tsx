@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { Phone, Mail, ArrowRight, MessageSquare, Clock, Shield } from 'lucide-react';
 import { useParallax } from '@/hooks/useParallax';
+import { trackEvent } from '@/lib/analytics';
 
 const benefits = [
   {
@@ -94,6 +95,12 @@ export default function CTASection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <Link
                 href="/contacto"
+                onClick={() =>
+                  trackEvent('cta_primary_click', {
+                    source: 'cta_section',
+                    target: '/contacto',
+                  })
+                }
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-sinpetca-orange hover:bg-sinpetca-orange-dark text-industrial-dark font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-sinpetca-orange/30 hover:shadow-sinpetca-orange/50 hover:scale-[1.02]"
               >
                 <Phone className="w-5 h-5" />
@@ -103,6 +110,12 @@ export default function CTASection() {
 
               <a
                 href="mailto:info@sinpetca.com"
+                onClick={() =>
+                  trackEvent('cta_secondary_click', {
+                    source: 'cta_section',
+                    target: 'mailto:info@sinpetca.com',
+                  })
+                }
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-text-primary font-semibold rounded-xl transition-all duration-300"
               >
                 <Mail className="w-5 h-5" />
@@ -140,11 +153,17 @@ export default function CTASection() {
             className="mt-12 pt-8 border-t border-white/10 flex flex-wrap justify-center items-center gap-8 text-sm"
           >
             <a
-              href="tel:+58XXXXXXXXX"
+              href="tel:+582812671109"
+              onClick={() =>
+                trackEvent('cta_secondary_click', {
+                  source: 'cta_section',
+                  target: 'tel:+582812671109',
+                })
+              }
               className="flex items-center gap-2 text-text-secondary hover:text-sinpetca-orange transition-colors"
             >
               <Phone className="w-4 h-4" />
-              +58 XXX-XXX-XXXX
+              +58 281 267 1109
             </a>
             <div className="w-px h-4 bg-white/20 hidden sm:block" />
             <a

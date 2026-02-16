@@ -40,6 +40,8 @@ Variables soportadas:
 
 - `NEXT_PUBLIC_GA_MEASUREMENT_ID`: habilita Google Analytics 4.
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`: código de verificación de Google Search Console.
+- `NEXT_PUBLIC_SENTRY_DSN`: monitoreo frontend con Sentry.
+- `SENTRY_DSN` (opcional): DSN para runtime server/edge.
 - `CONTACT_WEBHOOK_URL`: destino del formulario `/api/contact` (Zapier/Make/Slack webhook).
 - `CONTACT_WEBHOOK_TOKEN` (opcional): secreto enviado en header `x-contact-token`.
 
@@ -54,3 +56,9 @@ Variables soportadas:
 ## Nota
 
 El proyecto está optimizado para contenido estático y SEO técnico (sitemap, robots, schema markup y security headers).
+
+Además, registra eventos de conversión en GA4:
+
+- `cta_primary_click`
+- `cta_secondary_click`
+- `contact_form_submitted`

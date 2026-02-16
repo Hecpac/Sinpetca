@@ -9,21 +9,20 @@
  * - Industrial trust-building design
  */
 
+import Image from 'next/image';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
 import { useParallax } from '@/hooks/useParallax';
 
-// Client logos placeholder data
-// In production, replace with actual client logos
 const clients = [
-  { name: 'PDVSA', logo: '/images/clients/pdvsa.png' },
-  { name: 'Chevron', logo: '/images/clients/chevron.png' },
-  { name: 'Shell', logo: '/images/clients/shell.png' },
-  { name: 'Total', logo: '/images/clients/total.png' },
-  { name: 'BP', logo: '/images/clients/bp.png' },
-  { name: 'Petrobras', logo: '/images/clients/petrobras.png' },
-  { name: 'Repsol', logo: '/images/clients/repsol.png' },
-  { name: 'CNPC', logo: '/images/clients/cnpc.png' },
+  { name: 'PDVSA', logo: '/images/clients/pdvsa.svg' },
+  { name: 'Chevron', logo: '/images/clients/chevron.svg' },
+  { name: 'Shell', logo: '/images/clients/shell.svg' },
+  { name: 'Total', logo: '/images/clients/total.svg' },
+  { name: 'BP', logo: '/images/clients/bp.svg' },
+  { name: 'Petrobras', logo: '/images/clients/petrobras.svg' },
+  { name: 'Repsol', logo: '/images/clients/repsol.svg' },
+  { name: 'CNPC', logo: '/images/clients/cnpc.svg' },
 ];
 
 // Duplicate for seamless infinite scroll
@@ -101,11 +100,14 @@ export default function Clients() {
                   key={`${client.name}-${index}`}
                   className="flex-shrink-0 group"
                 >
-                  {/* Logo placeholder - replace with actual Image component when logos are available */}
-                  <div className="w-32 h-16 flex items-center justify-center px-4 py-2 bg-industrial-gray/50 border border-industrial-gray-medium rounded-lg opacity-50 hover:opacity-100 hover:border-sinpetca-navy hover:bg-industrial-gray transition-all duration-300">
-                    <span className="text-text-muted text-sm font-medium text-center group-hover:text-text-secondary transition-colors">
-                      {client.name}
-                    </span>
+                  <div className="w-36 h-16 flex items-center justify-center px-3 py-2 bg-industrial-gray/50 border border-industrial-gray-medium rounded-lg opacity-70 hover:opacity-100 hover:border-sinpetca-navy hover:bg-industrial-gray transition-all duration-300">
+                    <Image
+                      src={client.logo}
+                      alt={`Logo de ${client.name}`}
+                      width={140}
+                      height={56}
+                      className="h-auto max-h-12 w-auto object-contain"
+                    />
                   </div>
                 </div>
               ))}

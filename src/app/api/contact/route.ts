@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
@@ -222,7 +223,16 @@ export async function POST(request: NextRequest) {
 
   try {
     await sendToWebhook(normalized);
-  } catch {
+  } catch (error) {
+    Sentry.captureException(error, {
+      tags: {
+        route: 'api_contact',
+      },
+      extra: {
+        service: normalized.service,
+      },
+    });
+
     return NextResponse.json(
       {
         success: false,

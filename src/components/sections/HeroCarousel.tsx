@@ -27,6 +27,7 @@ import {
   Award,
 } from 'lucide-react';
 import { useParallax } from '@/hooks/useParallax';
+import { trackEvent } from '@/lib/analytics';
 
 // ============================================================================
 // TYPES
@@ -331,6 +332,14 @@ export default function HeroCarousel() {
                   <motion.div custom={0.8} variants={contentVariants}>
                     <Link
                       href={currentSlideData.ctaLink}
+                      onClick={() =>
+                        trackEvent('cta_primary_click', {
+                          source: 'hero_carousel',
+                          slide_id: currentSlideData.id,
+                          cta_text: currentSlideData.ctaText,
+                          target: currentSlideData.ctaLink,
+                        })
+                      }
                       className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 bg-sinpetca-orange hover:bg-sinpetca-orange-dark text-industrial-dark font-semibold text-sm sm:text-base rounded-xl transition-all duration-300 shadow-lg shadow-sinpetca-orange/25 hover:shadow-sinpetca-orange/40 hover:scale-105 min-h-[48px]"
                     >
                       {currentSlideData.ctaText}
