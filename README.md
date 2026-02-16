@@ -64,3 +64,4 @@ Además, registra eventos de conversión en GA4:
 - `contact_form_submitted`
 
 Guía de hardening de despliegue: `docs/DEPLOY_HARDENING.md`.
+Playbook de herramientas y flujo operativo: `docs/WORKFLOW_TOOLS.md`.

@@ -6,7 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "check": "npm run lint && npm run typecheck && npm run build",
+    "audit:prod": "npm audit --omit=dev --audit-level=high",
+    "verify": "npm run check && npm run audit:prod"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.39.0",
