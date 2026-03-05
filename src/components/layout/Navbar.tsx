@@ -12,6 +12,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -206,16 +207,18 @@ export default function Navbar() {
             {/* Logo - Mobile & Desktop */}
             <Link
               href="/"
-              className="flex items-center gap-2 group"
+              className="flex items-center gap-2 group h-full px-2"
               aria-label="SINPETCA - Ir al inicio"
             >
-              {/* Mobile logo icon */}
-              <div className="lg:hidden w-8 h-8 bg-gradient-to-br from-sinpetca-orange to-sinpetca-orange-dark rounded-lg flex items-center justify-center">
-                <span className="text-industrial-dark font-bold text-sm">S</span>
+              <div className="relative h-full flex items-center justify-start w-[140px] lg:w-[180px]">
+                <Image
+                  src="/images/brand/logo-sinpetca-white.png"
+                  alt="SINPETCA Logo"
+                  fill
+                  className="object-contain object-left scale-[1.8] lg:scale-[2] origin-left"
+                  priority
+                />
               </div>
-              <span className="text-lg font-bold text-text-primary tracking-tight">
-                SINPETCA
-              </span>
             </Link>
 
             {/* Desktop Navigation */}

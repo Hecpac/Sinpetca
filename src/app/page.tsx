@@ -59,21 +59,26 @@ export default function HomePage() {
         breadcrumbs={[{ name: 'Inicio', url: 'https://sinpetca.com' }]}
       />
 
-      <div className="home-flow">
-        {/* Hero Carousel Section */}
-        <HeroCarousel />
+      <div className="home-flow relative">
+        {/* Sticky Hero Section (Section 1) */}
+        <div className="sticky top-0 h-screen min-h-[600px] sm:min-h-[700px] max-h-[1200px] w-full z-0 overflow-hidden">
+          <HeroCarousel />
+        </div>
 
-        {/* Services Overview */}
-        <Services />
+        {/* Content over Hero (Section 2 onwards acting like a card sliding up) */}
+        <div className="relative z-10 bg-industrial-gray rounded-t-[2.5rem] sm:rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.5)] border-t border-white/10 overflow-hidden">
+          {/* Services Overview */}
+          <Services />
 
-        {/* Company Statistics */}
-        <Stats />
+          {/* Company Statistics */}
+          <Stats />
 
-        {/* Trusted Clients */}
-        <Clients />
+          {/* Trusted Clients */}
+          <Clients />
 
-        {/* Call to Action */}
-        <CTASection />
+          {/* Call to Action */}
+          <CTASection />
+        </div>
       </div>
     </>
   );
