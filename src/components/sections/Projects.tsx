@@ -63,7 +63,6 @@ const projects = [
 
 export default function Projects() {
   const ref = useRef<HTMLElement | null>(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
   const prefersReducedMotion = useReducedMotion();
 
   const containerVariants = {
@@ -125,13 +124,19 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          // Added pb-20 to give room for the last sticky card to scroll a bit
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-10 md:pb-0"
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.title}
               variants={itemVariants}
-              className="group relative bg-industrial-gray rounded-2xl overflow-hidden border border-white/5 hover:border-sinpetca-orange/30 transition-colors"
+              // Added sticky positioning and z-index for mobile parallax stacking
+              className="group relative bg-industrial-gray rounded-2xl overflow-hidden border border-white/5 hover:border-sinpetca-orange/30 transition-colors shadow-2xl md:shadow-none sticky md:relative"
+              style={{
+                top: `calc(100px + ${index * 20}px)`,
+                zIndex: index + 10,
+              }}
             >
               {/* Image Container */}
               <div className="relative h-64 w-full bg-black/20 overflow-hidden">
