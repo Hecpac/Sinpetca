@@ -32,6 +32,7 @@ const mainNavLinks = [
   { href: '/nosotros', label: 'Nosotros' },
   { href: '/servicios', label: 'Servicios', hasDropdown: true },
   { href: '/certificaciones', label: 'Certificaciones' },
+  { href: '/proyectos', label: 'Proyectos' },
   { href: '/contacto', label: 'Contacto' },
 ];
 

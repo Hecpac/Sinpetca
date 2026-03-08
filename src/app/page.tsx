@@ -18,6 +18,7 @@ import type { WebPageSchema } from '@/types/schema';
 import HeroCarousel from '@/components/sections/HeroCarousel';
 import Services from '@/components/sections/Services';
 import Stats from '@/components/sections/Stats';
+import Projects from '@/components/sections/Projects';
 import Clients from '@/components/sections/Clients';
 import CTASection from '@/components/sections/CTASection';
 
@@ -72,6 +73,9 @@ export default function HomePage() {
 
           {/* Company Statistics */}
           <Stats />
+
+          {/* Featured Projects */}
+          <Projects />
 
           {/* Trusted Clients */}
           <Clients />
