@@ -13,6 +13,7 @@
  */
 
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   MapPin,
   Phone,
@@ -25,6 +26,7 @@ import {
   Shield,
   Award,
   Leaf,
+  ClipboardList,
 } from 'lucide-react';
 
 // Quick navigation links
@@ -75,21 +77,13 @@ export default function Footer() {
           {/* Column 1: Company Identity */}
           <div className="lg:col-span-1">
             {/* Logo */}
-            <Link href="/" className="inline-flex items-center gap-3 group mb-6">
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-sinpetca-orange to-sinpetca-orange-dark rounded-lg flex items-center justify-center">
-                  <span className="text-industrial-dark font-bold text-2xl">S</span>
-                </div>
-                <div className="absolute -inset-1 bg-sinpetca-orange/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-text-primary tracking-tight">
-                  SINPETCA
-                </span>
-                <span className="text-xs text-text-muted uppercase tracking-wider">
-                  C.A.
-                </span>
-              </div>
+            <Link href="/" className="inline-block mb-8 relative w-[180px] h-[50px]">
+              <Image
+                src="/images/brand/logo-sinpetca-white.png"
+                alt="SINPETCA Logo"
+                fill
+                className="object-contain object-left scale-[1.8] origin-left"
+              />
             </Link>
 
             {/* Tagline */}
@@ -153,6 +147,54 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+
+            <h3 className="text-text-primary font-semibold text-sm uppercase tracking-wider mb-4 mt-8">
+              Formularios
+            </h3>
+            <ul className="space-y-3 mt-4">
+              <li>
+                <a
+                  href="https://forms.gle/DF3Pd1R6f2AUVoyn8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-4 py-2 bg-sinpetca-orange/10 hover:bg-sinpetca-orange/20 border border-sinpetca-orange/30 hover:border-sinpetca-orange rounded-lg text-sinpetca-orange text-sm font-medium transition-all duration-300 group"
+                >
+                  <span className="flex items-center gap-2">
+                    <ClipboardList className="w-4 h-4 flex-shrink-0" />
+                    <span>Registro de Inspección</span>
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://forms.gle/rX62W5WbsNAVSh9b6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-4 py-2 bg-sinpetca-orange/10 hover:bg-sinpetca-orange/20 border border-sinpetca-orange/30 hover:border-sinpetca-orange rounded-lg text-sinpetca-orange text-sm font-medium transition-all duration-300 group"
+                >
+                  <span className="flex items-center gap-2">
+                    <ClipboardList className="w-4 h-4 flex-shrink-0" />
+                    <span>Satisfacción al Cliente</span>
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://forms.gle/vy1v1Q8Rh19fX4hZ8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-4 py-2 bg-sinpetca-orange/10 hover:bg-sinpetca-orange/20 border border-sinpetca-orange/30 hover:border-sinpetca-orange rounded-lg text-sinpetca-orange text-sm font-medium transition-all duration-300 group"
+                >
+                  <span className="flex items-center gap-2 text-left leading-tight">
+                    <ClipboardList className="w-4 h-4 flex-shrink-0" />
+                    <span>Recepción de Quejas y Apelaciones</span>
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2" />
+                </a>
+              </li>
             </ul>
           </div>
 
