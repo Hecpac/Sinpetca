@@ -71,7 +71,7 @@ export default function ServiceCTA({
             )}
 
             <a
-              href="tel:+58XXXXXXXXX"
+              href="tel:+584141995127"
               className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-text-primary font-semibold rounded-xl transition-all duration-300"
             >
               <Phone className="w-5 h-5" />
@@ -82,11 +82,11 @@ export default function ServiceCTA({
           {/* Contact info */}
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-text-muted">
             <a
-              href="mailto:info@sinpetca.com"
+              href="mailto:sinpetca68@gmail.com"
               className="flex items-center gap-2 hover:text-sinpetca-orange transition-colors"
             >
               <Mail className="w-4 h-4" />
-              info@sinpetca.com
+              sinpetca68@gmail.com
             </a>
             <span className="hidden sm:inline">|</span>
             <span>Respuesta en menos de 24 horas</span>

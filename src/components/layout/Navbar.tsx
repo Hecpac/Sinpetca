@@ -33,6 +33,7 @@ const mainNavLinks = [
   { href: '/servicios', label: 'Servicios', hasDropdown: true },
   { href: '/certificaciones', label: 'Certificaciones' },
   { href: '/proyectos', label: 'Proyectos' },
+  { href: '/formularios', label: 'Formularios' },
   { href: '/contacto', label: 'Contacto' },
 ];
 
@@ -41,7 +42,7 @@ const servicesMenu = [
   {
     href: '/servicios/petrolera',
     label: 'Industria Petrolera',
-    description: 'Inspección API/ASME, tanques y tuberías',
+    description: 'Normas ASME Serie B30, AWS, ASME Sec 5, API 4G, API 650',
     icon: Fuel,
   },
   {
@@ -53,14 +54,32 @@ const servicesMenu = [
   {
     href: '/servicios/aeronautica',
     label: 'Industria Aeronáutica',
-    description: 'Certificación OMAC-N 667 para aviación',
+    description: 'Certificación  para aviación',
     icon: Plane,
   },
   {
     href: '/servicios/ndt',
-    label: 'Ensayos No Destructivos',
-    description: 'UT, RT, PT, MT y más métodos NDT',
+    label: 'Inspección de Ensayos No Destructivos',
+    description: 'UT, RT, PT, MT e Inspección Visual',
     icon: ScanLine,
+  },
+  {
+    href: '/servicios/izamiento',
+    label: 'Equipos de Izamiento y Carga',
+    description: 'Inspección y certificación de equipos',
+    icon: Ship,
+  },
+  {
+    href: '/servicios/especiales',
+    label: 'Inspección de Equipos Especiales',
+    description: 'Máquinas de soldar, plantas y luminarias',
+    icon: Fuel,
+  },
+  {
+    href: '/servicios/emergencia',
+    label: 'Equipos de Emergencia',
+    description: 'Chalecos salvavidas, balsas y toboganes',
+    icon: Plane,
   },
 ];
 

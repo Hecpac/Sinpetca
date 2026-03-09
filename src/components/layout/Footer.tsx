@@ -36,6 +36,7 @@ const quickLinks = [
   { href: '/servicios', label: 'Servicios' },
   { href: '/proyectos', label: 'Proyectos' },
   { href: '/certificaciones', label: 'Certificaciones' },
+  { href: '/formularios', label: 'Formularios' },
   { href: '/contacto', label: 'Contacto' },
 ];
 
@@ -44,7 +45,10 @@ const serviceLinks = [
   { href: '/servicios/petrolera', label: 'Industria Petrolera' },
   { href: '/servicios/naval', label: 'Industria Naval' },
   { href: '/servicios/aeronautica', label: 'Industria Aeronáutica' },
-  { href: '/servicios/ndt', label: 'Ensayos No Destructivos' },
+  { href: '/servicios/ndt', label: 'Inspección de Ensayos No Destructivos' },
+  { href: '/servicios/izamiento', label: 'Equipos de Izamiento y Carga' },
+  { href: '/servicios/especiales', label: 'Inspección de Equipos Especiales' },
+  { href: '/servicios/emergencia', label: 'Equipos de Emergencia (Chalecos, Balsas)' },
 ];
 
 // Social media links
@@ -57,7 +61,7 @@ const socialLinks = [
 // Certifications
 const certifications = [
   { name: 'ISO 17020', description: 'Organismos de Inspección' },
-  { name: 'OMAC-N 667', description: 'Aviación Civil' },
+  { name: '', description: 'Aviación Civil' },
   { name: 'API', description: 'American Petroleum Institute' },
   { name: 'ASME', description: 'Mechanical Engineers' },
 ];
@@ -92,7 +96,7 @@ export default function Footer() {
             </p>
 
             <p className="text-text-muted text-sm leading-relaxed mb-6">
-              Más de 35 años brindando servicios de inspección industrial y ensayos no
+              Más de 12 años brindando servicios de inspección industrial y ensayos no
               destructivos con los más altos estándares de calidad y seguridad.
             </p>
 
@@ -216,21 +220,19 @@ export default function Footer() {
                   </div>
                   <div>
                     <span className="text-text-muted text-xs uppercase tracking-wider">
-                      Dirección
+                      Sedes
                     </span>
                     <p className="text-text-secondary text-sm mt-0.5 group-hover:text-text-primary transition-colors">
-                      Zona Industrial Los Pinos
+                      <strong className="text-sinpetca-orange">Punto Fijo:</strong> Calle Guarnica, Qta. Adriana, s/n.
                       <br />
-                      Puerto La Cruz, Anzoátegui
-                      <br />
-                      Venezuela
+                      <strong className="text-sinpetca-orange">Lechería:</strong> Av. Intercomunal, C.C. MT, Piso 1.
                     </p>
                   </div>
                 </a>
               </li>
 
               <li>
-                <a href="tel:+582812671109" className="flex items-start gap-3 group">
+                <a href="tel:+584141995127" className="flex items-start gap-3 group">
                   <div className="w-10 h-10 rounded-lg bg-sinpetca-navy/30 border border-sinpetca-navy/50 flex items-center justify-center flex-shrink-0 group-hover:bg-sinpetca-orange/20 group-hover:border-sinpetca-orange transition-colors duration-200">
                     <Phone className="w-5 h-5 text-sinpetca-orange" />
                   </div>
@@ -239,14 +241,14 @@ export default function Footer() {
                       Teléfono
                     </span>
                     <p className="text-text-secondary text-sm mt-0.5 group-hover:text-text-primary transition-colors">
-                      +58 281-267-1109
+                      +58 414-199-5127
                     </p>
                   </div>
                 </a>
               </li>
 
               <li>
-                <a href="mailto:info@sinpetca.com" className="flex items-start gap-3 group">
+                <a href="mailto:sinpetca68@gmail.com" className="flex items-start gap-3 group">
                   <div className="w-10 h-10 rounded-lg bg-sinpetca-navy/30 border border-sinpetca-navy/50 flex items-center justify-center flex-shrink-0 group-hover:bg-sinpetca-orange/20 group-hover:border-sinpetca-orange transition-colors duration-200">
                     <Mail className="w-5 h-5 text-sinpetca-orange" />
                   </div>
@@ -255,7 +257,7 @@ export default function Footer() {
                       Email
                     </span>
                     <p className="text-text-secondary text-sm mt-0.5 group-hover:text-text-primary transition-colors">
-                      info@sinpetca.com
+                      sinpetca68@gmail.com
                     </p>
                   </div>
                 </a>
@@ -307,7 +309,7 @@ export default function Footer() {
                 <Award className="w-8 h-8 text-sinpetca-orange" />
                 <div>
                   <span className="text-text-primary font-semibold text-sm block">
-                    +35 Años de Experiencia
+                    +12 Años de Experiencia
                   </span>
                   <span className="text-text-muted text-xs">Líderes en Inspección Industrial</span>
                 </div>

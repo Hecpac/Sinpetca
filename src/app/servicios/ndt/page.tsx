@@ -146,7 +146,7 @@ const faqs = [
   },
   {
     question: '¿Qué certificaciones tienen sus técnicos NDT?',
-    answer: 'Nuestros técnicos están certificados según ASNT SNT-TC-1A y/o ISO 9712 en niveles I, II y III para los diferentes métodos NDT. Adicionalmente, contamos con certificaciones específicas para sectores como API (petrolero), OMAC (aeronáutico) y códigos de soldadura (AWS, ASME).',
+    answer: 'Nuestros técnicos están certificados según ASNT SNT-TC-1A y/o ISO 9712 en niveles I, II y III para los diferentes métodos NDT. Adicionalmente, contamos con certificaciones específicas para sectores como API (petrolero) (aeronáutico) y códigos de soldadura (AWS, ASME).',
   },
   {
     question: '¿Cuál es la diferencia entre ultrasonido convencional y Phased Array?',
@@ -158,7 +158,7 @@ const faqs = [
   },
   {
     question: '¿Qué normas y códigos siguen para las inspecciones?',
-    answer: 'Trabajamos con los principales códigos y normas internacionales: ASME (Sección V para NDT), API (510, 570, 653), AWS D1.1, ASTM E-series para métodos NDT, ISO 17640 para ultrasonido de soldaduras, entre otros. Los procedimientos se califican según los requisitos específicos de cada código y aplicación.',
+    answer: 'Trabajamos con los principales códigos y normas internacionales: ASME (Sección V para NDT), ASME Serie B30, API (4G, 510, 570, 650, 653), AWS D1.1, ASTM E-series para métodos NDT, ISO 17640 para ultrasonido de soldaduras, entre otros. Los procedimientos se califican según los requisitos específicos de cada código y aplicación.',
   },
 ];
 

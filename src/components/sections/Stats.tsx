@@ -17,15 +17,15 @@ import { useParallax } from '@/hooks/useParallax';
 // Stats data
 const stats = [
   {
-    value: 35,
+    value: 12,
     suffix: '+',
     label: 'Años de Experiencia',
-    description: 'Desde 1989 al servicio de la industria',
+    description: 'Desde 2012 al servicio de la industria',
     icon: TrendingUp,
   },
   {
-    value: 500,
-    suffix: '+',
+    value: 127,
+    suffix: '',
     label: 'Proyectos Completados',
     description: 'En sectores petrolero, naval y aeronáutico',
     icon: Briefcase,
@@ -41,7 +41,7 @@ const stats = [
     value: 4,
     suffix: '',
     label: 'Certificaciones Internacionales',
-    description: 'ISO 17020, OMAC, API, ASME',
+    description: 'ISO 17020, ASME, AWS, API',
     icon: Award,
   },
 ];

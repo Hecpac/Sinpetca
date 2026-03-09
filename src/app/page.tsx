@@ -25,7 +25,7 @@ import CTASection from '@/components/sections/CTASection';
 export const metadata: Metadata = {
   title: 'SINPETCA, C.A. | Inspección Industrial y Ensayos No Destructivos',
   description:
-    'Líderes en servicios de inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. Más de 35 años de excelencia. Certificados ISO 17020 y OMAC-N 667.',
+    'Líderes en servicios de inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. Más de 12 años de excelencia. Certificados ISO 17020.',
   alternates: {
     canonical: 'https://sinpetca.com',
   },
@@ -36,7 +36,7 @@ const homePageSchema: WebPageSchema = {
   '@type': 'WebPage',
   name: 'SINPETCA - Servicios de Inspección Industrial y Ensayos No Destructivos',
   description:
-    'Empresa líder en inspección industrial y ensayos no destructivos para sectores petrolero, naval y aeronáutico. Certificados ISO 17020 y OMAC-N 667.',
+    'Empresa líder en inspección industrial y ensayos no destructivos para sectores petrolero, naval y aeronáutico. Certificados ISO 17020.',
   url: 'https://sinpetca.com',
   inLanguage: 'es-VE',
   isPartOf: {

@@ -148,7 +148,7 @@ async function sendToWebhook(payload: {
     headers: {
       'Content-Type': 'application/json',
       'User-Agent': 'sinpetca-contact/1.0',
-      ...(webhookToken ? { 'x-contact-token': webhookToken } : {}),
+     ...(webhookToken ? { 'x-contact-token': webhookToken } : {}),
     },
     body: JSON.stringify(payload),
     cache: 'no-store',

@@ -47,7 +47,7 @@ export default function ServiciosPage() {
                 Industria Petrolera
               </h2>
               <p className="text-text-secondary">
-                Inspección de soldaduras, tanques API/ASME, tuberías y equipos de presión.
+                Normas ASME Serie B30, AWS, ASME Sección 5, API 4G y API 650.
               </p>
             </a>
 
@@ -73,7 +73,7 @@ export default function ServiciosPage() {
                 Industria Aeronáutica
               </h2>
               <p className="text-text-secondary">
-                Certificación OMAC-N 667 y NDT para componentes de aviación.
+                Certificación  y NDT para componentes de aviación.
               </p>
             </a>
 
@@ -86,7 +86,37 @@ export default function ServiciosPage() {
                 Ensayos No Destructivos
               </h2>
               <p className="text-text-secondary">
-                Ultrasonido, Rayos X, Líquidos Penetrantes, Partículas Magnéticas.
+                Ultrasonido, Rayos X, Líquidos Penetrantes, Partículas Magnéticas e Inspección Visual.
+              </p>
+            </a>
+
+            {/* Equipos de Izamiento y Especiales */}
+            <a href="/servicios/izamiento" className="group p-8 bg-surface-primary border border-industrial-gray-medium rounded-xl hover:border-sinpetca-orange transition-colors">
+              <h2 className="text-2xl font-bold text-text-primary mb-4 group-hover:text-sinpetca-orange transition-colors">
+                Equipos de Izamiento y Carga
+              </h2>
+              <p className="text-text-secondary">
+                Inspección de equipos de izamiento y carga, certificaciones operativas y normativas ASME B30.
+              </p>
+            </a>
+
+            {/* Equipos Especiales */}
+            <a href="/servicios/especiales" className="group p-8 bg-surface-primary border border-industrial-gray-medium rounded-xl hover:border-sinpetca-orange transition-colors">
+              <h2 className="text-2xl font-bold text-text-primary mb-4 group-hover:text-sinpetca-orange transition-colors">
+                Equipos Especiales
+              </h2>
+              <p className="text-text-secondary">
+                Inspección de máquinas de soldar, plantas eléctricas, luminarias y compresores.
+              </p>
+            </a>
+
+            {/* Equipos de Emergencia */}
+            <a href="/servicios/emergencia" className="group p-8 bg-surface-primary border border-industrial-gray-medium rounded-xl hover:border-sinpetca-orange transition-colors">
+              <h2 className="text-2xl font-bold text-text-primary mb-4 group-hover:text-sinpetca-orange transition-colors">
+                Equipos de Emergencia Aeronáutica y Marítima
+              </h2>
+              <p className="text-text-secondary">
+                Servicios especializados de mantenimiento y certificación para chalecos salvavidas, balsas y toboganes de evacuación.
               </p>
             </a>
           </div>
