@@ -38,13 +38,13 @@ const services = [
   {
     title: 'Industria Aeronáutica',
     description:
-      'Ensayos no destructivos certificados  para componentes y estructuras de aviación.',
+      'Ensayos no destructivos (END) certificados  para componentes y estructuras de aviación.',
     href: '/servicios/aeronautica',
     icon: Plane,
     image: '/images/proyectos/sasca-boroscopia.jpg',
   },
   {
-    title: 'Inspección de Ensayos No Destructivos',
+    title: 'Inspección de Ensayos No Destructivos (END)',
     description:
       'Ultrasonido (UT), Radiografía (RT), Líquidos Penetrantes (PT), Partículas Magnéticas (MT) e Inspección Visual.',
     href: '/servicios/ndt',
@@ -131,7 +131,7 @@ export default function Services() {
               <span className="block text-sinpetca-blue">Para Cada Industria</span>
             </h2>
             <p className="text-text-secondary max-w-xl text-sm sm:text-base">
-              Ofrecemos servicios especializados de inspección y ensayos no destructivos
+              Ofrecemos servicios especializados de inspección y ensayos no destructivos (END)
               adaptados a las necesidades específicas de cada sector industrial.
             </p>
           </div>

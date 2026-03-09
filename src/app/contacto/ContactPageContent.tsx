@@ -238,7 +238,7 @@ export default function ContactPageContent() {
                                             <option value="petrolera">Inspección Petrolera</option>
                                             <option value="naval">Inspección Naval</option>
                                             <option value="aeronautica">Inspección Aeronáutica</option>
-                                            <option value="ndt">Ensayos No Destructivos</option>
+                                            <option value="ndt">Ensayos No Destructivos (END)</option>
                                             <option value="izamiento">Inspección de Equipos de Izamiento</option>
                                             <option value="especiales">Inspección de Equipos Especiales</option>
                                             <option value="estructural">Evaluación Estructural</option>

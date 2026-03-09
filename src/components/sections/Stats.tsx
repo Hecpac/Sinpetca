@@ -187,7 +187,7 @@ export default function Stats() {
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
             Décadas de compromiso con la calidad y la seguridad industrial nos posicionan como
-            líderes en inspección y ensayos no destructivos.
+            líderes en inspección y ensayos no destructivos (END).
           </p>
         </motion.div>
 

@@ -183,7 +183,7 @@ export default function Hero() {
             className="text-lg md:text-xl text-text-secondary max-w-2xl mb-8 leading-relaxed"
           >
             Servicios especializados de{' '}
-            <span className="text-text-primary font-medium">Ensayos No Destructivos</span> y{' '}
+            <span className="text-text-primary font-medium">Ensayos No Destructivos (END)</span> y{' '}
             <span className="text-text-primary font-medium">Certificación Industrial</span> para
             los sectores Petrolero, Naval y Aeronáutico. Certificados ISO 17020.
           </motion.p>

@@ -16,11 +16,11 @@ import ServiceFAQ from '@/components/services/ServiceFAQ';
 import ServiceCTA from '@/components/services/ServiceCTA';
 
 export const metadata: Metadata = {
-  title: 'Ensayos No Destructivos (NDT) | Ultrasonido, Radiografía, PT, MT',
+  title: 'Ensayos No Destructivos (END) | Ultrasonido, Radiografía, PT, MT',
   description:
-    'Servicios completos de ensayos no destructivos: Ultrasonido (UT), Radiografía (RT), Líquidos Penetrantes (PT), Partículas Magnéticas (MT), Corrientes Inducidas (ET) y Termografía. Personal certificado ASNT.',
+    'Servicios completos de ensayos no destructivos (END): Ultrasonido (UT), Radiografía (RT), Líquidos Penetrantes (PT), Partículas Magnéticas (MT), Corrientes Inducidas (ET) y Termografía. Personal certificado ASNT.',
   keywords: [
-    'ensayos no destructivos',
+    'ensayos no destructivos (END)',
     'NDT',
     'ultrasonido industrial',
     'radiografía industrial',
@@ -138,7 +138,7 @@ const processSteps = [
 const faqs = [
   {
     question: '¿Qué es un ensayo no destructivo?',
-    answer: 'Los ensayos no destructivos (NDT) son técnicas de inspección que permiten evaluar las propiedades de un material, componente o sistema sin causar daño. Esto permite verificar la integridad de equipos durante su fabricación, instalación y operación, sin necesidad de destruir o inutilizar la pieza inspeccionada.',
+    answer: 'Los ensayos no destructivos (END) son técnicas de inspección que permiten evaluar las propiedades de un material, componente o sistema sin causar daño. Esto permite verificar la integridad de equipos durante su fabricación, instalación y operación, sin necesidad de destruir o inutilizar la pieza inspeccionada.',
   },
   {
     question: '¿Cómo saber qué método NDT necesito?',
@@ -166,7 +166,7 @@ const faqs = [
 const breadcrumbs = [
   { name: 'Inicio', url: 'https://sinpetca.com' },
   { name: 'Servicios', url: 'https://sinpetca.com/servicios' },
-  { name: 'Ensayos No Destructivos', url: 'https://sinpetca.com/servicios/ndt' },
+  { name: 'Ensayos No Destructivos (END)', url: 'https://sinpetca.com/servicios/ndt' },
 ];
 
 export default function NDTPage() {
@@ -209,7 +209,7 @@ export default function NDTPage() {
 
       {/* CTA Section */}
       <ServiceCTA
-        title="¿Necesita ensayos no destructivos?"
+        title="¿Necesita ensayos no destructivos (END)?"
         description="Contáctenos para una evaluación de sus necesidades de inspección. Nuestros especialistas le recomendarán los métodos más adecuados para su aplicación."
       />
     </>

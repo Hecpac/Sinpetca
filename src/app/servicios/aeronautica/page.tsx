@@ -18,14 +18,14 @@ import ServiceCTA from '@/components/services/ServiceCTA';
 export const metadata: Metadata = {
   title: 'Servicios de Inspección Aeronáutica | ',
   description:
-    'Servicios de ensayos no destructivos certificados  para la industria aeronáutica. Inspección de componentes estructurales, motores, trenes de aterrizaje y materiales compuestos.',
+    'Servicios de ensayos no destructivos (END) certificados  para la industria aeronáutica. Inspección de componentes estructurales, motores, trenes de aterrizaje y materiales compuestos.',
   keywords: [
     'inspección aeronáutica',
     '',
     'NDT aviación',
     'certificación aeronáutica',
     'inspección aeronaves',
-    'ensayos no destructivos aviación',
+    'ensayos no destructivos (END) aviación',
     'componentes aeronáuticos',
     'Venezuela',
   ],
@@ -49,7 +49,7 @@ const services = [
   },
   {
     title: 'Componentes de Motor',
-    description: 'Ensayos no destructivos en componentes de motores aeronáuticos: discos, álabes, ejes y carcasas.',
+    description: 'Ensayos no destructivos (END) en componentes de motores aeronáuticos: discos, álabes, ejes y carcasas.',
     iconName: 'Cog',
     features: [
       'Inspección de discos de turbina',
@@ -93,7 +93,7 @@ const processSteps = [
   {
     number: '02',
     title: 'NDT Especializado',
-    description: 'Aplicación de técnicas de ensayos no destructivos específicas para aviación según estándares.',
+    description: 'Aplicación de técnicas de ensayos no destructivos (END) específicas para aviación según estándares.',
     iconName: 'Search',
   },
   {
@@ -114,7 +114,7 @@ const processSteps = [
 const faqs = [
   {
     question: '¿Qué es la certificación ?',
-    answer: ' es la certificación otorgada por la Oficina de Mantenimiento Aeronáutico Civil de Venezuela que autoriza a organizaciones a realizar ensayos no destructivos en componentes aeronáuticos. Esta certificación garantiza que cumplimos con los estándares de calidad y seguridad requeridos por la aviación civil.',
+    answer: ' es la certificación otorgada por la Oficina de Mantenimiento Aeronáutico Civil de Venezuela que autoriza a organizaciones a realizar ensayos no destructivos (END) en componentes aeronáuticos. Esta certificación garantiza que cumplimos con los estándares de calidad y seguridad requeridos por la aviación civil.',
   },
   {
     question: '¿Qué métodos NDT utilizan para aviación?',
@@ -152,7 +152,7 @@ export default function AeronauticaPage() {
       <ServiceHero
         title="Industria"
         highlight="Aeronáutica"
-        description="Ensayos no destructivos certificados  para garantizar la seguridad y aeronavegabilidad de componentes y estructuras aeronáuticas. Precisión crítica para la aviación."
+        description="Ensayos no destructivos (END) certificados  para garantizar la seguridad y aeronavegabilidad de componentes y estructuras aeronáuticas. Precisión crítica para la aviación."
         iconName="Plane"
         certifications={['', 'ASNT', 'NAS 410']}
         backgroundGradient="blue"
@@ -182,7 +182,7 @@ export default function AeronauticaPage() {
       {/* CTA Section */}
       <ServiceCTA
         title="¿Necesita inspección aeronáutica certificada?"
-        description="Contáctenos para programar ensayos no destructivos de sus componentes aeronáuticos con certificación."
+        description="Contáctenos para programar ensayos no destructivos (END) de sus componentes aeronáuticos con certificación."
       />
     </>
   );

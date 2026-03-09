@@ -93,7 +93,7 @@ const processSteps = [
   {
     number: '02',
     title: 'Inspección en Campo',
-    description: 'Ejecución de inspecciones visuales y ensayos no destructivos en la embarcación o estructura.',
+    description: 'Ejecución de inspecciones visuales y ensayos no destructivos (END) en la embarcación o estructura.',
     iconName: 'Search',
   },
   {
