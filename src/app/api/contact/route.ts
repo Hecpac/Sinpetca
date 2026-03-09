@@ -28,6 +28,9 @@ const VALID_SERVICES = new Set([
   'naval',
   'aeronautica',
   'ndt',
+  'izamiento',
+  'especiales',
+  'estructural',
   'otro',
 ]);
 

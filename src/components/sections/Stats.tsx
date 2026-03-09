@@ -31,7 +31,7 @@ const stats = [
     icon: Briefcase,
   },
   {
-    value: 50,
+    value: 5,
     suffix: '+',
     label: 'Profesionales Certificados',
     description: 'Expertos en NDT y inspección industrial',
