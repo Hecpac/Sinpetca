@@ -3,43 +3,44 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-          "dev": "next dev",
-          "build": "next build",
-          "start": "next start",
-          "lint": "eslint",
-          "lint:fix": "eslint --fix",
-          "typecheck": "tsc --noEmit",
-          "format": "prettier . --write",
-          "format:check": "prettier . --check",
-          "check": "npm run lint && npm run typecheck && npm run build",
-          "audit:prod": "npm audit --omit=dev --audit-level=high",
-          "verify": "npm run check && npm run audit:prod"
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint",
+        "lint:fix": "eslint --fix",
+        "typecheck": "tsc --noEmit",
+        "format": "prettier . --write",
+        "format:check": "prettier . --check",
+        "check": "npm run lint && npm run typecheck && npm run build",
+        "audit:prod": "npm audit --omit=dev --audit-level=high",
+        "verify": "npm run check && npm run audit:prod"
     },
     "dependencies": {
-          "@sentry/nextjs": "^10.39.0",
-          "framer-motion": "^12.29.2",
-          "lucide-react": "^0.563.0",
-          "next": "16.1.6",
-          "react": "19.2.3",
-          "react-dom": "19.2.3",
-          "react-intersection-observer": "^10.0.2"
+        "@sentry/nextjs": "^10.42.0",
+        "framer-motion": "^12.35.2",
+        "lucide-react": "^0.563.0",
+        "next": "16.1.6",
+        "react": "19.2.3",
+        "react-dom": "19.2.3",
+        "react-intersection-observer": "^10.0.3",
+        "resend": "^6.9.3"
     },
     "devDependencies": {
-          "@tailwindcss/postcss": "^4",
-          "@types/node": "^20",
-          "@types/react": "^19",
-          "@types/react-dom": "^19",
-          "eslint": "^9",
-          "eslint-config-next": "16.1.6",
-          "eslint-config-prettier": "^10.1.8",
-          "eslint-plugin-prettier": "^5.5.5",
-          "prettier": "^3.8.1",
-          "tailwindcss": "^4",
-          "typescript": "^5"
+        "@tailwindcss/postcss": "^4",
+        "@types/node": "^25",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "16.1.6",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.5",
+        "prettier": "^3.8.1",
+        "tailwindcss": "^4",
+        "typescript": "^5"
     },
     "overrides": {
-          "rollup": "^4.58.1",
-          "minimatch": "^9.0.5",
-          "serialize-javascript": "^7.0.3"
+        "rollup": "^4.58.1",
+        "minimatch": "^9.0.5",
+        "serialize-javascript": "^7.0.3"
     }
 }

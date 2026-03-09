@@ -14,9 +14,9 @@ import type {
 // Company Address
 export const sinpetcaAddress: PostalAddressSchema = {
   '@type': 'PostalAddress',
-  streetAddress: 'Zona Industrial Los Pinos', // Update with actual address
-  addressLocality: 'Puerto La Cruz',
-  addressRegion: 'Anzoátegui',
+  streetAddress: 'Calle Guarnica, Qta. Adriana, s/n, Urb. Santa Fe', // Update with actual address
+  addressLocality: 'Punto Fijo',
+  addressRegion: 'Falcón',
   postalCode: '6023',
   addressCountry: 'VE',
 };
@@ -25,17 +25,17 @@ export const sinpetcaAddress: PostalAddressSchema = {
 export const sinpetcaContactPoints: ContactPointSchema[] = [
   {
     '@type': 'ContactPoint',
-    telephone: '+58-281-2671109',
+    telephone: '+58-414-1995127',
     contactType: 'customer service',
-    email: 'info@sinpetca.com',
+    email: 'sinpetca68@gmail.com',
     areaServed: ['VE', 'CO', 'MX', 'US'],
     availableLanguage: ['Spanish', 'English'],
   },
   {
     '@type': 'ContactPoint',
-    telephone: '+58-281-2671109',
+    telephone: '+58-414-1995127',
     contactType: 'sales',
-    email: 'ventas@sinpetca.com',
+    email: 'sinpetca68@gmail.com',
     areaServed: ['VE', 'CO', 'MX', 'US'],
     availableLanguage: ['Spanish', 'English'],
   },
@@ -49,7 +49,7 @@ export const sinpetcaOrganization: OrganizationSchema = {
   url: 'https://sinpetca.com',
   logo: 'https://sinpetca.com/logo.png',
   description:
-    'Empresa líder en servicios de inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. Más de 35 años de experiencia con certificaciones ISO 17020 y OMAC-N 667.',
+    'Empresa líder en servicios de inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. Más de 12 años de experiencia con certificaciones ISO 17020.',
   foundingDate: '1989', // Update with actual founding date
   address: sinpetcaAddress,
   contactPoint: sinpetcaContactPoints,
@@ -60,9 +60,9 @@ export const sinpetcaOrganization: OrganizationSchema = {
   areaServed: ['Venezuela', 'Colombia', 'México', 'Estados Unidos', 'Caribe'],
   award: [
     'Certificación ISO 17020',
-    'Certificación OMAC-N 667',
-    'Acreditación API',
-    'Acreditación ASME',
+    'Certificación ',
+    'Certificación API',
+    'Certificación ASME',
   ],
   numberOfEmployees: {
     '@type': 'QuantitativeValue',
@@ -92,8 +92,8 @@ export const sinpetcaLocalBusiness: LocalBusinessSchema = {
     'https://sinpetca.com/images/facility-2.jpg',
   ],
   url: 'https://sinpetca.com',
-  telephone: '+58-281-2671109',
-  email: 'info@sinpetca.com',
+  telephone: '+58-414-1995127',
+  email: 'sinpetca68@gmail.com',
   address: sinpetcaAddress,
   geo: {
     '@type': 'GeoCoordinates',
@@ -172,7 +172,7 @@ export const petroleumInspectionService: ServiceSchema = {
       },
     ],
   },
-  award: ['Certificación API', 'Acreditación ASME'],
+  award: ['Certificación API', 'Certificación ASME'],
 };
 
 export const navalInspectionService: ServiceSchema = {
@@ -216,7 +216,7 @@ export const aeronauticalInspectionService: ServiceSchema = {
   '@type': 'ProfessionalService',
   name: 'Inspección Aeronáutica',
   description:
-    'Servicios de ensayos no destructivos certificados OMAC-N 667 para componentes y estructuras aeronáuticas.',
+    'Servicios de ensayos no destructivos certificados  para componentes y estructuras aeronáuticas.',
   provider: {
     '@type': 'Organization',
     name: 'SINPETCA, C.A.',
@@ -225,7 +225,7 @@ export const aeronauticalInspectionService: ServiceSchema = {
   serviceType: 'Aeronautical NDT Inspection',
   category: 'Aviation Industry Services',
   url: 'https://sinpetca.com/servicios/aeronautica',
-  award: ['Certificación OMAC-N 667'],
+  award: ['Certificación '],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Servicios de Inspección Aeronáutica',

@@ -28,9 +28,9 @@ import { CompanyTimeline, MissionVision, TeamSection } from '@/components/about'
 // ============================================================================
 
 const highlights = [
-  { value: '1988', label: 'Año de Fundación', icon: Building2 },
-  { value: '35+', label: 'Años de Experiencia', icon: Clock },
-  { value: '5,000+', label: 'Proyectos Completados', icon: Briefcase },
+  { value: '2012', label: 'Año de Fundación', icon: Building2 },
+  { value: '12+', label: 'Años de Experiencia', icon: Clock },
+  { value: '127', label: 'Proyectos Completados', icon: Briefcase },
   { value: '4', label: 'Sectores Industriales', icon: Globe },
 ];
 
@@ -39,7 +39,7 @@ const whyChooseUs = [
     icon: Shield,
     title: 'Certificaciones Internacionales',
     description:
-      'Acreditados bajo ISO 17020, API, ASME y OMAC, garantizando estándares de clase mundial en cada servicio.',
+      'Trabajamos bajo un sistema de gestión de calidad bajo la norma ISO 17020, API, ASME, garantizando estándares de clase mundial en cada servicio.',
   },
   {
     icon: Users,
@@ -51,7 +51,7 @@ const whyChooseUs = [
     icon: Award,
     title: 'Trayectoria Comprobada',
     description:
-      'Más de 5,000 proyectos completados exitosamente para las principales empresas de la industria.',
+      '127 proyectos completados exitosamente para las principales empresas de la industria.',
   },
   {
     icon: Target,
@@ -63,7 +63,7 @@ const whyChooseUs = [
     icon: Globe,
     title: 'Cobertura Integral',
     description:
-      'Servicios para los sectores petrolero, naval, aeronáutico y de ensayos no destructivos.',
+      'Servicios para los sectores petrolero, naval, aeronáutico y de ensayos no destructivos (END).',
   },
   {
     icon: CheckCircle,
@@ -182,9 +182,9 @@ export default function AboutPageContent() {
               <div className="prose prose-lg prose-invert max-w-none">
                 <p className="text-text-secondary text-lg leading-relaxed mb-6">
                   <strong className="text-text-primary">SINPETCA</strong> (Servicios de Inspección
-                  Petrolera C.A.) es una empresa venezolana fundada en 1988, especializada en
-                  servicios de inspección industrial de alta calidad. A lo largo de más de tres
-                  décadas, nos hemos consolidado como un referente en el sector, brindando
+                  Petrolera C.A.) es una empresa venezolana fundada en 2012, especializada en
+                  servicios de inspección industrial de alta calidad. A lo largo de más de una
+                  década, nos hemos consolidado como un referente en el sector, brindando
                   soluciones integrales para las industrias petrolera, petroquímica, naval y
                   aeronáutica.
                 </p>
@@ -194,7 +194,7 @@ export default function AboutPageContent() {
                   <span className="text-sinpetca-orange">tecnología de vanguardia</span> y un{' '}
                   <span className="text-sinpetca-orange">equipo humano altamente calificado</span>.
                   Contamos con inspectores certificados internacionalmente en diversas disciplinas,
-                  respaldados por un sistema de gestión acreditado bajo la norma ISO/IEC 17020.
+                  y trabajamos bajo un sistema de gestión de calidad bajo la norma ISO/IEC 17020.
                 </p>
 
                 <p className="text-text-secondary text-lg leading-relaxed">

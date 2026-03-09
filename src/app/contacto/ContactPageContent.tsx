@@ -26,7 +26,7 @@ export default function ContactPageContent() {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        setFormData(prev => ({...prev, [name]: value }));
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -41,7 +41,7 @@ export default function ContactPageContent() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    ...formData,
+                   ...formData,
                     startedAt: startedAtRef.current,
                 }),
             });
@@ -238,7 +238,10 @@ export default function ContactPageContent() {
                                             <option value="petrolera">Inspección Petrolera</option>
                                             <option value="naval">Inspección Naval</option>
                                             <option value="aeronautica">Inspección Aeronáutica</option>
-                                            <option value="ndt">Ensayos No Destructivos</option>
+                                            <option value="ndt">Ensayos No Destructivos (END)</option>
+                                            <option value="izamiento">Inspección de Equipos de Izamiento</option>
+                                            <option value="especiales">Inspección de Equipos Especiales</option>
+                                            <option value="estructural">Evaluación Estructural</option>
                                             <option value="otro">Otro</option>
                                         </select>
                                     </div>
@@ -301,13 +304,21 @@ export default function ContactPageContent() {
                                             <MapPin className="w-6 h-6 text-sinpetca-orange" />
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-text-primary mb-1">Dirección</h3>
-                                            <p className="text-text-secondary leading-relaxed">
-                                                Zona Industrial Los Pinos
+                                            <h3 className="font-semibold text-text-primary mb-1">Sede Principal</h3>
+                                            <p className="text-text-secondary leading-relaxed text-sm mb-4">
+                                                Calle Guarnica, Qta. Adriana, s/n,
                                                 <br />
-                                                Puerto La Cruz, Anzoátegui
+                                                Urb. Santa Fe, Punto Fijo,
                                                 <br />
-                                                Venezuela
+                                                Falcón, Venezuela.
+                                            </p>
+                                            <h3 className="font-semibold text-text-primary mb-1">Sucursal</h3>
+                                            <p className="text-text-secondary leading-relaxed text-sm">
+                                                Av. Intercomunal Jorge Rodríguez,
+                                                <br />
+                                                C.C. MT, Piso 1, Ofic. P1-26,
+                                                <br />
+                                                Lechería, Anzoátegui, Venezuela.
                                             </p>
                                         </div>
                                     </div>
@@ -318,7 +329,7 @@ export default function ContactPageContent() {
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-text-primary mb-1">Teléfono</h3>
-                                            <p className="text-text-secondary">+58 281 267 1109</p>
+                                            <p className="text-text-secondary">+58 414 199 5127</p>
                                         </div>
                                     </div>
 
@@ -330,7 +341,7 @@ export default function ContactPageContent() {
                                             <h3 className="font-semibold text-text-primary mb-1">
                                                 Correo electrónico
                                             </h3>
-                                            <p className="text-text-secondary">info@sinpetca.com</p>
+                                            <p className="text-text-secondary">sinpetca68@gmail.com</p>
                                         </div>
                                     </div>
 
@@ -361,7 +372,7 @@ export default function ContactPageContent() {
                                         <MapPin className="w-12 h-12 text-sinpetca-orange/50" />
                                     </motion.div>
                                     <p className="text-text-muted">Mapa interactivo de ubicación física</p>
-                                    <p className="text-text-muted text-sm mt-2">Puerto La Cruz, Venezuela</p>
+                                    <p className="text-text-muted text-sm mt-2">Punto Fijo, Falcón, Venezuela</p>
                                 </div>
                             </div>
                         </motion.div>

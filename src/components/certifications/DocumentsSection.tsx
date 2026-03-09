@@ -72,7 +72,7 @@ export default function DocumentsSection({ documents }: DocumentsSectionProps) {
             Documentación Oficial
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            Certificados y <span className="text-sinpetca-orange">Acreditaciones</span>
+            Certificaciones y <span className="text-sinpetca-orange">Avales</span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
             Acceda a la documentación oficial de nuestras certificaciones vigentes
@@ -183,7 +183,7 @@ export default function DocumentsSection({ documents }: DocumentsSectionProps) {
                 </h4>
                 <p className="text-text-secondary text-sm leading-relaxed">
                   Todas nuestras certificaciones pueden ser verificadas directamente con los
-                  organismos acreditadores. Los enlaces de verificación le permitirán confirmar la
+                  organismos certificadores. Los enlaces de verificación le permitirán confirmar la
                   validez y el estado actual de cada certificación en los portales oficiales.
                 </p>
               </div>

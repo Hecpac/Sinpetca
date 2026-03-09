@@ -22,7 +22,7 @@ const services = [
   {
     title: 'Industria Petrolera',
     description:
-      'Inspección de soldaduras, tanques API 650/653, tuberías y equipos a presión bajo normas API y ASME.',
+      'Normas ASME Serie B30, AWS, ASME Sección 5, API 4G y API 650.',
     href: '/servicios/petrolera',
     icon: Fuel,
     image: '/images/proyectos/whp-petrosucre.jpg',
@@ -38,19 +38,43 @@ const services = [
   {
     title: 'Industria Aeronáutica',
     description:
-      'Ensayos no destructivos certificados OMAC-N 667 para componentes y estructuras de aviación.',
+      'Ensayos no destructivos (END) certificados  para componentes y estructuras de aviación.',
     href: '/servicios/aeronautica',
     icon: Plane,
     image: '/images/proyectos/sasca-boroscopia.jpg',
   },
   {
-    title: 'Ensayos No Destructivos',
+    title: 'Inspección de Ensayos No Destructivos (END)',
     description:
-      'Ultrasonido (UT), Radiografía (RT), Líquidos Penetrantes (PT), Partículas Magnéticas (MT) y más.',
+      'Ultrasonido (UT), Radiografía (RT), Líquidos Penetrantes (PT), Partículas Magnéticas (MT) e Inspección Visual.',
     href: '/servicios/ndt',
     icon: ScanLine,
     image: '/images/proyectos/tintes-penetrantes.jpg',
   },
+  {
+    title: 'Equipos de Izamiento y Carga',
+    description:
+      'Inspección y certificación de conformidad de equipos de izamiento y carga pesada.',
+    href: '/servicios/izamiento',
+    icon: Ship, // Using Ship or another appropriate icon as fallback
+    image: '/Fotos_Proyectos/proyecto-6.jpg',
+  },
+  {
+    title: 'Inspección de Equipos Especiales',
+    description:
+      'Máquinas de soldar, compresores de aire, plantas eléctricas, luminarias y otros equipos especiales.',
+    href: '/servicios/especiales',
+    icon: Fuel, // Using fallback icon
+    image: '/Fotos_Proyectos/proyecto-5.jpg',
+  },
+  {
+    title: 'Equipos de Emergencia Aeronáutica y Marítima',
+    description:
+      'Servicios especializados de mantenimiento y certificación para chalecos salvavidas, balsas y toboganes de evacuación.',
+    href: '/servicios/emergencia',
+    icon: Plane, // Using fallback icon
+    image: '/Fotos_Proyectos/proyecto-3.jpg',
+  }
 ];
 
 export default function Services() {
@@ -107,7 +131,7 @@ export default function Services() {
               <span className="block text-sinpetca-blue">Para Cada Industria</span>
             </h2>
             <p className="text-text-secondary max-w-xl text-sm sm:text-base">
-              Ofrecemos servicios especializados de inspección y ensayos no destructivos
+              Ofrecemos servicios especializados de inspección y ensayos no destructivos (END)
               adaptados a las necesidades específicas de cada sector industrial.
             </p>
           </div>

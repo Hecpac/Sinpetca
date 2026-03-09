@@ -11,7 +11,7 @@ import { Building2, Award, Users, Globe, Rocket, Target } from 'lucide-react';
 
 const milestones = [
   {
-    year: '1988',
+    year: '2012',
     title: 'Fundación de SINPETCA',
     description:
       'Nace Servicios de Inspección Petrolera C.A. en Venezuela, con la visión de proveer servicios de inspección de alta calidad para la industria petrolera nacional.',
@@ -19,47 +19,32 @@ const milestones = [
     highlight: true,
   },
   {
-    year: '1992',
+    year: '2014-2016',
     title: 'Expansión de Servicios',
     description:
-      'Ampliamos nuestro portafolio incluyendo ensayos no destructivos (NDT) y servicios de inspección para la industria petroquímica.',
+      'Ampliando nuestro portafolio. Participación masiva en proyectos estratégicos como el Proyecto MSUP en Petrocedeño y la Planta de Nitrógeno en la Refinería Puerto La Cruz.',
     icon: Rocket,
   },
   {
-    year: '1998',
-    title: 'Primera Década',
-    description:
-      'Celebramos 10 años consolidándonos como referente en inspección industrial, con presencia en las principales operaciones petroleras del país.',
-    icon: Award,
-  },
-  {
-    year: '2005',
+    year: '2017',
     title: 'Diversificación Industrial',
     description:
-      'Incorporamos servicios para los sectores naval y aeronáutico, ampliando significativamente nuestra cartera de clientes.',
+      'Incorporación en la certificación aeronáutica, expandiendo nuestros servicios hacia nuevas áreas de alta exigencia técnica.',
     icon: Globe,
   },
   {
-    year: '2012',
-    title: 'Acreditación ISO 17020',
+    year: '2022',
+    title: 'Primera Década',
     description:
-      'Obtenemos la acreditación como organismo de inspección Tipo A, reconocimiento internacional de nuestra competencia e imparcialidad.',
-    icon: Award,
-    highlight: true,
-  },
-  {
-    year: '2018',
-    title: '30 Años de Excelencia',
-    description:
-      'Tres décadas de servicio ininterrumpido, habiendo completado más de 5,000 proyectos de inspección en múltiples sectores industriales.',
+      'Celebramos nuestros primeros 10 años consolidándonos como referente en inspección industrial y servicios continuos.',
     icon: Target,
   },
   {
     year: '2024',
-    title: 'Liderazgo Continuo',
+    title: 'Sistema de Gestión de Calidad ISO 17020',
     description:
-      'Seguimos a la vanguardia con tecnología de última generación, equipo altamente certificado y compromiso inquebrantable con la calidad.',
-    icon: Users,
+      'Inicio de implementación con el sistema de gestión de calidad bajo la norma ISO 17020.',
+    icon: Award,
     highlight: true,
   },
 ];
@@ -93,7 +78,7 @@ export default function CompanyTimeline() {
             Nuestra Trayectoria
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            Más de <span className="text-sinpetca-orange">35 Años</span> de Historia
+            Nuestra <span className="text-sinpetca-orange">Historia</span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
             Un recorrido de crecimiento constante, innovación y compromiso con la excelencia
