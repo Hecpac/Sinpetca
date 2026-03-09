@@ -33,8 +33,7 @@ const mainNavLinks = [
   { href: '/servicios', label: 'Servicios', hasDropdown: true },
   { href: '/certificaciones', label: 'Certificaciones' },
   { href: '/proyectos', label: 'Proyectos' },
-  { href: '/formularios', label: 'Formularios' },
-  { href: '/contacto', label: 'Contacto' },
+   { href: '/contacto', label: 'Contacto' },
 ];
 
 // Services mega menu configuration
