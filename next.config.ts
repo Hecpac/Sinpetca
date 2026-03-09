@@ -42,6 +42,14 @@ const securityHeaders = [
   },
 ];
 
+/**
+ * Next.js Configuration - SINPETCA
+ *
+ * Configures image optimization, security headers, and redirects.
+ * - Image formats: AVIF and WebP for modern browsers
+ * - Security headers: CSP, HSTS, COOP, and frame-ancestors
+ * - Redirect: www subdomain consolidation for canonical domain authority
+ */
 const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -70,6 +78,22 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: securityHeaders,
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        destination: 'https://www.sinpetca.com/:path*',
+        basePath: false,
+        permanent: true,
+        has: [
+          {
+            type: 'host',
+            value: 'sinpetca.com',
+          },
+        ],
       },
     ];
   },

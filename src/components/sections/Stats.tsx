@@ -2,11 +2,14 @@
 
 /**
  * Stats Section Component - SINPETCA
- * 
+ *
  * Features:
  * - Animated counter on scroll into view
  * - Industrial design with accent borders
  * - Responsive grid layout
+ *
+ * @component
+ * @returns {React.ReactElement} Stats grid with animated counters
  */
 
 import { useEffect, useState, useRef } from 'react';
@@ -31,7 +34,7 @@ const stats = [
     icon: Briefcase,
   },
   {
-    value: 5,
+    value: 50,
     suffix: '+',
     label: 'Profesionales Certificados',
     description: 'Expertos en NDT y inspección industrial',
@@ -46,21 +49,25 @@ const stats = [
   },
 ];
 
-// Animated counter hook
-// Initializes with `end` so SSR/initial HTML renders the real value (not 0).
-// On the client, after the section scrolls into view, resets to 0 and animates up.
+/**
+ * Custom hook for animated counter animation using requestAnimationFrame.
+ *
+ * @param {number} end - Target value for the counter
+ * @param {number} [duration=2000] - Animation duration in milliseconds
+ * @param {boolean} [start=false] - Whether to start the animation
+ * @returns {number} Current animated counter value
+ */
 function useCounter(end: number, duration: number = 2000, start: boolean = false) {
-  const [count, setCount] = useState(end); // SSR renders real value
-  const hasAnimated = useRef(false);
+  const [count, setCount] = useState(0);
+  const countRef = useRef(0);
   const prefersReducedMotion = useReducedMotion();
+  const shouldAnimate = start && !prefersReducedMotion;
 
   useEffect(() => {
-    if (!start || hasAnimated.current || prefersReducedMotion) return;
-    hasAnimated.current = true;
+    if (!shouldAnimate) return;
 
-    // Reset to 0 then animate up to end
-    setCount(0);
     const startTime = Date.now();
+    const startValue = 0;
 
     const updateCount = () => {
       const now = Date.now();
@@ -68,9 +75,12 @@ function useCounter(end: number, duration: number = 2000, start: boolean = false
 
       // Easing function (ease-out)
       const easeOut = 1 - Math.pow(1 - progress, 3);
-      const currentValue = Math.floor(end * easeOut);
+      const currentValue = Math.floor(startValue + (end - startValue) * easeOut);
 
-      setCount(currentValue);
+      if (currentValue !== countRef.current) {
+        countRef.current = currentValue;
+        setCount(currentValue);
+      }
 
       if (progress < 1) {
         requestAnimationFrame(updateCount);
@@ -80,12 +90,24 @@ function useCounter(end: number, duration: number = 2000, start: boolean = false
     };
 
     requestAnimationFrame(updateCount);
-  }, [end, duration, start, prefersReducedMotion]);
+  }, [end, duration, shouldAnimate]);
+
+  if (prefersReducedMotion && start) {
+    return end;
+  }
 
   return count;
 }
 
-// Individual stat card component
+/**
+ * Individual stat card displaying a counter, icon, label and description.
+ *
+ * @param {Object} props - Component props
+ * @param {Object} props.stat - Stat configuration object with value, label, icon, etc.
+ * @param {number} props.index - Card index for staggered animation
+ * @param {boolean} props.isInView - Whether the stat card is currently visible in viewport
+ * @returns {React.ReactElement} Animated stat card with counter and icon
+ */
 function StatCard({
   stat,
   index,
@@ -141,6 +163,11 @@ function StatCard({
   );
 }
 
+/**
+ * Renders the Statistics section with animated counters and parallax effects.
+ *
+ * @returns {React.ReactElement} Stats section with grid of animated stat cards
+ */
 export default function Stats() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -187,7 +214,7 @@ export default function Stats() {
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
             Décadas de compromiso con la calidad y la seguridad industrial nos posicionan como
-            líderes en inspección y ensayos no destructivos (END).
+            líderes en inspección y ensayos no destructivos.
           </p>
         </motion.div>
 

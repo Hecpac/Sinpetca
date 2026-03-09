@@ -2,7 +2,7 @@
 
 /**
  * Hero Section Component - SINPETCA
- * 
+ *
  * Features:
  * - Full-viewport hero with 3D industrial machinery background
  * - Gradient overlay for text readability
@@ -10,6 +10,9 @@
  * - Floating particles/elements for industrial aesthetic
  * - Dual CTA buttons for lead generation
  * - Scroll indicator animation
+ *
+ * @component
+ * @returns {React.ReactElement} Hero section with animated headline, CTAs, and trust badges
  */
 
 import { useRef } from 'react';
@@ -73,6 +76,11 @@ const trustBadges = [
   { icon: Clock, label: '24/7', sublabel: 'Disponibilidad' },
 ];
 
+/**
+ * Renders the Hero section with parallax background, animated content, and CTAs.
+ *
+ * @returns {React.ReactElement} Fully animated hero section with background video, text, and buttons
+ */
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
