@@ -51,7 +51,7 @@ const timelineEvents: TimelineEvent[] = [
     year: '2002',
     title: 'Expansión de Servicios NDT',
     description:
-      'Ampliación del alcance de servicios de ensayos no destructivos con nuevas técnicas y equipos.',
+      'Ampliación del alcance de servicios de ensayos no destructivos (END) con nuevas técnicas y equipos.',
     certification: 'ASNT SNT-TC-1A',
   },
   {
@@ -74,7 +74,7 @@ const timelineEvents: TimelineEvent[] = [
     year: '2016',
     title: 'Certificación Aeronáutica',
     description:
-      'Habilitación por la autoridad aeronáutica para realizar ensayos no destructivos en componentes de aviación.',
+      'Habilitación por la autoridad aeronáutica para realizar ensayos no destructivos (END) en componentes de aviación.',
     certification: '',
   },
   {
@@ -136,7 +136,7 @@ const certifications: CertificationDetails[] = [
       'Inspección de tanques de almacenamiento',
       'Inspección de tuberías y ductos',
       'Inspección de equipos a presión',
-      'Ensayos no destructivos (NDT)',
+      'Ensayos no destructivos (END)',
       'Inspección de estructuras metálicas',
     ],
     benefits: [

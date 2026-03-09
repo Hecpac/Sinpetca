@@ -63,7 +63,7 @@ const whyChooseUs = [
     icon: Globe,
     title: 'Cobertura Integral',
     description:
-      'Servicios para los sectores petrolero, naval, aeronáutico y de ensayos no destructivos.',
+      'Servicios para los sectores petrolero, naval, aeronáutico y de ensayos no destructivos (END).',
   },
   {
     icon: CheckCircle,

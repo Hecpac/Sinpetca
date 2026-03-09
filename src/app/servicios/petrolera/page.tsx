@@ -94,7 +94,7 @@ const processSteps = [
   {
     number: '02',
     title: 'Inspección',
-    description: 'Ejecución de ensayos no destructivos y evaluaciones según los códigos y normas aplicables.',
+    description: 'Ejecución de ensayos no destructivos (END) y evaluaciones según los códigos y normas aplicables.',
     iconName: 'Search',
   },
   {

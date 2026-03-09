@@ -13,7 +13,7 @@ import ExperienceMatrix from '@/components/projects/ExperienceMatrix';
 export const metadata: Metadata = {
   title: 'Proyectos',
   description:
-    'Galería de proyectos exitosos de inspección industrial y ensayos no destructivos. Casos de éxito en petrolera, naval y aeronáutica.',
+    'Galería de proyectos exitosos de inspección industrial y ensayos no destructivos (END). Casos de éxito en petrolera, naval y aeronáutica.',
   alternates: {
     canonical: 'https://sinpetca.com/proyectos',
   },

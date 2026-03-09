@@ -2,7 +2,7 @@
 
 /**
  * Hero Section Component - SINPETCA
- * 
+ *
  * Features:
  * - Full-viewport hero with 3D industrial machinery background
  * - Gradient overlay for text readability
@@ -10,6 +10,9 @@
  * - Floating particles/elements for industrial aesthetic
  * - Dual CTA buttons for lead generation
  * - Scroll indicator animation
+ *
+ * @component
+ * @returns {React.ReactElement} Hero section with animated headline, CTAs, and trust badges
  */
 
 import { useRef } from 'react';
@@ -73,6 +76,11 @@ const trustBadges = [
   { icon: Clock, label: '24/7', sublabel: 'Disponibilidad' },
 ];
 
+/**
+ * Renders the Hero section with parallax background, animated content, and CTAs.
+ *
+ * @returns {React.ReactElement} Fully animated hero section with background video, text, and buttons
+ */
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -163,7 +171,7 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-sinpetca-orange/10 border border-sinpetca-orange/30 rounded-full text-sinpetca-orange text-sm font-medium">
               <span className="w-2 h-2 bg-sinpetca-orange rounded-full animate-pulse" />
-              Líderes en Inspección Industrial desde 1989
+              Líderes en Inspección Industrial y NDT desde 2012
             </span>
           </motion.div>
 
@@ -183,7 +191,7 @@ export default function Hero() {
             className="text-lg md:text-xl text-text-secondary max-w-2xl mb-8 leading-relaxed"
           >
             Servicios especializados de{' '}
-            <span className="text-text-primary font-medium">Ensayos No Destructivos</span> y{' '}
+            <span className="text-text-primary font-medium">Ensayos No Destructivos (END)</span> y{' '}
             <span className="text-text-primary font-medium">Certificación Industrial</span> para
             los sectores Petrolero, Naval y Aeronáutico. Certificados ISO 17020.
           </motion.p>

@@ -102,7 +102,7 @@ const projectsData = {
     client: 'Complejo Termoeléctrico Antonio José de Sucre',
     location: 'Estado Sucre',
     duration: 'Inspección Programada',
-    services: ['Inspección Visual', 'Ensayos No Destructivos', 'Evaluación Estructural'],
+    services: ['Inspección Visual', 'Ensayos No Destructivos (END)', 'Evaluación Estructural'],
     results: [
       'Garantía de integridad estructural de las toberas',
       'Prevención de fugas o fallas críticas',
