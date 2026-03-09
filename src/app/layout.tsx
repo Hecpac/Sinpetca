@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: '%s | SINPETCA, C.A.',
   },
   description:
-    'Empresa líder en inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. Certificados ISO 17020 y OMAC-N 667. Más de 35 años de experiencia en Venezuela e internacionalmente.',
+    'Empresa líder en inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. Certificados ISO 17020. Más de 12 años de experiencia en Venezuela e internacionalmente.',
   keywords: [
     'inspección industrial',
     'ensayos no destructivos',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     'líquidos penetrantes',
     'partículas magnéticas',
     'ISO 17020',
-    'OMAC',
+    '',
     'API',
     'ASME',
     'Venezuela',

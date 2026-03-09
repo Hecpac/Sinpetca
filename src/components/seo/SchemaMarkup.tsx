@@ -32,12 +32,12 @@ import type {
  */
 export const SchemaMarkup = memo(function SchemaMarkup({ type, data }: SchemaMarkupProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { '@type': _existingType, ...restData } = data as unknown as Record<string, unknown>;
+  const { '@type': _existingType,...restData } = data as unknown as Record<string, unknown>;
   
   const schemaData = {
     '@context': 'https://schema.org',
     '@type': type,
-    ...restData,
+   ...restData,
   };
 
   return (
@@ -61,10 +61,10 @@ export const MultiSchemaMarkup = memo(function MultiSchemaMarkup({
     '@context': 'https://schema.org',
     '@graph': schemas.map(({ type, data }) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { '@type': _existingType, ...restData } = data as unknown as Record<string, unknown>;
+      const { '@type': _existingType,...restData } = data as unknown as Record<string, unknown>;
       return {
         '@type': type,
-        ...restData,
+       ...restData,
       };
     }),
   };
@@ -147,7 +147,7 @@ export const BreadcrumbMarkup = memo(function BreadcrumbMarkup({ items }: Breadc
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      ...(item.url && { item: item.url }),
+     ...(item.url && { item: item.url }),
     })),
   };
 
@@ -212,7 +212,7 @@ export const CompletePageSchema = memo(function CompletePageSchema({
         '@type': 'ListItem',
         position: index + 1,
         name: item.name,
-        ...(item.url && { item: item.url }),
+       ...(item.url && { item: item.url }),
       })),
     };
     schemas.push({ type: 'Breadcrumb', data: breadcrumbData });

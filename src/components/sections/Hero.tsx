@@ -69,7 +69,7 @@ const pulseVariants = {
 // Trust badges data
 const trustBadges = [
   { icon: Shield, label: 'ISO 17020', sublabel: 'Certificado' },
-  { icon: Award, label: '+35 Años', sublabel: 'Experiencia' },
+  { icon: Award, label: '+12 Años', sublabel: 'Experiencia' },
   { icon: Clock, label: '24/7', sublabel: 'Disponibilidad' },
 ];
 
@@ -185,7 +185,7 @@ export default function Hero() {
             Servicios especializados de{' '}
             <span className="text-text-primary font-medium">Ensayos No Destructivos</span> y{' '}
             <span className="text-text-primary font-medium">Certificación Industrial</span> para
-            los sectores Petrolero, Naval y Aeronáutico. Certificados ISO 17020 y OMAC-N 667.
+            los sectores Petrolero, Naval y Aeronáutico. Certificados ISO 17020.
           </motion.p>
 
           {/* CTA Buttons */}

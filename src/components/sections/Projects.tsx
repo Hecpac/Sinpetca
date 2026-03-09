@@ -18,46 +18,46 @@ import Link from 'next/link';
 // Projects data
 const projects = [
   {
-    title: 'Inspección de Refinería',
+    title: 'Inspección de END (Eddy Current)',
     category: 'Industria Petrolera',
-    description: 'Evaluación integral de integridad mecánica en planta procesadora.',
-    image: '/Fotos_Proyectos/proyecto-1.jpg',
-    link: '/proyectos/refineria',
-  },
-  {
-    title: 'Certificación de Tuberías',
-    category: 'Infraestructura',
-    description: 'Inspección por ultrasonido avanzado en red de oleoductos.',
-    image: '/Fotos_Proyectos/proyecto-2.jpg',
+    description: 'INSPECCIÓN DE END MEDIANTE LA TECNICA DE EDDY CURRENT INSPECCIÓN VISUAL A COJINETES',
+    image: '/Fotos_Proyectos/WhatsApp Image 2026-03-05 at 11.18.01 AM.jpeg',
     link: '/proyectos/tuberias',
   },
   {
-    title: 'Mantenimiento Aeronáutico',
-    category: 'Industria Aeronáutica',
-    description: 'Ensayos no destructivos certificados OMAC-N 667 en fuselaje.',
-    image: '/Fotos_Proyectos/proyecto-3.jpg',
+    title: 'Inspección y Certificación de Grúa de Pedestal',
+    category: 'Industria Petrolera',
+    description: 'INSPECCIÓN Y CERTIFICACION DE GRUA DE PEDESTAL EN LA UNIDAD FLOTANTE WHP. EMPRESA PETROSUCRE UBICACIÓN GOLFO DE PARIA. SERVICIO DE TINTE INSPECCIÓN VISUAL.',
+    image: '/Fotos_Proyectos/proyecto-6.jpg',
     link: '/proyectos/aeronautica',
   },
   {
-    title: 'Evaluación de Tanques',
-    category: 'Industria Petrolera',
-    description: 'Inspección bajo norma API 653 en terminal de almacenamiento.',
-    image: '/Fotos_Proyectos/proyecto-4.jpg',
-    link: '/proyectos/tanques',
+    title: 'Inspección y Calibración de Máquinas de Soldar',
+    category: 'Equipos Especiales',
+    description: 'INSPECCIÓN Y CALIBRACION DE MAQUINAS DE SOLDAR EMPRESA PETROSYSTEM',
+    image: '/Fotos_Proyectos/WhatsApp Image 2025-12-17 at 12.28.18 PM.jpeg',
+    link: '/proyectos/alabes-turbina',
   },
   {
-    title: 'Inspección de Motores',
-    category: 'Industria Aeronáutica',
-    description: 'Análisis boroscópico en turbinas de aviación comercial.',
-    image: '/Fotos_Proyectos/proyecto-5.jpg',
+    title: 'Inspección y Certificación de Grúa de Pedestal',
+    category: 'Industria Petrolera',
+    description: 'INSPECCIÓN Y CERTIFICACION DE GRUA DE PEDESTAL EN LA UNIDAD FLOTANTE WHP .EMPRESA PETROSUCRE UBICACIÓN GOLFO DE PARIA  SERVICIO DE TINTE INSPECCIÓN VISUAL',
+    image: '/Fotos_Proyectos/proyecto-3.jpg',
+    link: '/proyectos/grua-puente',
+  },
+  {
+    title: 'Inspección de Grúa Puente',
+    category: 'Aeronáutica',
+    description: 'INSPECCIÓN DE GRUA PUENTE EMPRESA TRANSPORTE AEREO UNICA SAN TOME. TECNI INSPECCIÓN VISUAL TINTE PENETRANTES.',
+    image: '/Fotos_Proyectos/proyecto-7.png',
     link: '/proyectos/motores',
   },
   {
-    title: 'Estructuras Metálicas',
-    category: 'Industria Naval',
-    description: 'Medición de espesores en cascos y plataformas offshore.',
-    image: '/Fotos_Proyectos/proyecto-6.jpg',
-    link: '/proyectos/estructuras',
+    title: 'EVALUACION NO DESTRUCTIVA ESTRUCTURAL A TOBERAS',
+    category: 'Generación Eléctrica',
+    description: 'EVALUACION NO DESTRUCTIVA ESTRUCTURAL A TOBERAS UNIDAD AJS-01 SERIAL No. 298957 “COMPLEJO TERMOELÉCTRICO ANTONIO JOSE DE SUCRE” bajo la empresa contratante G&G 1726, C.A. UB ESTADO SUCRE',
+    image: '/Fotos_Proyectos/proyecto-8.jpg',
+    link: '/proyectos/toberas',
   },
 ];
 
@@ -157,7 +157,7 @@ export default function Projects() {
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sinpetca-orange transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-6 line-clamp-3">
+                <p className="text-gray-400 text-sm mb-6">
                   {project.description}
                 </p>
                 <Link

@@ -16,12 +16,12 @@ import ServiceFAQ from '@/components/services/ServiceFAQ';
 import ServiceCTA from '@/components/services/ServiceCTA';
 
 export const metadata: Metadata = {
-  title: 'Servicios de Inspección Aeronáutica | OMAC-N 667',
+  title: 'Servicios de Inspección Aeronáutica | ',
   description:
-    'Servicios de ensayos no destructivos certificados OMAC-N 667 para la industria aeronáutica. Inspección de componentes estructurales, motores, trenes de aterrizaje y materiales compuestos.',
+    'Servicios de ensayos no destructivos certificados  para la industria aeronáutica. Inspección de componentes estructurales, motores, trenes de aterrizaje y materiales compuestos.',
   keywords: [
     'inspección aeronáutica',
-    'OMAC',
+    '',
     'NDT aviación',
     'certificación aeronáutica',
     'inspección aeronaves',
@@ -93,7 +93,7 @@ const processSteps = [
   {
     number: '02',
     title: 'NDT Especializado',
-    description: 'Aplicación de técnicas de ensayos no destructivos específicas para aviación según estándares OMAC.',
+    description: 'Aplicación de técnicas de ensayos no destructivos específicas para aviación según estándares.',
     iconName: 'Search',
   },
   {
@@ -113,8 +113,8 @@ const processSteps = [
 // FAQs
 const faqs = [
   {
-    question: '¿Qué es la certificación OMAC-N 667?',
-    answer: 'OMAC-N 667 es la certificación otorgada por la Oficina de Mantenimiento Aeronáutico Civil de Venezuela que autoriza a organizaciones a realizar ensayos no destructivos en componentes aeronáuticos. Esta certificación garantiza que cumplimos con los estándares de calidad y seguridad requeridos por la aviación civil.',
+    question: '¿Qué es la certificación ?',
+    answer: ' es la certificación otorgada por la Oficina de Mantenimiento Aeronáutico Civil de Venezuela que autoriza a organizaciones a realizar ensayos no destructivos en componentes aeronáuticos. Esta certificación garantiza que cumplimos con los estándares de calidad y seguridad requeridos por la aviación civil.',
   },
   {
     question: '¿Qué métodos NDT utilizan para aviación?',
@@ -126,7 +126,7 @@ const faqs = [
   },
   {
     question: '¿Qué documentación entregan después de la inspección?',
-    answer: 'Entregamos documentación completa que incluye: Certificado de inspección OMAC, reporte técnico detallado con metodología utilizada, registro de indicaciones encontradas, fotografías y/o imágenes de ultrasonido cuando aplica, y recomendaciones de acción si se detectan defectos. Toda la documentación cumple con los requisitos de trazabilidad aeronáutica.',
+    answer: 'Entregamos documentación completa que incluye: Certificado de inspección, reporte técnico detallado con metodología utilizada, registro de indicaciones encontradas, fotografías y/o imágenes de ultrasonido cuando aplica, y recomendaciones de acción si se detectan defectos. Toda la documentación cumple con los requisitos de trazabilidad aeronáutica.',
   },
   {
     question: '¿Realizan inspecciones in-situ o solo en su laboratorio?',
@@ -152,9 +152,9 @@ export default function AeronauticaPage() {
       <ServiceHero
         title="Industria"
         highlight="Aeronáutica"
-        description="Ensayos no destructivos certificados OMAC-N 667 para garantizar la seguridad y aeronavegabilidad de componentes y estructuras aeronáuticas. Precisión crítica para la aviación."
+        description="Ensayos no destructivos certificados  para garantizar la seguridad y aeronavegabilidad de componentes y estructuras aeronáuticas. Precisión crítica para la aviación."
         iconName="Plane"
-        certifications={['OMAC-N 667', 'ASNT', 'NAS 410']}
+        certifications={['', 'ASNT', 'NAS 410']}
         backgroundGradient="blue"
       />
 
@@ -182,7 +182,7 @@ export default function AeronauticaPage() {
       {/* CTA Section */}
       <ServiceCTA
         title="¿Necesita inspección aeronáutica certificada?"
-        description="Contáctenos para programar ensayos no destructivos de sus componentes aeronáuticos con certificación OMAC."
+        description="Contáctenos para programar ensayos no destructivos de sus componentes aeronáuticos con certificación."
       />
     </>
   );

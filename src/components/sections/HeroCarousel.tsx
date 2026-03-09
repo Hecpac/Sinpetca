@@ -57,7 +57,7 @@ const slides: Slide[] = [
     eyebrow: 'INSPECCIÓN INDUSTRIAL',
     headline: 'Precisión y Confiabilidad en Cada Inspección',
     description:
-      'Más de 35 años garantizando la integridad de activos industriales con tecnología de vanguardia y certificaciones internacionales.',
+      'Más de 12 años garantizando la integridad de activos industriales con tecnología de vanguardia y certificaciones internacionales.',
     ctaText: 'Solicitar Cotización',
     ctaLink: '/contacto',
     backgroundImage: '/images/hero/hero-ndt.jpg',
@@ -381,7 +381,7 @@ export default function HeroCarousel() {
                       <span className="text-text-primary text-xs sm:text-sm font-medium">
                         Calificación 4.9/5
                       </span>
-                      <span className="text-text-muted text-xs sm:text-sm">de +500 proyectos</span>
+                      <span className="text-text-muted text-xs sm:text-sm">de 127 proyectos</span>
                     </div>
 
                     {/* Separator */}
@@ -454,7 +454,7 @@ export default function HeroCarousel() {
         </div>
         <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg">
           <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sinpetca-orange" />
-          <span className="text-text-primary text-[10px] sm:text-xs font-medium">+35 Años</span>
+          <span className="text-text-primary text-[10px] sm:text-xs font-medium">+12 Años</span>
         </div>
       </div>
 
