@@ -128,7 +128,7 @@ const projectsData = {
     title: 'Inspección de Equipos de Izamiento',
     category: 'Equipos Especiales',
     description: 'Inspección y certificación de conformidad de equipos de izamiento y carga, incluyendo pruebas a maquinaria especializada. Aseguramiento de la operatividad segura en maniobras críticas.',
-    image: '/Fotos_Proyectos/·Inspección De Equipos de Izamiento Y Carga. ·Inspección de Conformidad de equipos Especiales. (Máquinas de Soldar, Compresores de Aire, Plantas Generadores Eléctricos, Plantas Iluminarias, Equipo.png',
+    image: '/Fotos_Proyectos/proyecto-izamiento-especiales.png',
     client: 'Constructora Industrial',
     location: 'Varios Sitios',
     duration: 'Anual',
