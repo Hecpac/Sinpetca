@@ -7,7 +7,8 @@
 
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://sinpetca.com';
+// Must match sitemap.ts — www is the canonical domain
+const BASE_URL = 'https://www.sinpetca.com';
 
 export default function robots(): MetadataRoute.Robots {
   return {

@@ -48,6 +48,23 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1600, 1920],
     qualities: [70, 75],
   },
+  async redirects() {
+    return [
+      // 301 redirect: sinpetca.com → www.sinpetca.com (consolidate domain authority)
+      {
+        source: '/:path*',
+        destination: 'https://www.sinpetca.com/:path*',
+        basePath: false,
+        permanent: true, // HTTP 301
+        has: [
+          {
+            type: 'host',
+            value: 'sinpetca.com',
+          },
+        ],
+      },
+    ];
+  },
   async headers() {
     return [
       {

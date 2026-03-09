@@ -47,17 +47,20 @@ const stats = [
 ];
 
 // Animated counter hook
+// Initializes with `end` so SSR/initial HTML renders the real value (not 0).
+// On the client, after the section scrolls into view, resets to 0 and animates up.
 function useCounter(end: number, duration: number = 2000, start: boolean = false) {
-  const [count, setCount] = useState(0);
-  const countRef = useRef(0);
+  const [count, setCount] = useState(end); // SSR renders real value
+  const hasAnimated = useRef(false);
   const prefersReducedMotion = useReducedMotion();
-  const shouldAnimate = start && !prefersReducedMotion;
 
   useEffect(() => {
-    if (!shouldAnimate) return;
+    if (!start || hasAnimated.current || prefersReducedMotion) return;
+    hasAnimated.current = true;
 
+    // Reset to 0 then animate up to end
+    setCount(0);
     const startTime = Date.now();
-    const startValue = 0;
 
     const updateCount = () => {
       const now = Date.now();
@@ -65,12 +68,9 @@ function useCounter(end: number, duration: number = 2000, start: boolean = false
 
       // Easing function (ease-out)
       const easeOut = 1 - Math.pow(1 - progress, 3);
-      const currentValue = Math.floor(startValue + (end - startValue) * easeOut);
+      const currentValue = Math.floor(end * easeOut);
 
-      if (currentValue !== countRef.current) {
-        countRef.current = currentValue;
-        setCount(currentValue);
-      }
+      setCount(currentValue);
 
       if (progress < 1) {
         requestAnimationFrame(updateCount);
@@ -80,11 +80,7 @@ function useCounter(end: number, duration: number = 2000, start: boolean = false
     };
 
     requestAnimationFrame(updateCount);
-  }, [end, duration, shouldAnimate]);
-
-  if (prefersReducedMotion && start) {
-    return end;
-  }
+  }, [end, duration, start, prefersReducedMotion]);
 
   return count;
 }

@@ -163,7 +163,7 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-sinpetca-orange/10 border border-sinpetca-orange/30 rounded-full text-sinpetca-orange text-sm font-medium">
               <span className="w-2 h-2 bg-sinpetca-orange rounded-full animate-pulse" />
-              Líderes en Inspección Industrial desde 1989
+              Líderes en Inspección Industrial y NDT desde 2012
             </span>
           </motion.div>
 
