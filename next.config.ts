@@ -81,22 +81,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        destination: 'https://www.sinpetca.com/:path*',
-        basePath: false,
-        permanent: true,
-        has: [
-          {
-            type: 'host',
-            value: 'sinpetca.com',
-          },
-        ],
-      },
-    ];
-  },
 };
 
 export default nextConfig;
