@@ -26,7 +26,7 @@ const clients = [
 ];
 
 // Duplicate for seamless infinite scroll
-const duplicatedClients = [...clients, ...clients];
+const duplicatedClients = [...clients,...clients];
 
 export default function Clients() {
   const ref = useRef(null);
@@ -150,10 +150,10 @@ export default function Clients() {
             transform: translateX(-50%);
           }
         }
-        .animate-scroll {
+       .animate-scroll {
           animation: scroll 30s linear infinite;
         }
-        .animate-scroll:hover {
+       .animate-scroll:hover {
           animation-play-state: paused;
         }
       `}</style>

@@ -14,14 +14,14 @@ import CertificationsPageContent from './CertificationsPageContent';
 export const metadata: Metadata = {
   title: 'Certificaciones',
   description:
-    'Certificaciones y acreditaciones de SINPETCA: ISO 17020, OMAC-N 667, API, ASME. Más de 35 años garantizando calidad y cumplimiento con estándares internacionales.',
+    'Certificaciones y cumplimiento normativo de SINPETCA: ISO 17020, ASME Serie B30, AWS, ASME Sec 5, API 4G, API 650. Más de 12 años garantizando calidad y cumplimiento con estándares internacionales.',
   alternates: {
     canonical: 'https://sinpetca.com/certificaciones',
   },
   openGraph: {
     title: 'Certificaciones | SINPETCA',
     description:
-      'Conozca nuestras certificaciones internacionales que respaldan más de 35 años de excelencia en inspección industrial.',
+      'Conozca nuestras certificaciones internacionales que respaldan Más de 12 años de excelencia en inspección industrial.',
     type: 'website',
   },
 };

@@ -94,7 +94,7 @@ const processSteps = [
   {
     number: '02',
     title: 'Inspección',
-    description: 'Ejecución de ensayos no destructivos y evaluaciones según los códigos y normas aplicables.',
+    description: 'Ejecución de ensayos no destructivos (END) y evaluaciones según los códigos y normas aplicables.',
     iconName: 'Search',
   },
   {
@@ -131,7 +131,7 @@ const faqs = [
   },
   {
     question: '¿Qué certificaciones tienen sus inspectores?',
-    answer: 'Nuestros inspectores cuentan con certificaciones API 510 (Recipientes a Presión), API 570 (Tuberías), API 653 (Tanques), así como certificaciones ASNT Nivel II y III en diversos métodos NDT. Además, mantenemos acreditación ISO 17020 como organismo de inspección.',
+    answer: 'Nuestros inspectores cuentan con certificaciones API 510 (Recipientes a Presión), API 570 (Tuberías), API 653 (Tanques), así como certificaciones ASNT Nivel II y III en diversos métodos NDT. Además, mantenemos certificación ISO 17020 como organismo de inspección.',
   },
 ];
 
@@ -153,7 +153,7 @@ export default function PetroleraPage() {
       <ServiceHero
         title="Industria"
         highlight="Petrolera"
-        description="Servicios especializados de inspección bajo normas API y ASME para garantizar la integridad y seguridad de sus instalaciones petroleras. Más de 35 años de experiencia en el sector."
+        description="Servicios especializados de inspección garantizando la integridad y seguridad de sus instalaciones petroleras mediante las normas ASME Serie B30, AWS, ASME Sección 5, API 4G y API 650. Más de 12 años de experiencia en el sector."
         iconName="Fuel"
         certifications={['API 510', 'API 570', 'API 653', 'ASME']}
         backgroundGradient="navy"

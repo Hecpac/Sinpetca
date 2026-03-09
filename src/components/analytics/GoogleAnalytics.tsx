@@ -8,7 +8,7 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
  * Google Analytics 4 Component
  *
  * Only renders if NEXT_PUBLIC_GA_MEASUREMENT_ID is set in environment variables.
- * Add your GA4 Measurement ID to .env.local to enable tracking.
+ * Add your GA4 Measurement ID to.env.local to enable tracking.
  */
 export default function GoogleAnalytics() {
   if (!GA_MEASUREMENT_ID) {
