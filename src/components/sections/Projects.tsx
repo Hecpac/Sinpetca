@@ -18,52 +18,51 @@ import Link from 'next/link';
 // Projects data
 const projects = [
   {
-    title: 'Inspección de Refinería',
+    title: 'Inspección de END (Eddy Current)',
     category: 'Industria Petrolera',
-    description: 'Evaluación integral de integridad mecánica en planta procesadora.',
-    image: '/Fotos_Proyectos/proyecto-1.jpg',
-    link: '/proyectos/refineria',
-  },
-  {
-    title: 'Certificación de Tuberías',
-    category: 'Infraestructura',
-    description: 'Inspección por ultrasonido avanzado en red de oleoductos.',
-    image: '/Fotos_Proyectos/proyecto-2.jpg',
+    description: 'Inspección de END mediante la técnica de Eddy Current. Inspección visual a cojinetes.',
+    image: '/Fotos_Proyectos/WhatsApp Image 2026-03-05 at 11.18.01 AM.jpeg',
     link: '/proyectos/tuberias',
   },
   {
-    title: 'Mantenimiento Aeronáutico',
-    category: 'Industria Aeronáutica',
-    description: 'Ensayos no destructivos certificados OMAC-N 667 en fuselaje.',
-    image: '/Fotos_Proyectos/proyecto-3.jpg',
+    title: 'Inspección y Certificación de Grúa de Pedestal',
+    category: 'Industria Petrolera',
+    description: 'Inspección y certificación de grúa de pedestal en la unidad flotante WHP. Empresa Petrosucre, Golfo de Paria. Servicio de tinte e inspección visual.',
+    image: '/Fotos_Proyectos/proyecto-6.jpg',
     link: '/proyectos/aeronautica',
   },
   {
-    title: 'Evaluación de Tanques',
-    category: 'Industria Petrolera',
-    description: 'Inspección bajo norma API 653 en terminal de almacenamiento.',
-    image: '/Fotos_Proyectos/proyecto-4.jpg',
-    link: '/proyectos/tanques',
+    title: 'Inspección y Calibración de Máquinas de Soldar',
+    category: 'Equipos Especiales',
+    description: 'Inspección y calibración de máquinas de soldar. Empresa Petrosystem.',
+    image: '/Fotos_Proyectos/WhatsApp Image 2025-12-17 at 12.28.18 PM.jpeg',
+    link: '/proyectos/alabes-turbina',
   },
   {
-    title: 'Inspección de Motores',
-    category: 'Industria Aeronáutica',
-    description: 'Análisis boroscópico en turbinas de aviación comercial.',
-    image: '/Fotos_Proyectos/proyecto-5.jpg',
+    title: 'Inspección y Certificación de Grúa de Pedestal',
+    category: 'Industria Petrolera',
+    description: 'Inspección y certificación de grúa de pedestal en la unidad flotante WHP. Empresa Petrosucre, Golfo de Paria. Servicio de tinte e inspección visual.',
+    image: '/Fotos_Proyectos/proyecto-3.jpg',
+    link: '/proyectos/grua-puente',
+  },
+  {
+    title: 'Inspección de Grúa Puente',
+    category: 'Aeronáutica',
+    description: 'Inspección de grúa puente. Empresa Transporte Aéreo Única, San Tomé. Técnicas de inspección visual y tinte penetrante.',
+    image: '/Fotos_Proyectos/proyecto-7.png',
     link: '/proyectos/motores',
   },
   {
-    title: 'Estructuras Metálicas',
-    category: 'Industria Naval',
-    description: 'Medición de espesores en cascos y plataformas offshore.',
-    image: '/Fotos_Proyectos/proyecto-6.jpg',
-    link: '/proyectos/estructuras',
+    title: 'Evaluación No Destructiva Estructural a Toberas',
+    category: 'Generación Eléctrica',
+    description: 'Evaluación no destructiva estructural a toberas, unidad AJS-01 (Serial No. 298957). Complejo Termoeléctrico Antonio José de Sucre, bajo empresa contratante G&G 1726, C.A., estado Sucre.',
+    image: '/Fotos_Proyectos/proyecto-8.jpg',
+    link: '/proyectos/toberas',
   },
 ];
 
 export default function Projects() {
   const ref = useRef<HTMLElement | null>(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
   const prefersReducedMotion = useReducedMotion();
 
   const containerVariants = {
@@ -125,13 +124,19 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          // Added pb-20 to give room for the last sticky card to scroll a bit
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-10 md:pb-0"
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.title}
               variants={itemVariants}
-              className="group relative bg-industrial-gray rounded-2xl overflow-hidden border border-white/5 hover:border-sinpetca-orange/30 transition-colors"
+              // Added sticky positioning and z-index for mobile parallax stacking
+              className="group relative bg-industrial-gray rounded-2xl overflow-hidden border border-white/5 hover:border-sinpetca-orange/30 transition-colors shadow-2xl md:shadow-none sticky md:relative"
+              style={{
+                top: `calc(100px + ${index * 20}px)`,
+                zIndex: index + 10,
+              }}
             >
               {/* Image Container */}
               <div className="relative h-64 w-full bg-black/20 overflow-hidden">
@@ -152,7 +157,7 @@ export default function Projects() {
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sinpetca-orange transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-6 line-clamp-3">
+                <p className="text-gray-400 text-sm mb-6">
                   {project.description}
                 </p>
                 <Link

@@ -2,11 +2,14 @@
 
 /**
  * Stats Section Component - SINPETCA
- * 
+ *
  * Features:
  * - Animated counter on scroll into view
  * - Industrial design with accent borders
  * - Responsive grid layout
+ *
+ * @component
+ * @returns {React.ReactElement} Stats grid with animated counters
  */
 
 import { useEffect, useState, useRef } from 'react';
@@ -17,15 +20,15 @@ import { useParallax } from '@/hooks/useParallax';
 // Stats data
 const stats = [
   {
-    value: 35,
+    value: 12,
     suffix: '+',
     label: 'Años de Experiencia',
-    description: 'Desde 1989 al servicio de la industria',
+    description: 'Desde 2012 al servicio de la industria',
     icon: TrendingUp,
   },
   {
-    value: 500,
-    suffix: '+',
+    value: 127,
+    suffix: '',
     label: 'Proyectos Completados',
     description: 'En sectores petrolero, naval y aeronáutico',
     icon: Briefcase,
@@ -41,12 +44,19 @@ const stats = [
     value: 4,
     suffix: '',
     label: 'Certificaciones Internacionales',
-    description: 'ISO 17020, OMAC, API, ASME',
+    description: 'ISO 17020, ASME, AWS, API',
     icon: Award,
   },
 ];
 
-// Animated counter hook
+/**
+ * Custom hook for animated counter animation using requestAnimationFrame.
+ *
+ * @param {number} end - Target value for the counter
+ * @param {number} [duration=2000] - Animation duration in milliseconds
+ * @param {boolean} [start=false] - Whether to start the animation
+ * @returns {number} Current animated counter value
+ */
 function useCounter(end: number, duration: number = 2000, start: boolean = false) {
   const [count, setCount] = useState(0);
   const countRef = useRef(0);
@@ -89,7 +99,15 @@ function useCounter(end: number, duration: number = 2000, start: boolean = false
   return count;
 }
 
-// Individual stat card component
+/**
+ * Individual stat card displaying a counter, icon, label and description.
+ *
+ * @param {Object} props - Component props
+ * @param {Object} props.stat - Stat configuration object with value, label, icon, etc.
+ * @param {number} props.index - Card index for staggered animation
+ * @param {boolean} props.isInView - Whether the stat card is currently visible in viewport
+ * @returns {React.ReactElement} Animated stat card with counter and icon
+ */
 function StatCard({
   stat,
   index,
@@ -145,6 +163,11 @@ function StatCard({
   );
 }
 
+/**
+ * Renders the Statistics section with animated counters and parallax effects.
+ *
+ * @returns {React.ReactElement} Stats section with grid of animated stat cards
+ */
 export default function Stats() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });

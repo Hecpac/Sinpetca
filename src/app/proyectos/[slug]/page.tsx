@@ -8,12 +8,12 @@ import type { Metadata } from 'next';
 // For now, we define it here to make the dynamic routes work.
 const projectsData = {
   'refineria': {
-    title: 'Inspección de Refinería',
-    category: 'Industria Petrolera',
-    description: 'Evaluación integral de integridad mecánica en planta procesadora. Realizamos un estudio exhaustivo utilizando técnicas de Ensayos No Destructivos (END) para asegurar la operatividad y extender la vida útil de los equipos críticos.',
+    title: 'Inspección a Cojinetes de Turbina',
+    category: 'Generación Eléctrica',
+    description: 'INSPECCIÓN A COJINETES DE TURBINA UNIDAD AJS-01 SERIAL No. 298957 “COMPLEJO TERMOELÉCTRICO ANTONIO JOSE DE SUCRE” bajo la empresa contratante G&G 1726, C.A. UB ESTADO SUCRE.',
     image: '/Fotos_Proyectos/proyecto-1.jpg',
-    client: 'Cliente Petrolero Confidencial',
-    location: 'Complejo Refinador',
+    client: 'G&G 1726, C.A.',
+    location: 'Estado Sucre',
     duration: '3 meses',
     services: ['Inspección Visual', 'Medición de Espesores', 'Ultrasonido Arreglo de Fases'],
     results: [
@@ -23,12 +23,12 @@ const projectsData = {
     ]
   },
   'tuberias': {
-    title: 'Certificación de Tuberías',
-    category: 'Infraestructura',
-    description: 'Inspección por ultrasonido avanzado en red de oleoductos. Despliegue de equipos de alta tecnología para la evaluación de cientos de kilómetros de tuberías de transporte de crudo.',
-    image: '/Fotos_Proyectos/proyecto-2.jpg',
-    client: 'Consorcio de Transporte',
-    location: 'Red Nacional',
+    title: 'Inspección de END (Eddy Current)',
+    category: 'Industria Petrolera',
+    description: 'INSPECCIÓN DE END MEDIANTE LA TECNICA DE EDDY CURRENT INSPECCIÓN VISUAL A COJINETES',
+    image: '/Fotos_Proyectos/WhatsApp Image 2026-03-05 at 11.18.01 AM.jpeg',
+    client: 'PETROSUCRE',
+    location: 'Golfo de Paria',
     duration: '6 meses',
     services: ['Ultrasonido Avanzado', 'Radiografía Digital', 'Mapeo de Corrosión'],
     results: [
@@ -38,55 +38,82 @@ const projectsData = {
     ]
   },
   'aeronautica': {
-    title: 'Mantenimiento Aeronáutico',
-    category: 'Industria Aeronáutica',
-    description: 'Ensayos no destructivos certificados OMAC-N 667 en fuselaje. Aplicación de técnicas especializadas para garantizar la seguridad de vuelo en flotas comerciales.',
-    image: '/Fotos_Proyectos/proyecto-3.jpg',
-    client: 'Aerolínea Comercial',
-    location: 'Hangar Principal',
+    title: 'Inspección y Certificación de Grúa de Pedestal',
+    category: 'Industria Petrolera',
+    description: 'INSPECCIÓN Y CERTIFICACION DE GRUA DE PEDESTAL EN LA UNIDAD FLOTANTE WHP. EMPRESA PETROSUCRE UBICACIÓN GOLFO DE PARIA. SERVICIO DE TINTE INSPECCIÓN VISUAL.',
+    image: '/Fotos_Proyectos/proyecto-6.jpg',
+    client: 'PETROSUCRE',
+    location: 'Golfo de Paria',
     duration: 'Mantenimiento Continuo',
-    services: ['Corrientes Inducidas', 'Líquidos Penetrantes', 'Ultrasonido en Compuestos'],
+    services: ['Tinte Penetrante', 'Inspección Visual'],
     results: [
-      'Mantenimiento certificado de 15 aeronaves',
-      'Aprobación de auditoría INAC sin no conformidades',
-      'Extensión de ciclos de vuelo seguros'
+      'Certificación de operatividad de grúa de pedestal',
+      'Cumplimiento con normativas de izamiento offshore'
     ]
   },
-  'tanques': {
-    title: 'Evaluación de Tanques',
-    category: 'Industria Petrolera',
-    description: 'Inspección bajo norma API 653 en terminal de almacenamiento. Evaluación completa de fondo, cuerpo y techo de tanques de almacenamiento de hidrocarburos de gran capacidad.',
-    image: '/Fotos_Proyectos/proyecto-4.jpg',
-    client: 'Terminal de Almacenamiento',
-    location: 'Planta de Distribución',
-    duration: '45 días',
-    services: ['Inspección API 653', 'Mapeo de Fondo MFL', 'Prueba de Vacío'],
+  'alabes-turbina': {
+    title: 'Inspección y Calibración de Máquinas de Soldar',
+    category: 'Equipos Especiales',
+    description: 'INSPECCIÓN Y CALIBRACION DE MAQUINAS DE SOLDAR EMPRESA PETROSYSTEM',
+    image: '/Fotos_Proyectos/WhatsApp Image 2025-12-17 at 12.28.18 PM.jpeg',
+    client: 'COMPLEJO TERMOELECTRICO G/J RAFAEL URDANETA',
+    location: 'Estado Zulia',
+    duration: 'Mantenimiento Programado',
+    services: ['Tinte Penetrantes Fluorescentes', 'Inspección Visual'],
     results: [
-      'Certificación de 4 tanques de 100,000 barriles',
-      'Plan de mantenimiento preventivo a 10 años',
-      'Garantía de contención ambiental'
+      'Detección de fisuras superficiales',
+      'Garantía de integridad de los álabes',
+      'Prevención de fallas catastróficas'
     ]
   },
   'motores': {
-    title: 'Inspección de Motores',
-    category: 'Industria Aeronáutica',
-    description: 'Análisis boroscópico en turbinas de aviación comercial. Inspección interna detallada sin necesidad de desmontaje, ahorrando tiempo y costos operativos significativos.',
-    image: '/Fotos_Proyectos/proyecto-5.jpg',
-    client: 'Taller Reparador',
-    location: 'Base Aérea',
-    duration: 'Servicio Express (48h)',
-    services: ['Inspección Boroscópica', 'Análisis de Vibraciones'],
+    title: 'Inspección de Grúa Puente',
+    category: 'Aeronáutica',
+    description: 'INSPECCIÓN DE GRUA PUENTE EMPRESA TRANSPORTE AEREO UNICA SAN TOME. TECNI INSPECCIÓN VISUAL TINTE PENETRANTES.',
+    image: '/Fotos_Proyectos/proyecto-7.png',
+    client: 'Transporte Aéreo Unica',
+    location: 'San Tomé',
+    duration: 'Inspección Programada',
+    services: ['Inspección Visual', 'Tinte Penetrantes'],
     results: [
-      'Evaluación de alabes de compresor y turbina',
-      'Prevención de fallas catastróficas en vuelo',
-      'Reporte detallado con evidencia fotográfica 4K'
+      'Certificación de operatividad de grúa puente',
+      'Cumplimiento de estándares de seguridad'
+    ]
+  },
+  'grua-puente': {
+    title: 'Inspección y Certificación de Grúa de Pedestal',
+    category: 'Industria Petrolera',
+    description: 'INSPECCIÓN Y CERTIFICACION DE GRUA DE PEDESTAL EN LA UNIDAD FLOTANTE WHP .EMPRESA PETROSUCRE UBICACIÓN GOLFO DE PARIA  SERVICIO DE TINTE INSPECCIÓN VISUAL',
+    image: '/Fotos_Proyectos/proyecto-3.jpg',
+    client: 'PETROSUCRE',
+    location: 'Golfo de Paria',
+    duration: 'Mantenimiento Continuo',
+    services: ['Tinte Penetrante', 'Inspección Visual'],
+    results: [
+      'Certificación de operatividad de grúa de pedestal',
+      'Cumplimiento con normativas de izamiento offshore'
+    ]
+  },
+  'toberas': {
+    title: 'EVALUACION NO DESTRUCTIVA ESTRUCTURAL A TOBERAS',
+    category: 'Generación Eléctrica',
+    description: 'EVALUACION NO DESTRUCTIVA ESTRUCTURAL A TOBERAS UNIDAD AJS-01 SERIAL No. 298957 “COMPLEJO TERMOELÉCTRICO ANTONIO JOSE DE SUCRE” bajo la empresa contratante G&G 1726, C.A. UB ESTADO SUCRE',
+    image: '/Fotos_Proyectos/proyecto-8.jpg',
+    client: 'Complejo Termoeléctrico Antonio José de Sucre',
+    location: 'Estado Sucre',
+    duration: 'Inspección Programada',
+    services: ['Inspección Visual', 'Ensayos No Destructivos (END)', 'Evaluación Estructural'],
+    results: [
+      'Garantía de integridad estructural de las toberas',
+      'Prevención de fugas o fallas críticas',
+      'Optimización del rendimiento de la unidad termoeléctrica'
     ]
   },
   'estructuras': {
     title: 'Estructuras Metálicas',
     category: 'Industria Naval',
     description: 'Medición de espesores en cascos y plataformas offshore. Trabajos en altura y espacios confinados para asegurar la integridad de estructuras sometidas a ambientes marinos agresivos.',
-    image: '/Fotos_Proyectos/proyecto-6.jpg',
+    image: '/Fotos_Proyectos/proyecto-8.jpg',
     client: 'Naviera',
     location: 'Astillero / Mar Adentro',
     duration: '2 meses',

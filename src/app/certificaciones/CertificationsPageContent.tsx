@@ -34,7 +34,7 @@ import {
 
 const timelineEvents: TimelineEvent[] = [
   {
-    year: '1988',
+    year: '2012',
     title: 'Fundación de SINPETCA',
     description:
       'Inicio de operaciones como empresa de servicios de inspección industrial en Venezuela.',
@@ -44,27 +44,27 @@ const timelineEvents: TimelineEvent[] = [
     year: '1995',
     title: 'Primera Certificación API',
     description:
-      'Obtención de la primera acreditación del American Petroleum Institute para inspección de tanques de almacenamiento.',
+      'Obtención de la primera certificación del American Petroleum Institute para inspección de tanques de almacenamiento.',
     certification: 'API 653',
   },
   {
     year: '2002',
     title: 'Expansión de Servicios NDT',
     description:
-      'Ampliación del alcance de servicios de ensayos no destructivos con nuevas técnicas y equipos.',
+      'Ampliación del alcance de servicios de ensayos no destructivos (END) con nuevas técnicas y equipos.',
     certification: 'ASNT SNT-TC-1A',
   },
   {
     year: '2008',
     title: 'Certificación ASME',
     description:
-      'Acreditación para inspección de equipos a presión bajo estándares de la American Society of Mechanical Engineers.',
+      'Certificación para inspección de equipos a presión bajo estándares de la American Society of Mechanical Engineers.',
     certification: 'ASME',
     highlight: true,
   },
   {
     year: '2012',
-    title: 'Acreditación ISO 17020',
+    title: 'Sistema de Gestión de Calidad ISO 17020',
     description:
       'Reconocimiento internacional como organismo de inspección tipo A, garantizando independencia e imparcialidad.',
     certification: 'ISO/IEC 17020',
@@ -74,20 +74,20 @@ const timelineEvents: TimelineEvent[] = [
     year: '2016',
     title: 'Certificación Aeronáutica',
     description:
-      'Habilitación por la autoridad aeronáutica para realizar ensayos no destructivos en componentes de aviación.',
-    certification: 'OMAC-N 667',
+      'Habilitación por la autoridad aeronáutica para realizar ensayos no destructivos (END) en componentes de aviación.',
+    certification: '',
   },
   {
     year: '2020',
     title: 'Renovación y Ampliación',
     description:
-      'Renovación exitosa de todas las certificaciones con ampliación del alcance de acreditación.',
+      'Renovación exitosa de todas las certificaciones con ampliación del alcance de certificación.',
   },
   {
     year: '2024',
     title: 'Certificaciones Vigentes',
     description:
-      'Mantenimiento activo de todas las acreditaciones con auditorías de seguimiento satisfactorias.',
+      'Mantenimiento activo de todas las certificaciones con auditorías de seguimiento satisfactorias.',
     highlight: true,
   },
 ];
@@ -99,16 +99,6 @@ const certificationDocuments: CertificationDocument[] = [
     certificationBody: 'SENCAMER',
     issueDate: '15 Marzo 2023',
     expiryDate: '14 Marzo 2027',
-    status: 'vigente',
-    documentUrl: '#',
-    verificationUrl: '#',
-  },
-  {
-    id: 'omac-n-667',
-    name: 'OMAC-N 667',
-    certificationBody: 'INAC Venezuela',
-    issueDate: '20 Junio 2023',
-    expiryDate: '19 Junio 2025',
     status: 'vigente',
     documentUrl: '#',
     verificationUrl: '#',
@@ -140,13 +130,13 @@ const certifications: CertificationDetails[] = [
     name: 'ISO 17020',
     fullName: 'ISO/IEC 17020:2012 - Organismos de Inspección',
     description:
-      'Acreditación internacional que certifica la competencia técnica, imparcialidad e independencia de SINPETCA como organismo de inspección Tipo A. Esta norma es el estándar de referencia mundial para organismos que realizan actividades de inspección.',
+      'Certificación internacional que certifica la competencia técnica, imparcialidad e independencia de SINPETCA como organismo de inspección Tipo A. Esta norma es el estándar de referencia mundial para organismos que realizan actividades de inspección.',
     issuingBody: 'SENCAMER - Servicio Autónomo Nacional de Normalización',
     scope: [
       'Inspección de tanques de almacenamiento',
       'Inspección de tuberías y ductos',
       'Inspección de equipos a presión',
-      'Ensayos no destructivos (NDT)',
+      'Ensayos no destructivos (END)',
       'Inspección de estructuras metálicas',
     ],
     benefits: [
@@ -160,34 +150,11 @@ const certifications: CertificationDetails[] = [
     status: 'vigente',
   },
   {
-    id: 'omac-n-667',
-    name: 'OMAC-N 667',
-    fullName: 'Organización de Mantenimiento Aeronáutico Civil',
-    description:
-      'Certificación otorgada por el Instituto Nacional de Aeronáutica Civil (INAC) que habilita a SINPETCA para realizar ensayos no destructivos en componentes aeronáuticos, cumpliendo con los más estrictos estándares de seguridad de la industria.',
-    issuingBody: 'INAC - Instituto Nacional de Aeronáutica Civil',
-    scope: [
-      'Inspección de estructuras de aeronaves',
-      'Ensayos NDT en componentes críticos',
-      'Inspección de motores y turbinas',
-      'Evaluación de daños por fatiga',
-    ],
-    benefits: [
-      'Habilitación aeronáutica oficial',
-      'Cumplimiento regulatorio INAC',
-      'Seguridad operacional certificada',
-      'Trazabilidad aeronáutica',
-    ],
-    standards: ['RAV 145', 'FAR Part 145', 'EASA Part-145'],
-    internationalRecognition: false,
-    status: 'vigente',
-  },
-  {
     id: 'api',
     name: 'API',
     fullName: 'American Petroleum Institute - Múltiples Certificaciones',
     description:
-      'Conjunto de certificaciones del American Petroleum Institute que acreditan a SINPETCA para realizar inspecciones especializadas en la industria petrolera, incluyendo tanques de almacenamiento, tuberías y equipos de proceso.',
+      'Conjunto de certificaciones del American Petroleum Institute que avalan a SINPETCA para realizar inspecciones especializadas en la industria petrolera, incluyendo tanques de almacenamiento, tuberías y equipos de proceso.',
     issuingBody: 'American Petroleum Institute (API)',
     scope: [
       'Inspección de tanques sobre tierra (API 653)',
@@ -210,7 +177,7 @@ const certifications: CertificationDetails[] = [
     name: 'ASME',
     fullName: 'American Society of Mechanical Engineers',
     description:
-      'Certificación de la ASME que acredita a nuestros inspectores para evaluar la integridad de equipos a presión, calderas y recipientes, siguiendo los códigos y estándares más rigurosos de la ingeniería mecánica.',
+      'Certificación de la ASME que avala a nuestros inspectores para evaluar la integridad de equipos a presión, calderas y recipientes, siguiendo los códigos y estándares más rigurosos de la ingeniería mecánica.',
     issuingBody: 'ASME International',
     scope: [
       'Inspección de calderas de vapor',
@@ -231,7 +198,7 @@ const certifications: CertificationDetails[] = [
 ];
 
 const stats = [
-  { value: '35+', label: 'Años de Experiencia', icon: TrendingUp },
+  { value: '12+', label: 'Años de Experiencia', icon: TrendingUp },
   { value: '4', label: 'Certificaciones Activas', icon: Award },
   { value: '100%', label: 'Auditorías Aprobadas', icon: CheckCircle },
   { value: '15+', label: 'Países Reconocidos', icon: Globe },
@@ -292,7 +259,7 @@ export default function CertificationsPageContent() {
             </h1>
 
             <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
-              Más de tres décadas construyendo confianza a través de acreditaciones que garantizan
+              Más de tres décadas construyendo confianza a través de certificaciones que garantizan
               la excelencia, imparcialidad y competencia técnica en cada servicio de inspección.
             </p>
 
@@ -311,11 +278,6 @@ export default function CertificationsPageContent() {
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-sinpetca-orange">ASME</div>
                 <div className="text-text-muted text-sm">Equipos a Presión</div>
-              </div>
-              <div className="w-px h-12 bg-industrial-gray-medium hidden md:block" />
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-sinpetca-orange">OMAC</div>
-                <div className="text-text-muted text-sm">Aeronáutica</div>
               </div>
             </div>
           </motion.div>
@@ -365,7 +327,7 @@ export default function CertificationsPageContent() {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-1.5 bg-sinpetca-navy/30 border border-sinpetca-navy/50 rounded-full text-sinpetca-blue text-sm font-medium mb-4">
-              Detalle de Acreditaciones
+              Detalle de Certificaciones
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
               Certificaciones <span className="text-sinpetca-orange">Vigentes</span>
@@ -443,7 +405,7 @@ export default function CertificationsPageContent() {
                 icon: Globe,
                 title: 'Reconocimiento Internacional',
                 description:
-                  'Nuestras acreditaciones son reconocidas globalmente, facilitando el cumplimiento de requisitos internacionales.',
+                  'Nuestras certificaciones son reconocidas globalmente, facilitando el cumplimiento de requisitos internacionales.',
               },
               {
                 icon: Users,
@@ -514,7 +476,7 @@ export default function CertificationsPageContent() {
                 ¿Necesita Servicios de Inspección Certificados?
               </h2>
               <p className="text-text-secondary text-lg mb-8">
-                Confíe en un equipo con más de 35 años de experiencia respaldados por las
+                Confíe en un equipo con Más de 12 años de experiencia respaldados por las
                 certificaciones más exigentes del sector industrial.
               </p>
 

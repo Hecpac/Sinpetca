@@ -1,14 +1,22 @@
 /**
  * Sitemap Configuration - SINPETCA
- * 
+ *
  * Generates XML sitemap for search engine indexing
  * https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
  */
 
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://sinpetca.com';
+const BASE_URL = 'https://www.sinpetca.com';
 
+/**
+ * Generates XML sitemap for search engines.
+ *
+ * @returns {MetadataRoute.Sitemap} Array of URLs with lastModified dates and priority
+ * - Homepage: priority 1.0, weekly change frequency
+ * - Service pages: priority 0.8-0.9, monthly change frequency
+ * - Support pages (Certificaciones, Proyectos, Contacto): priority 0.6-0.7
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date().toISOString();
 

@@ -8,11 +8,12 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import ExperienceMatrix from '@/components/projects/ExperienceMatrix';
 
 export const metadata: Metadata = {
   title: 'Proyectos',
   description:
-    'Galería de proyectos exitosos de inspección industrial y ensayos no destructivos. Casos de éxito en petrolera, naval y aeronáutica.',
+    'Galería de proyectos exitosos de inspección industrial y ensayos no destructivos (END). Casos de éxito en petrolera, naval y aeronáutica.',
   alternates: {
     canonical: 'https://sinpetca.com/proyectos',
   },
@@ -20,67 +21,46 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-    title: 'Inspección de Refinería',
+    title: 'Inspección por END (Tinte Penetrante)',
     category: 'Industria Petrolera',
-    description: 'Evaluación integral de integridad mecánica en planta procesadora.',
-    image: '/Fotos_Proyectos/proyecto-1.jpg',
-    link: '/proyectos/refineria',
-  },
-  {
-    title: 'Certificación de Tuberías',
-    category: 'Infraestructura',
-    description: 'Inspección por ultrasonido avanzado en red de oleoductos.',
-    image: '/Fotos_Proyectos/proyecto-2.jpg',
+    description: 'Empresa Petrosucre, Ubicación Golfo de Paria. Servicio de END mediante técnica de Tinte Penetrante.',
+    image: '/Fotos_Proyectos/WhatsApp Image 2026-03-05 at 11.18.01 AM.jpeg',
     link: '/proyectos/tuberias',
   },
   {
-    title: 'Mantenimiento Aeronáutico',
-    category: 'Industria Aeronáutica',
-    description: 'Ensayos no destructivos certificados OMAC-N 667 en fuselaje.',
-    image: '/Fotos_Proyectos/proyecto-3.jpg',
+    title: 'Inspección y Certificación de Grúa de Pedestal',
+    category: 'Industria Petrolera',
+    description: 'Empresa Petrosucre, Ubicación Golfo de Paria. Unidad Flotante WHP. Servicio de Tinte e Inspección Visual.',
+    image: '/Fotos_Proyectos/proyecto-6.jpg',
     link: '/proyectos/aeronautica',
   },
   {
-    title: 'Evaluación de Tanques',
-    category: 'Industria Petrolera',
-    description: 'Inspección bajo norma API 653 en terminal de almacenamiento.',
-    image: '/Fotos_Proyectos/proyecto-4.jpg',
-    link: '/proyectos/tanques',
+    title: 'Inspección y Calibración de Máquinas de Soldar',
+    category: 'Equipos Especiales',
+    description: 'INSPECCIÓN Y CALIBRACION DE MAQUINAS DE SOLDAR EMPRESA PETROSYSTEM',
+    image: '/Fotos_Proyectos/WhatsApp Image 2025-12-17 at 12.28.18 PM.jpeg',
+    link: '/proyectos/alabes-turbina',
   },
   {
-    title: 'Inspección de Motores',
-    category: 'Industria Aeronáutica',
-    description: 'Análisis boroscópico en turbinas de aviación comercial.',
-    image: '/Fotos_Proyectos/proyecto-5.jpg',
+    title: 'Inspección y Certificación de Grúa de Pedestal',
+    category: 'Industria Petrolera',
+    description: 'INSPECCIÓN Y CERTIFICACION DE GRUA DE PEDESTAL EN LA UNIDAD FLOTANTE WHP .EMPRESA PETROSUCRE UBICACIÓN GOLFO DE PARIA  SERVICIO DE TINTE INSPECCIÓN VISUAL',
+    image: '/Fotos_Proyectos/proyecto-3.jpg',
+    link: '/proyectos/grua-puente',
+  },
+  {
+    title: 'Inspección de Grúa Puente',
+    category: 'Aeronáutica',
+    description: 'INSPECCIÓN DE GRUA PUENTE EMPRESA TRANSPORTE AEREO UNICA SAN TOME. TECNI INSPECCIÓN VISUAL TINTE PENETRANTES.',
+    image: '/Fotos_Proyectos/proyecto-7.png',
     link: '/proyectos/motores',
   },
   {
-    title: 'Estructuras Metálicas',
-    category: 'Industria Naval',
-    description: 'Medición de espesores en cascos y plataformas offshore.',
-    image: '/Fotos_Proyectos/proyecto-6.jpg',
-    link: '/proyectos/estructuras',
-  },
-  {
-    title: 'Inspección de Equipos de Izamiento',
-    category: 'Equipos Especiales',
-    description: 'Inspección y certificación de conformidad de equipos de izamiento y carga, incluyendo pruebas a maquinaria especializada.',
-    image: '/Fotos_Proyectos/·Inspección De Equipos de Izamiento Y Carga. ·Inspección de Conformidad de equipos Especiales. (Máquinas de Soldar, Compresores de Aire, Plantas Generadores Eléctricos, Plantas Iluminarias, Equipo.png',
-    link: '/proyectos/izamiento',
-  },
-  {
-    title: 'Evaluación No Destructiva Estructural',
-    category: 'Infraestructura',
-    description: 'Aplicación de tintes penetrantes y ensayos en componentes estructurales clave.',
+    title: 'EVALUACION NO DESTRUCTIVA ESTRUCTURAL A TOBERAS',
+    category: 'Generación Eléctrica',
+    description: 'EVALUACION NO DESTRUCTIVA ESTRUCTURAL A TOBERAS UNIDAD AJS-01 SERIAL No. 298957 “COMPLEJO TERMOELÉCTRICO ANTONIO JOSE DE SUCRE” bajo la empresa contratante G&G 1726, C.A. UB ESTADO SUCRE',
     image: '/Fotos_Proyectos/proyecto-8.jpg',
-    link: '/proyectos/ndt-estructural',
-  },
-  {
-    title: 'Inspección Visual de Tuberías',
-    category: 'Industria Petrolera',
-    description: 'Análisis en campo y evaluación de soldaduras y recubrimientos en estaciones de flujo.',
-    image: '/Fotos_Proyectos/WhatsApp Image 2026-03-05 at 11.18.01 AM.jpeg',
-    link: '/proyectos/inspeccion-visual',
+    link: '/proyectos/toberas',
   }
 ];
 
@@ -150,6 +130,9 @@ export default function ProyectosPage() {
           </div>
         </div>
       </section>
+
+      {/* Experience Matrix */}
+      <ExperienceMatrix />
     </div>
   );
 }

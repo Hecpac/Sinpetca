@@ -21,40 +21,40 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: 'Ing. Carlos Mendoza',
-    position: 'Director General',
+    name: 'Orlando Segundo Medina Labrador',
+    position: 'Director',
     description:
-      'Más de 30 años de experiencia en inspección industrial. Ingeniero Mecánico con especialización en integridad de activos y gestión de calidad.',
-    certifications: ['API 510', 'API 570', 'API 653', 'ASME'],
+      '~31 años de experiencia. Ingeniero Mecánico y T.S.U. en Metalurgia. Especialista en inspección bajo códigos ASME, AWS, ANSI y API.',
+    certifications: ['CICB', 'NDT Nivel II', 'ISO 17020'],
     linkedin: '#',
-    email: 'cmendoza@sinpetca.com',
+    email: 'sinpetca68@gmail.com',
   },
   {
-    name: 'Ing. María González',
-    position: 'Directora Técnica',
+    name: 'Leonardo José Yépez Escalona',
+    position: 'Gerente Técnico',
     description:
-      'Especialista en ensayos no destructivos con 25 años de experiencia. Responsable de la implementación de nuevas tecnologías de inspección.',
-    certifications: ['ASNT Level III', 'ISO 17020 Lead Auditor', 'PCN Level 3'],
+      'Más de 20 años de experiencia. T.S.U. en Mecánica Aeronáutica. Especialista en mantenimiento de aeronaves Boeing y Sukhoi.',
+    certifications: ['ISO 9001 Lead Auditor', 'NDT Nivel I', 'Trinorma'],
     linkedin: '#',
-    email: 'mgonzalez@sinpetca.com',
+    email: 'sinpetca68@gmail.com',
   },
   {
-    name: 'Ing. Roberto Pérez',
-    position: 'Gerente de Operaciones',
+    name: 'Klevis Andrea Caldera',
+    position: 'Gerente Control y Aseguramiento de Calidad',
     description:
-      'Ingeniero Industrial con MBA, responsable de la coordinación de proyectos y la optimización de recursos operativos.',
-    certifications: ['PMP', 'API 580', 'Six Sigma Black Belt'],
+      '~11 años de experiencia. Licenciada en Administración de Empresas.',
+    certifications: ['ISO 9001 Lead Auditor', 'ISO 17020', 'NDT Nivel I'],
     linkedin: '#',
-    email: 'rperez@sinpetca.com',
+    email: 'sinpetca68@gmail.com',
   },
   {
-    name: 'Ing. Ana Ramírez',
-    position: 'Gerente de Calidad',
+    name: 'Yaniber Estefanía García Martínez',
+    position: 'Planificación',
     description:
-      'Especialista en sistemas de gestión con 20 años de experiencia. Responsable del mantenimiento de certificaciones y auditorías.',
-    certifications: ['ISO 9001 Lead Auditor', 'ISO 17020', 'ISO 17025'],
+      '~3 años de experiencia. Ingeniero de Mantenimiento Industrial y Técnico en Mantenimiento de Aeronaves. Diplomada en Confiabilidad Industrial.',
+    certifications: ['ISO 17020 / 9001', 'SMS y MCM', 'Factores Humanos'],
     linkedin: '#',
-    email: 'aramirez@sinpetca.com',
+    email: 'sinpetca68@gmail.com',
   },
 ];
 
@@ -104,10 +104,10 @@ export default function TeamSection() {
                   <div className="w-24 h-24 bg-sinpetca-navy-light/50 rounded-full flex items-center justify-center border-2 border-sinpetca-orange/30">
                     <span className="text-3xl font-bold text-sinpetca-orange">
                       {member.name
-                        .split(' ')
-                        .slice(1)
-                        .map((n) => n[0])
-                        .join('')}
+                       .split(' ')
+                       .slice(1)
+                       .map((n) => n[0])
+                       .join('')}
                     </span>
                   </div>
                 </div>

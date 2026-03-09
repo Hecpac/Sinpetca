@@ -109,17 +109,17 @@ export default function CTASection() {
               </Link>
 
               <a
-                href="mailto:info@sinpetca.com"
+                href="mailto:sinpetca68@gmail.com"
                 onClick={() =>
                   trackEvent('cta_secondary_click', {
                     source: 'cta_section',
-                    target: 'mailto:info@sinpetca.com',
+                    target: 'mailto:sinpetca68@gmail.com',
                   })
                 }
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-text-primary font-semibold rounded-xl transition-all duration-300"
               >
                 <Mail className="w-5 h-5" />
-                info@sinpetca.com
+                sinpetca68@gmail.com
               </a>
             </div>
           </motion.div>
@@ -153,11 +153,11 @@ export default function CTASection() {
             className="mt-12 pt-8 border-t border-white/10 flex flex-wrap justify-center items-center gap-8 text-sm"
           >
             <a
-              href="tel:+582812671109"
+              href="tel:+584141995127"
               onClick={() =>
                 trackEvent('cta_secondary_click', {
                   source: 'cta_section',
-                  target: 'tel:+582812671109',
+                  target: 'tel:+584141995127',
                 })
               }
               className="flex items-center gap-2 text-text-secondary hover:text-sinpetca-orange transition-colors"
@@ -167,11 +167,11 @@ export default function CTASection() {
             </a>
             <div className="w-px h-4 bg-white/20 hidden sm:block" />
             <a
-              href="mailto:info@sinpetca.com"
+              href="mailto:sinpetca68@gmail.com"
               className="flex items-center gap-2 text-text-secondary hover:text-sinpetca-orange transition-colors"
             >
               <Mail className="w-4 h-4" />
-              info@sinpetca.com
+              sinpetca68@gmail.com
             </a>
             <div className="w-px h-4 bg-white/20 hidden sm:block" />
             <span className="flex items-center gap-2 text-text-secondary">
