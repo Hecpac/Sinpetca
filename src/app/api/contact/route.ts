@@ -1,5 +1,6 @@
 import * as Sentry from '@sentry/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
 export const runtime = 'nodejs';
 
@@ -129,7 +130,7 @@ function validatePayload(payload: ContactRequest): string | null {
   return null;
 }
 
-async function sendToWebhook(payload: {
+async function sendEmail(payload: {
   name: string;
   company: string;
   email: string;
@@ -139,26 +140,46 @@ async function sendToWebhook(payload: {
   ip: string;
   submittedAt: string;
 }): Promise<void> {
-  const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
-  if (!webhookUrl) {
-    throw new Error('Servicio de contacto no configurado.');
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error('Servicio de correo no configurado (RESEND_API_KEY).');
   }
 
-  const webhookToken = process.env.CONTACT_WEBHOOK_TOKEN;
+  const toEmail = process.env.CONTACT_TO_EMAIL ?? 'sinpetca68@gmail.com';
+  const fromEmail = process.env.RESEND_FROM_EMAIL ?? 'contacto@sinpetca.com';
 
-  const response = await fetch(webhookUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'User-Agent': 'sinpetca-contact/1.0',
-     ...(webhookToken ? { 'x-contact-token': webhookToken } : {}),
-    },
-    body: JSON.stringify(payload),
-    cache: 'no-store',
+  const resend = new Resend(apiKey);
+
+  const serviceLabel = payload.service || 'No especificado';
+
+  const { error } = await resend.emails.send({
+    from: `SINPETCA Web <${fromEmail}>`,
+    to: [toEmail],
+    replyTo: payload.email,
+    subject: `Nueva consulta de ${payload.name} — ${serviceLabel}`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #1a3a5c; border-bottom: 3px solid #e07b2a; padding-bottom: 8px;">
+          Nueva consulta desde sinpetca.com
+        </h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+          <tr><td style="padding: 8px; font-weight: bold; width: 140px;">Nombre</td><td style="padding: 8px;">${payload.name}</td></tr>
+          <tr style="background:#f5f5f5;"><td style="padding: 8px; font-weight: bold;">Empresa</td><td style="padding: 8px;">${payload.company || '—'}</td></tr>
+          <tr><td style="padding: 8px; font-weight: bold;">Email</td><td style="padding: 8px;"><a href="mailto:${payload.email}">${payload.email}</a></td></tr>
+          <tr style="background:#f5f5f5;"><td style="padding: 8px; font-weight: bold;">Teléfono</td><td style="padding: 8px;">${payload.phone || '—'}</td></tr>
+          <tr><td style="padding: 8px; font-weight: bold;">Servicio</td><td style="padding: 8px;">${serviceLabel}</td></tr>
+        </table>
+        <h3 style="color: #1a3a5c; margin-top: 24px;">Mensaje</h3>
+        <div style="background: #f9f9f9; padding: 16px; border-left: 4px solid #e07b2a; white-space: pre-wrap;">${payload.message}</div>
+        <p style="color: #888; font-size: 12px; margin-top: 24px;">
+          Enviado: ${payload.submittedAt} · IP: ${payload.ip}
+        </p>
+      </div>
+    `,
   });
 
-  if (!response.ok) {
-    throw new Error(`Webhook error: ${response.status}`);
+  if (error) {
+    throw new Error(`Resend error: ${error.message}`);
   }
 }
 
@@ -225,7 +246,7 @@ export async function POST(request: NextRequest) {
   };
 
   try {
-    await sendToWebhook(normalized);
+    await sendEmail(normalized);
   } catch (error) {
     Sentry.captureException(error, {
       tags: {
