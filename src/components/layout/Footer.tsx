@@ -35,6 +35,7 @@ const quickLinks = [
   { href: '/nosotros', label: 'Nosotros' },
   { href: '/servicios', label: 'Servicios' },
   { href: '/proyectos', label: 'Proyectos' },
+  { href: '/blog', label: 'Blog' },
   { href: '/certificaciones', label: 'Certificaciones' },
   { href: '/formularios', label: 'Formularios' },
   { href: '/contacto', label: 'Contacto' },
@@ -60,10 +61,10 @@ const socialLinks = [
 
 // Certifications
 const certifications = [
-  { name: 'ISO 17020', description: 'Organismos de Inspección' },
-  { name: '', description: 'Aviación Civil' },
-  { name: 'API', description: 'American Petroleum Institute' },
-  { name: 'ASME', description: 'Mechanical Engineers' },
+  { name: 'ISO 17020', description: 'Marco para inspección y trazabilidad' },
+  { name: 'API / ASME', description: 'Integridad mecánica y equipos críticos' },
+  { name: 'ASNT', description: 'Criterio para END y personal técnico' },
+  { name: 'AWS', description: 'Inspección y evaluación de soldadura' },
 ];
 
 export default function Footer() {

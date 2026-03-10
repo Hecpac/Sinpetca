@@ -14,14 +14,14 @@ import CertificationsPageContent from './CertificationsPageContent';
 export const metadata: Metadata = {
   title: 'Certificaciones',
   description:
-    'Certificaciones y cumplimiento normativo de SINPETCA: ISO 17020, ASME Serie B30, AWS, ASME Sec 5, API 4G, API 650. Más de 12 años garantizando calidad y cumplimiento con estándares internacionales.',
+    'Certificaciones, referencias normativas y criterio de cumplimiento que respaldan las inspecciones de SINPETCA en activos críticos y equipos industriales.',
   alternates: {
     canonical: 'https://sinpetca.com/certificaciones',
   },
   openGraph: {
     title: 'Certificaciones | SINPETCA',
     description:
-      'Conozca nuestras certificaciones internacionales que respaldan Más de 12 años de excelencia en inspección industrial.',
+      'Conozca cómo SINPETCA estructura cumplimiento, trazabilidad y certificación técnica para inspección industrial y equipos críticos.',
     type: 'website',
   },
 };

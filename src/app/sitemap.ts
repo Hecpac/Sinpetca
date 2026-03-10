@@ -6,6 +6,7 @@
  */
 
 import type { MetadataRoute } from 'next';
+import { blogPosts } from '@/lib/blog-content';
 
 const BASE_URL = 'https://www.sinpetca.com';
 
@@ -77,6 +78,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${BASE_URL}/blog`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
       url: `${BASE_URL}/contacto`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
@@ -84,5 +91,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return staticPages;
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map(post => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: post.publishedAt,
+    changeFrequency: 'monthly',
+    priority: 0.65,
+  }));
+
+  return [...staticPages, ...blogPages];
 }
