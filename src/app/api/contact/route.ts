@@ -23,6 +23,8 @@ type RateLimitEntry = {
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_MAX_REQUESTS = 5;
 const MIN_SUBMIT_TIME_MS = 3_000;
+const DEFAULT_CONTACT_TO_EMAIL = 'sinpetca68@gmail.com';
+const DEFAULT_RESEND_FROM_EMAIL = 'contacto@mail.pachanodesign.com';
 const VALID_SERVICES = new Set([
   '',
   'petrolera',
@@ -91,6 +93,14 @@ function asTrimmedString(value: unknown): string {
   return typeof value === 'string' ? value.trim() : '';
 }
 
+function normalizeEnvString(value: string | undefined): string {
+  if (!value) {
+    return '';
+  }
+
+  return value.trim().replace(/^['"]+|['"]+$/g, '').trim();
+}
+
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -140,13 +150,23 @@ async function sendEmail(payload: {
   ip: string;
   submittedAt: string;
 }): Promise<void> {
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = normalizeEnvString(process.env.RESEND_API_KEY);
   if (!apiKey) {
     throw new Error('Servicio de correo no configurado (RESEND_API_KEY).');
   }
 
-  const toEmail = process.env.CONTACT_TO_EMAIL ?? 'sinpetca68@gmail.com';
-  const fromEmail = process.env.RESEND_FROM_EMAIL ?? 'contacto@sinpetca.com';
+  const toEmail =
+    normalizeEnvString(process.env.CONTACT_TO_EMAIL) || DEFAULT_CONTACT_TO_EMAIL;
+  const fromEmail =
+    normalizeEnvString(process.env.RESEND_FROM_EMAIL) || DEFAULT_RESEND_FROM_EMAIL;
+
+  if (!isValidEmail(toEmail)) {
+    throw new Error('Configuración inválida (CONTACT_TO_EMAIL).');
+  }
+
+  if (!isValidEmail(fromEmail)) {
+    throw new Error('Configuración inválida (RESEND_FROM_EMAIL).');
+  }
 
   const resend = new Resend(apiKey);
 
@@ -179,6 +199,16 @@ async function sendEmail(payload: {
   });
 
   if (error) {
+    if (
+      error.statusCode === 403 &&
+      fromEmail.endsWith('@resend.dev') &&
+      toEmail.toLowerCase() !== 'pachanohector15@gmail.com'
+    ) {
+      throw new Error(
+        'Resend requiere un dominio verificado para enviar a ese destinatario. Configure RESEND_FROM_EMAIL con un dominio propio verificado.'
+      );
+    }
+
     throw new Error(`Resend error: ${error.message}`);
   }
 }
