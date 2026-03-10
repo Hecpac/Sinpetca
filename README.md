@@ -42,8 +42,9 @@ Variables soportadas:
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`: código de verificación de Google Search Console.
 - `NEXT_PUBLIC_SENTRY_DSN`: monitoreo frontend con Sentry.
 - `SENTRY_DSN` (opcional): DSN para runtime server/edge.
-- `CONTACT_WEBHOOK_URL`: destino del formulario `/api/contact` (Zapier/Make/Slack webhook).
-- `CONTACT_WEBHOOK_TOKEN` (opcional): secreto enviado en header `x-contact-token`.
+- `RESEND_API_KEY`: API key de Resend para el envío del formulario `/api/contact`.
+- `CONTACT_TO_EMAIL`: correo que recibe las solicitudes del formulario.
+- `RESEND_FROM_EMAIL`: remitente usado por Resend. Debe pertenecer a un dominio verificado en la cuenta de Resend.
 
 ## Estructura
 
