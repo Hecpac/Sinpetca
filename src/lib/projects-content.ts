@@ -48,7 +48,7 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Evaluación mediante Eddy Current e inspección visual de cojinetes en equipos críticos de operación.',
     description:
       'Aplicación de la técnica Eddy Current e inspección visual en cojinetes y superficies metálicas para identificar discontinuidades superficiales, desgaste y señales tempranas de falla en campo.',
-    image: '/Fotos_Proyectos/WhatsApp Image 2026-03-05 at 11.18.01 AM.jpeg',
+    image: '/Fotos_Proyectos/inspeccion-campo-petrolera.jpeg',
     client: 'Petrosucre',
     location: 'Golfo de Paria',
     duration: '6 meses',
@@ -86,7 +86,7 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Verificación de conformidad y calibración de máquinas de soldar para asegurar desempeño y trazabilidad.',
     description:
       'Inspección de conformidad y calibración de máquinas de soldar para verificar su correcto funcionamiento, estabilidad operativa y cumplimiento de parámetros requeridos por el cliente.',
-    image: '/Fotos_Proyectos/WhatsApp Image 2025-12-17 at 12.28.18 PM.jpeg',
+    image: '/Fotos_Proyectos/calibracion-maquinas-soldar.jpeg',
     client: 'Petrosystem',
     location: 'Estado Zulia',
     duration: 'Mantenimiento programado',
@@ -219,7 +219,7 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Supervisión en campo de soldaduras y recubrimientos para asegurar calidad desde la fase constructiva.',
     description:
       'Inspección visual en campo de tuberías, soldaduras y recubrimientos en estaciones de flujo, con seguimiento técnico durante la ejecución para asegurar calidad y trazabilidad.',
-    image: '/Fotos_Proyectos/WhatsApp Image 2026-03-05 at 11.18.01 AM.jpeg',
+    image: '/Fotos_Proyectos/inspeccion-campo-petrolera.jpeg',
     client: 'Operadora de campo',
     location: 'Bloque de producción',
     duration: 'Continua durante el proyecto',
