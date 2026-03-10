@@ -1,6 +1,13 @@
 import * as Sentry from '@sentry/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import {
+  CONTACT_COMPANY_MAX_LENGTH,
+  CONTACT_NAME_MAX_LENGTH,
+  CONTACT_NAME_MIN_LENGTH,
+  CONTACT_PHONE_MAX_LENGTH,
+  getContactMessageLengthError,
+} from '@/lib/contact-form';
 
 export const runtime = 'nodejs';
 
@@ -113,28 +120,29 @@ function validatePayload(payload: ContactRequest): string | null {
   const company = asTrimmedString(payload.company);
   const phone = asTrimmedString(payload.phone);
 
-  if (!name || name.length < 2 || name.length > 120) {
-    return 'Nombre inválido.';
+  if (!name || name.length < CONTACT_NAME_MIN_LENGTH || name.length > CONTACT_NAME_MAX_LENGTH) {
+    return `El nombre debe tener entre ${CONTACT_NAME_MIN_LENGTH} y ${CONTACT_NAME_MAX_LENGTH} caracteres.`;
   }
 
   if (!isValidEmail(email)) {
     return 'Correo electrónico inválido.';
   }
 
-  if (!message || message.length < 10 || message.length > 3000) {
-    return 'Mensaje inválido.';
+  const messageLengthError = getContactMessageLengthError(message.length);
+  if (!message || messageLengthError) {
+    return messageLengthError ?? 'Mensaje inválido.';
   }
 
   if (!VALID_SERVICES.has(service)) {
     return 'Servicio inválido.';
   }
 
-  if (company.length > 120) {
-    return 'Empresa inválida.';
+  if (company.length > CONTACT_COMPANY_MAX_LENGTH) {
+    return `La empresa no puede superar ${CONTACT_COMPANY_MAX_LENGTH} caracteres.`;
   }
 
-  if (phone.length > 50) {
-    return 'Teléfono inválido.';
+  if (phone.length > CONTACT_PHONE_MAX_LENGTH) {
+    return `El teléfono no puede superar ${CONTACT_PHONE_MAX_LENGTH} caracteres.`;
   }
 
   return null;

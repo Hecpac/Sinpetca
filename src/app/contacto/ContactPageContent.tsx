@@ -9,6 +9,10 @@ import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
+import {
+    CONTACT_MESSAGE_MAX_LENGTH,
+    CONTACT_MESSAGE_MIN_LENGTH,
+} from '@/lib/contact-form';
 
 export default function ContactPageContent() {
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -256,10 +260,15 @@ export default function ContactPageContent() {
                                             rows={5}
                                             value={formData.message}
                                             onChange={handleChange}
+                                            minLength={CONTACT_MESSAGE_MIN_LENGTH}
+                                            maxLength={CONTACT_MESSAGE_MAX_LENGTH}
                                             className="w-full px-4 py-3 bg-industrial-gray border border-industrial-gray-medium rounded-lg text-text-primary focus:border-sinpetca-orange focus:ring-1 focus:ring-sinpetca-orange outline-none transition-colors resize-none"
                                             required
                                             disabled={formStatus === 'submitting'}
                                         />
+                                        <p className="mt-2 text-xs text-text-muted">
+                                            Escriba al menos {CONTACT_MESSAGE_MIN_LENGTH} caracteres.
+                                        </p>
                                     </div>
 
                                     <button
