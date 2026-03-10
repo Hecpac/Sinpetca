@@ -124,7 +124,7 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Recertificación de grúa de pedestal con inspección visual y líquidos penetrantes en plataforma offshore.',
     description:
       'Recertificación operativa de grúa de pedestal instalada en plataforma WHP, con inspección visual detallada y ensayos por líquidos penetrantes para respaldar maniobras seguras de carga.',
-    image: '/Fotos_Proyectos/proyecto-3.jpg',
+    image: '/Fotos_Proyectos/grua-pedestal-whp-petrosucre.jpeg',
     client: 'Petrosucre',
     location: 'Golfo de Paria',
     duration: 'Mantenimiento continuo',
@@ -175,21 +175,21 @@ export const projectsData: Record<string, ProjectDetail> = {
   },
   izamiento: {
     slug: 'izamiento',
-    title: 'Inspección de Equipos de Izamiento',
+    title: 'Inspección y Certificación de Grúa de Pedestal',
     category: 'Equipos Especiales',
     summary:
-      'Pruebas de conformidad e inspección de equipos de carga para maniobras de alto riesgo con trazabilidad.',
+      'Inspección visual y certificación de grúa de pedestal en unidad flotante WHP de Petrosucre, en Golfo de Paria.',
     description:
-      'Inspección y certificación de conformidad de equipos de izamiento y carga, incluyendo pruebas de operación y evaluación de componentes críticos para maniobras seguras.',
-    image: '/Fotos_Proyectos/proyecto-izamiento-especiales.png',
-    client: 'Constructora industrial',
-    location: 'Varios sitios',
-    duration: 'Anual',
-    services: ['Pruebas de carga', 'Inspección de cables y eslingas', 'Certificación operativa'],
+      'Servicio de inspección y certificación de grúa de pedestal en la unidad flotante WHP de Petrosucre, ubicada en Golfo de Paria, mediante tinte penetrante e inspección visual para validar condiciones seguras de operación.',
+    image: '/Fotos_Proyectos/proyecto-3.jpg',
+    client: 'Petrosucre',
+    location: 'Golfo de Paria',
+    duration: 'Inspección programada',
+    services: ['Tinte penetrante', 'Inspección visual', 'Certificación operativa'],
     results: [
-      'Certificación de grúas y polipastos en operación',
-      'Cero incidentes durante maniobras de izamiento supervisadas',
-      'Capacitación básica a operadores para uso seguro',
+      'Certificación de operatividad de la grúa de pedestal',
+      'Validación de condiciones seguras para maniobras en la unidad flotante',
+      'Soporte documental para continuidad operativa en campo',
     ],
   },
   'ndt-estructural': {

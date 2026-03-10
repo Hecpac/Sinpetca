@@ -1,501 +1,319 @@
-'use client';
-
-/**
- * Certifications Page Content (Client Component)
- * Contains all interactive elements and data
- */
-
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import {
-  Award,
-  Shield,
-  CheckCircle,
   ArrowRight,
-  Building2,
-  Users,
-  TrendingUp,
-  Globe,
+  BadgeCheck,
+  CheckCircle2,
+  ClipboardCheck,
+  FileCheck2,
+  Fuel,
+  Plane,
+  ShieldCheck,
+  Wrench,
 } from 'lucide-react';
 
 import {
-  CertificationTimeline,
-  DocumentsSection,
-  CertificationCard,
-  type TimelineEvent,
-  type CertificationDocument,
-  type CertificationDetails,
-} from '@/components/certifications';
+  certificationMetrics,
+  certificationPillars,
+  certificationPrograms,
+  sectorCompliance,
+  verificationSteps,
+} from '@/lib/certifications-content';
 
-// ============================================================================
-// DATA
-// ============================================================================
-
-const timelineEvents: TimelineEvent[] = [
-  {
-    year: '2012',
-    title: 'Fundación de SINPETCA',
-    description:
-      'Inicio de operaciones como empresa de servicios de inspección industrial en Venezuela.',
-    highlight: true,
-  },
-  {
-    year: '1995',
-    title: 'Primera Certificación API',
-    description:
-      'Obtención de la primera certificación del American Petroleum Institute para inspección de tanques de almacenamiento.',
-    certification: 'API 653',
-  },
-  {
-    year: '2002',
-    title: 'Expansión de Servicios NDT',
-    description:
-      'Ampliación del alcance de servicios de ensayos no destructivos (END) con nuevas técnicas y equipos.',
-    certification: 'ASNT SNT-TC-1A',
-  },
-  {
-    year: '2008',
-    title: 'Certificación ASME',
-    description:
-      'Certificación para inspección de equipos a presión bajo estándares de la American Society of Mechanical Engineers.',
-    certification: 'ASME',
-    highlight: true,
-  },
-  {
-    year: '2012',
-    title: 'Sistema de Gestión de Calidad ISO 17020',
-    description:
-      'Reconocimiento internacional como organismo de inspección tipo A, garantizando independencia e imparcialidad.',
-    certification: 'ISO/IEC 17020',
-    highlight: true,
-  },
-  {
-    year: '2016',
-    title: 'Certificación Aeronáutica',
-    description:
-      'Habilitación por la autoridad aeronáutica para realizar ensayos no destructivos (END) en componentes de aviación.',
-    certification: '',
-  },
-  {
-    year: '2020',
-    title: 'Renovación y Ampliación',
-    description:
-      'Renovación exitosa de todas las certificaciones con ampliación del alcance de certificación.',
-  },
-  {
-    year: '2024',
-    title: 'Certificaciones Vigentes',
-    description:
-      'Mantenimiento activo de todas las certificaciones con auditorías de seguimiento satisfactorias.',
-    highlight: true,
-  },
-];
-
-const certificationDocuments: CertificationDocument[] = [
-  {
-    id: 'iso-17020',
-    name: 'ISO/IEC 17020:2012',
-    certificationBody: 'SENCAMER',
-    issueDate: '15 Marzo 2023',
-    expiryDate: '14 Marzo 2027',
-    status: 'vigente',
-    documentUrl: '#',
-    verificationUrl: '#',
-  },
-  {
-    id: 'api-653',
-    name: 'API 653',
-    certificationBody: 'American Petroleum Institute',
-    issueDate: '01 Enero 2024',
-    expiryDate: '31 Diciembre 2026',
-    status: 'vigente',
-    documentUrl: '#',
-    verificationUrl: '#',
-  },
-  {
-    id: 'asme',
-    name: 'ASME Inspector',
-    certificationBody: 'ASME International',
-    issueDate: '15 Agosto 2023',
-    expiryDate: '14 Agosto 2026',
-    status: 'vigente',
-    documentUrl: '#',
-  },
-];
-
-const certifications: CertificationDetails[] = [
-  {
-    id: 'iso-17020',
-    name: 'ISO 17020',
-    fullName: 'ISO/IEC 17020:2012 - Organismos de Inspección',
-    description:
-      'Certificación internacional que certifica la competencia técnica, imparcialidad e independencia de SINPETCA como organismo de inspección Tipo A. Esta norma es el estándar de referencia mundial para organismos que realizan actividades de inspección.',
-    issuingBody: 'SENCAMER - Servicio Autónomo Nacional de Normalización',
-    scope: [
-      'Inspección de tanques de almacenamiento',
-      'Inspección de tuberías y ductos',
-      'Inspección de equipos a presión',
-      'Ensayos no destructivos (END)',
-      'Inspección de estructuras metálicas',
-    ],
-    benefits: [
-      'Reconocimiento internacional',
-      'Garantía de imparcialidad',
-      'Competencia técnica certificada',
-      'Trazabilidad de resultados',
-    ],
-    standards: ['ISO/IEC 17020:2012', 'ISO 9001:2015', 'ISO/IEC 17025:2017'],
-    internationalRecognition: true,
-    status: 'vigente',
-  },
-  {
-    id: 'api',
-    name: 'API',
-    fullName: 'American Petroleum Institute - Múltiples Certificaciones',
-    description:
-      'Conjunto de certificaciones del American Petroleum Institute que avalan a SINPETCA para realizar inspecciones especializadas en la industria petrolera, incluyendo tanques de almacenamiento, tuberías y equipos de proceso.',
-    issuingBody: 'American Petroleum Institute (API)',
-    scope: [
-      'Inspección de tanques sobre tierra (API 653)',
-      'Inspección de tuberías (API 570)',
-      'Inspección de recipientes a presión (API 510)',
-      'Evaluación de fitness for service (API 579)',
-    ],
-    benefits: [
-      'Estándar de la industria petrolera',
-      'Reconocimiento mundial',
-      'Metodologías probadas',
-      'Compatibilidad con RBI',
-    ],
-    standards: ['API 510', 'API 570', 'API 653', 'API 579-1/ASME FFS-1'],
-    internationalRecognition: true,
-    status: 'vigente',
-  },
-  {
-    id: 'asme',
-    name: 'ASME',
-    fullName: 'American Society of Mechanical Engineers',
-    description:
-      'Certificación de la ASME que avala a nuestros inspectores para evaluar la integridad de equipos a presión, calderas y recipientes, siguiendo los códigos y estándares más rigurosos de la ingeniería mecánica.',
-    issuingBody: 'ASME International',
-    scope: [
-      'Inspección de calderas de vapor',
-      'Recipientes a presión',
-      'Intercambiadores de calor',
-      'Sistemas de tuberías a presión',
-    ],
-    benefits: [
-      'Código de referencia mundial',
-      'Seguridad en equipos a presión',
-      'Cumplimiento regulatorio',
-      'Inspectores certificados ASME',
-    ],
-    standards: ['ASME BPVC Section VIII', 'ASME B31.1', 'ASME B31.3', 'National Board'],
-    internationalRecognition: true,
-    status: 'vigente',
-  },
-];
-
-const stats = [
-  { value: '12+', label: 'Años de Experiencia', icon: TrendingUp },
-  { value: '4', label: 'Certificaciones Activas', icon: Award },
-  { value: '100%', label: 'Auditorías Aprobadas', icon: CheckCircle },
-  { value: '15+', label: 'Países Reconocidos', icon: Globe },
-];
-
-// ============================================================================
-// COMPONENT
-// ============================================================================
+const pillarIcons = [ShieldCheck, ClipboardCheck, FileCheck2, BadgeCheck];
+const sectorIcons = [Fuel, Wrench, ShieldCheck, Plane];
 
 export default function CertificationsPageContent() {
-  const heroRef = useRef(null);
-  const statsRef = useRef(null);
-  const certificationsRef = useRef(null);
-  const benefitsRef = useRef(null);
-
-  const isHeroInView = useInView(heroRef, { once: true });
-  const isStatsInView = useInView(statsRef, { once: true, margin: '-50px' });
-  const isCertificationsInView = useInView(certificationsRef, { once: true, margin: '-50px' });
-  const isBenefitsInView = useInView(benefitsRef, { once: true, margin: '-50px' });
-
   return (
-    <div className="min-h-screen">
-      {/* ================================================================== */}
-      {/* HERO SECTION */}
-      {/* ================================================================== */}
-      <section
-        ref={heroRef}
-        className="relative py-24 md:py-32 bg-gradient-to-b from-sinpetca-navy via-sinpetca-navy-dark to-industrial-dark overflow-hidden"
-      >
-        {/* Background elements */}
+    <div className="min-h-screen bg-industrial-dark">
+      <section className="relative overflow-hidden bg-gradient-to-b from-sinpetca-navy via-sinpetca-navy to-industrial-dark pb-16 pt-20 sm:pb-24 sm:pt-28">
         <div className="absolute inset-0">
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.5) 1px, transparent 0)`,
-              backgroundSize: '50px 50px',
-            }}
-          />
-          <div className="absolute top-1/4 -left-32 w-96 h-96 bg-sinpetca-orange/20 rounded-full blur-[150px]" />
-          <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-sinpetca-blue/20 rounded-full blur-[150px]" />
+          <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-sinpetca-orange/10 blur-[120px]" />
+          <div className="absolute right-0 top-0 h-[28rem] w-[28rem] rounded-full bg-sinpetca-blue/10 blur-[140px]" />
+          <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:34px_34px]" />
         </div>
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            {/* Badge */}
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-sinpetca-orange/10 border border-sinpetca-orange/30 rounded-full text-sinpetca-orange text-sm font-medium mb-6">
-              <Shield className="w-4 h-4" />
-              Garantía de Calidad Internacional
-            </span>
+        <div className="container relative z-10 mx-auto px-4 lg:px-8 lg:pl-16">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-end">
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-sinpetca-orange/30 bg-sinpetca-orange/10 px-4 py-2 text-sm font-medium text-sinpetca-orange">
+                <ShieldCheck className="h-4 w-4" />
+                Cumplimiento técnico y trazabilidad real
+              </span>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
-              Nuestras <span className="text-sinpetca-orange">Certificaciones</span>
-            </h1>
+              <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+                Certificaciones y criterios que respaldan cada inspección
+              </h1>
 
-            <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
-              Más de tres décadas construyendo confianza a través de certificaciones que garantizan
-              la excelencia, imparcialidad y competencia técnica en cada servicio de inspección.
-            </p>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
+                Reordenamos esta sección para mostrar lo importante: cómo estructuramos el
+                cumplimiento, qué normas guían la evaluación y qué evidencia recibe el cliente al
+                cierre del servicio.
+              </p>
 
-            {/* Quick stats in hero */}
-            <div className="flex flex-wrap justify-center gap-8 mt-12">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-sinpetca-orange">ISO 17020</div>
-                <div className="text-text-muted text-sm">Organismo Tipo A</div>
-              </div>
-              <div className="w-px h-12 bg-industrial-gray-medium hidden md:block" />
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-sinpetca-orange">API</div>
-                <div className="text-text-muted text-sm">510 | 570 | 653</div>
-              </div>
-              <div className="w-px h-12 bg-industrial-gray-medium hidden md:block" />
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-sinpetca-orange">ASME</div>
-                <div className="text-text-muted text-sm">Equipos a Presión</div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/contacto"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-sinpetca-orange px-6 py-3 text-sm font-semibold text-industrial-dark transition-transform duration-300 hover:-translate-y-0.5"
+                >
+                  Solicitar revisión técnica
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/servicios"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:border-sinpetca-orange/35 hover:text-sinpetca-orange"
+                >
+                  Ver servicios relacionados
+                </Link>
               </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* ================================================================== */}
-      {/* STATS SECTION */}
-      {/* ================================================================== */}
-      <section ref={statsRef} className="py-16 bg-industrial-gray border-y border-industrial-gray-medium">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center"
+            <div className="grid gap-4 sm:grid-cols-2">
+              {certificationMetrics.map(metric => (
+                <article
+                  key={metric.label}
+                  className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5 shadow-[0_18px_48px_rgba(0,0,0,0.24)]"
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-sinpetca-navy/30 rounded-xl mb-4">
-                    <IconComponent className="w-6 h-6 text-sinpetca-orange" />
-                  </div>
-                  <div className="text-3xl md:text-4xl font-bold text-text-primary mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-text-muted text-sm">{stat.label}</div>
-                </motion.div>
-              );
-            })}
+                  <div className="text-3xl font-bold text-white">{metric.value}</div>
+                  <h2 className="mt-2 text-sm font-semibold uppercase tracking-[0.12em] text-sinpetca-orange">
+                    {metric.label}
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-gray-400">{metric.detail}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ================================================================== */}
-      {/* CERTIFICATIONS DETAIL SECTION */}
-      {/* ================================================================== */}
-      <section ref={certificationsRef} className="py-24 bg-industrial-gray">
-        <div className="container mx-auto px-4 lg:px-8">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isCertificationsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-          >
-            <span className="inline-block px-4 py-1.5 bg-sinpetca-navy/30 border border-sinpetca-navy/50 rounded-full text-sinpetca-blue text-sm font-medium mb-4">
-              Detalle de Certificaciones
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              Certificaciones <span className="text-sinpetca-orange">Vigentes</span>
-            </h2>
-            <p className="text-text-secondary max-w-2xl mx-auto">
-              Haga clic en cada certificación para ver información detallada sobre alcance,
-              beneficios y normas aplicables
-            </p>
-          </motion.div>
+      <section className="bg-industrial-gray py-16 sm:py-24">
+        <div className="container mx-auto px-4 lg:px-8 lg:pl-16">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+            <div className="max-w-xl">
+              <span className="text-sm font-semibold uppercase tracking-[0.18em] text-sinpetca-orange">
+                Cómo entendemos certificaciones
+              </span>
+              <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+                Menos listado decorativo, más criterio de cumplimiento
+              </h2>
+              <p className="mt-5 text-base leading-7 text-gray-400">
+                No tratamos la certificación como una vitrina separada del trabajo en campo.
+                Forma parte del método, del alcance, de la evidencia técnica y de la forma en que
+                se emite cada conclusión.
+              </p>
+            </div>
 
-          {/* Certification Cards */}
-          <div className="space-y-6 max-w-4xl mx-auto">
-            {certifications.map((cert, index) => (
-              <CertificationCard
-                key={cert.id}
-                certification={cert}
-                index={index}
-                isInView={isCertificationsInView}
-              />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {certificationPillars.map((pillar, index) => {
+                const Icon = pillarIcons[index];
+
+                return (
+                  <article
+                    key={pillar.title}
+                    className="rounded-[26px] border border-white/8 bg-gradient-to-b from-white/[0.04] to-white/[0.02] p-6"
+                  >
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sinpetca-orange/12 text-sinpetca-orange">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="mt-5 text-xl font-semibold text-white">{pillar.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-gray-400">{pillar.description}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-industrial-dark py-16 sm:py-24">
+        <div className="container mx-auto px-4 lg:px-8 lg:pl-16">
+          <div className="mb-10 max-w-3xl">
+            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-sinpetca-orange">
+              Marcos aplicados
+            </span>
+            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+              Programas y referencias que sostienen nuestros servicios
+            </h2>
+            <p className="mt-4 text-base leading-7 text-gray-400">
+              Estas líneas resumen cómo conectamos normas, procedimientos y evidencia técnica
+              según el tipo de activo, el método de inspección y el sector donde operamos.
+            </p>
+          </div>
+
+          <div className="grid gap-6 xl:grid-cols-2">
+            {certificationPrograms.map(program => (
+              <article
+                key={program.id}
+                className="rounded-[30px] border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-7 shadow-[0_20px_60px_rgba(0,0,0,0.26)]"
+              >
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-sinpetca-orange">
+                  {program.eyebrow}
+                </span>
+                <h3 className="mt-3 text-2xl font-bold text-white">{program.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-gray-400">{program.summary}</p>
+
+                <div className="mt-5 rounded-2xl border border-white/8 bg-black/15 px-4 py-3 text-sm text-gray-300">
+                  <span className="font-semibold text-white">Base de referencia:</span> {program.issuer}
+                </div>
+
+                <div className="mt-6 grid gap-5 sm:grid-cols-3">
+                  <div>
+                    <h4 className="text-sm font-semibold text-white">Alcance</h4>
+                    <ul className="mt-3 space-y-2 text-sm leading-6 text-gray-400">
+                      {program.scope.map(item => (
+                        <li key={item} className="flex gap-2">
+                          <CheckCircle2 className="mt-1 h-4 w-4 flex-shrink-0 text-sinpetca-orange" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-semibold text-white">Evidencia</h4>
+                    <ul className="mt-3 space-y-2 text-sm leading-6 text-gray-400">
+                      {program.evidence.map(item => (
+                        <li key={item} className="flex gap-2">
+                          <CheckCircle2 className="mt-1 h-4 w-4 flex-shrink-0 text-sinpetca-orange" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-semibold text-white">Referencias</h4>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {program.references.map(reference => (
+                        <span
+                          key={reference}
+                          className="rounded-full border border-sinpetca-blue/20 bg-sinpetca-navy/40 px-3 py-1 text-xs font-medium text-sinpetca-blue-light"
+                        >
+                          {reference}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ================================================================== */}
-      {/* TIMELINE SECTION */}
-      {/* ================================================================== */}
-      <CertificationTimeline events={timelineEvents} />
+      <section className="bg-industrial-gray py-16 sm:py-24">
+        <div className="container mx-auto px-4 lg:px-8 lg:pl-16">
+          <div className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,0.95fr)]">
+            <div>
+              <span className="text-sm font-semibold uppercase tracking-[0.18em] text-sinpetca-orange">
+                Aplicación sectorial
+              </span>
+              <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+                El cumplimiento cambia según el activo, no según una plantilla
+              </h2>
 
-      {/* ================================================================== */}
-      {/* DOCUMENTS SECTION */}
-      {/* ================================================================== */}
-      <DocumentsSection documents={certificationDocuments} />
+              <div className="mt-8 grid gap-4">
+                {sectorCompliance.map((sector, index) => {
+                  const Icon = sectorIcons[index];
 
-      {/* ================================================================== */}
-      {/* BENEFITS SECTION */}
-      {/* ================================================================== */}
-      <section ref={benefitsRef} className="py-24 bg-industrial-dark relative overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-sinpetca-navy/20 rounded-full blur-[200px]" />
-        </div>
+                  return (
+                    <article
+                      key={sector.sector}
+                      className="rounded-[24px] border border-white/8 bg-white/[0.03] p-5"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-sinpetca-orange/12 text-sinpetca-orange">
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-semibold text-white">{sector.sector}</h3>
+                          <p className="mt-2 text-sm leading-6 text-gray-400">{sector.focus}</p>
+                          <div className="mt-4 flex flex-wrap gap-2">
+                            {sector.standards.map(standard => (
+                              <span
+                                key={standard}
+                                className="rounded-full border border-white/8 bg-black/15 px-3 py-1 text-xs font-medium text-gray-300"
+                              >
+                                {standard}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isBenefitsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-          >
-            <span className="inline-block px-4 py-1.5 bg-sinpetca-orange/10 border border-sinpetca-orange/30 rounded-full text-sinpetca-orange text-sm font-medium mb-4">
-              Valor Agregado
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              Beneficios de Trabajar con una{' '}
-              <span className="text-sinpetca-orange">Empresa Certificada</span>
-            </h2>
-            <p className="text-text-secondary max-w-2xl mx-auto">
-              Nuestras certificaciones no son solo documentos, son el respaldo de procesos probados
-              y resultados confiables
-            </p>
-          </motion.div>
+            <div className="rounded-[30px] border border-white/10 bg-gradient-to-b from-sinpetca-navy/50 to-black/10 p-7 shadow-[0_22px_62px_rgba(0,0,0,0.28)]">
+              <span className="text-sm font-semibold uppercase tracking-[0.18em] text-sinpetca-orange">
+                Flujo de verificación
+              </span>
+              <h2 className="mt-3 text-3xl font-bold text-white">
+                Cómo cerramos una certificación con criterio técnico
+              </h2>
 
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                icon: Shield,
-                title: 'Garantía de Calidad',
-                description:
-                  'Procesos estandarizados y auditados que aseguran resultados consistentes y confiables en cada inspección.',
-              },
-              {
-                icon: Globe,
-                title: 'Reconocimiento Internacional',
-                description:
-                  'Nuestras certificaciones son reconocidas globalmente, facilitando el cumplimiento de requisitos internacionales.',
-              },
-              {
-                icon: Users,
-                title: 'Personal Calificado',
-                description:
-                  'Equipo de inspectores certificados individualmente con formación continua y evaluaciones periódicas.',
-              },
-              {
-                icon: CheckCircle,
-                title: 'Imparcialidad Certificada',
-                description:
-                  'Como organismo Tipo A bajo ISO 17020, garantizamos independencia total en nuestros dictámenes.',
-              },
-              {
-                icon: Building2,
-                title: 'Cumplimiento Regulatorio',
-                description:
-                  'Facilitamos el cumplimiento con autoridades reguladoras nacionales e internacionales.',
-              },
-              {
-                icon: TrendingUp,
-                title: 'Mejora Continua',
-                description:
-                  'Sistema de gestión que promueve la optimización constante de procesos y metodologías.',
-              },
-            ].map((benefit, index) => {
-              const IconComponent = benefit.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isBenefitsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-6 bg-surface-primary border border-industrial-gray-medium rounded-xl hover:border-sinpetca-navy/50 transition-colors"
-                >
-                  <div className="w-12 h-12 bg-sinpetca-navy/30 rounded-xl flex items-center justify-center mb-4">
-                    <IconComponent className="w-6 h-6 text-sinpetca-orange" />
+              <div className="mt-8 space-y-5">
+                {verificationSteps.map((step, index) => (
+                  <div key={step.title} className="flex gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-sinpetca-orange/30 bg-sinpetca-orange/10 text-sm font-bold text-sinpetca-orange">
+                      {index + 1}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white">{step.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-gray-300">{step.description}</p>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-text-primary mb-2">{benefit.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </motion.div>
-              );
-            })}
+                ))}
+              </div>
+
+              <div className="mt-8 rounded-[24px] border border-white/8 bg-black/15 p-5">
+                <h3 className="text-base font-semibold text-white">Qué recibe el cliente</h3>
+                <ul className="mt-4 space-y-3 text-sm leading-6 text-gray-300">
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="mt-1 h-4 w-4 flex-shrink-0 text-sinpetca-orange" />
+                    <span>Conclusión clara sobre condición, operatividad o restricción del activo.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="mt-1 h-4 w-4 flex-shrink-0 text-sinpetca-orange" />
+                    <span>Evidencia técnica lista para auditoría, mantenimiento o trazabilidad interna.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="mt-1 h-4 w-4 flex-shrink-0 text-sinpetca-orange" />
+                    <span>Recomendaciones priorizadas para operar, monitorear o intervenir.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ================================================================== */}
-      {/* CTA SECTION */}
-      {/* ================================================================== */}
-      <section className="py-24 bg-gradient-to-b from-sinpetca-navy to-sinpetca-navy-dark relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sinpetca-orange/10 rounded-full blur-[200px]" />
-        </div>
-
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <Award className="w-16 h-16 text-sinpetca-orange mx-auto mb-6" />
-              <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-                ¿Necesita Servicios de Inspección Certificados?
-              </h2>
-              <p className="text-text-secondary text-lg mb-8">
-                Confíe en un equipo con Más de 12 años de experiencia respaldados por las
-                certificaciones más exigentes del sector industrial.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contacto"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-sinpetca-orange text-industrial-dark font-semibold rounded-xl hover:bg-sinpetca-orange-light transition-colors"
-                >
-                  Solicitar Cotización
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link
-                  href="/servicios"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-text-secondary text-text-primary font-semibold rounded-xl hover:border-sinpetca-orange hover:text-sinpetca-orange transition-colors"
-                >
-                  Ver Nuestros Servicios
-                </Link>
+      <section className="bg-industrial-dark pb-20 pt-8 sm:pb-24">
+        <div className="container mx-auto px-4 lg:px-8 lg:pl-16">
+          <div className="rounded-[32px] border border-sinpetca-orange/20 bg-gradient-to-r from-sinpetca-navy/50 via-black/20 to-sinpetca-orange/10 px-6 py-8 sm:px-10 sm:py-10">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+              <div className="max-w-2xl">
+                <span className="text-sm font-semibold uppercase tracking-[0.18em] text-sinpetca-orange">
+                  Siguiente paso
+                </span>
+                <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+                  Si necesitas sustento técnico real, revisamos el activo contigo
+                </h2>
+                <p className="mt-4 text-base leading-7 text-gray-300">
+                  Podemos ayudarte a definir alcance, método, evidencia requerida y criterio de
+                  aceptación antes de ejecutar la inspección o certificación en campo.
+                </p>
               </div>
-            </motion.div>
+
+              <Link
+                href="/contacto"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-sinpetca-orange px-6 py-3 text-sm font-semibold text-industrial-dark transition-transform duration-300 hover:-translate-y-0.5"
+              >
+                Hablar con SINPETCA
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
