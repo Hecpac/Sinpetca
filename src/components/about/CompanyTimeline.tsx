@@ -7,11 +7,12 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Building2, Award, Users, Globe, Rocket, Target } from 'lucide-react';
+import { Building2, Award, Globe, Rocket, Target } from 'lucide-react';
+import { COMPANY_FOUNDING_YEAR } from '@/lib/site-config';
 
 const milestones = [
   {
-    year: '2012',
+    year: String(COMPANY_FOUNDING_YEAR),
     title: 'Fundación de SINPETCA',
     description:
       'Nace Servicios de Inspección Petrolera C.A. en Venezuela, con la visión de proveer servicios de inspección de alta calidad para la industria petrolera nacional.',

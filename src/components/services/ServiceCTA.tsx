@@ -8,7 +8,13 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
-import { Phone, Mail, ArrowRight, FileText } from 'lucide-react';
+import { Phone, Mail, ArrowRight, FileText, MessageSquare } from 'lucide-react';
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+  WHATSAPP_URL,
+} from '@/lib/site-config';
 
 interface ServiceCTAProps {
   title?: string;
@@ -71,22 +77,32 @@ export default function ServiceCTA({
             )}
 
             <a
-              href="tel:+584141995127"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-text-primary font-semibold rounded-xl transition-all duration-300"
             >
-              <Phone className="w-5 h-5" />
-              Llamar Ahora
+              <MessageSquare className="w-5 h-5" />
+              Escribir por WhatsApp
             </a>
           </div>
 
           {/* Contact info */}
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-text-muted">
             <a
-              href="mailto:sinpetca68@gmail.com"
+              href={CONTACT_PHONE_TEL}
+              className="flex items-center gap-2 hover:text-sinpetca-orange transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              {CONTACT_PHONE_DISPLAY}
+            </a>
+            <span className="hidden sm:inline">|</span>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
               className="flex items-center gap-2 hover:text-sinpetca-orange transition-colors"
             >
               <Mail className="w-4 h-4" />
-              sinpetca68@gmail.com
+              {CONTACT_EMAIL}
             </a>
             <span className="hidden sm:inline">|</span>
             <span>Respuesta en menos de 24 horas</span>

@@ -7,8 +7,8 @@
 
 import type { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-content';
-
-const BASE_URL = 'https://www.sinpetca.com';
+import { projectsData } from '@/lib/projects-content';
+import { SITE_URL } from '@/lib/site-config';
 
 /**
  * Generates XML sitemap for search engines.
@@ -24,79 +24,128 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: BASE_URL,
+      url: SITE_URL,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: `${BASE_URL}/nosotros`,
+      url: `${SITE_URL}/nosotros`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/servicios`,
+      url: `${SITE_URL}/servicios`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/servicios/petrolera`,
+      url: `${SITE_URL}/servicios/petrolera`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/servicios/naval`,
+      url: `${SITE_URL}/servicios/naval`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/servicios/aeronautica`,
+      url: `${SITE_URL}/servicios/aeronautica`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/servicios/ndt`,
+      url: `${SITE_URL}/servicios/ndt`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/certificaciones`,
+      url: `${SITE_URL}/servicios/izamiento`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${SITE_URL}/servicios/especiales`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${SITE_URL}/servicios/emergencia`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${SITE_URL}/certificaciones`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/proyectos`,
+      url: `${SITE_URL}/proyectos`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/blog`,
+      url: `${SITE_URL}/blog`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/contacto`,
+      url: `${SITE_URL}/formularios`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/contacto`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.6,
     },
+    {
+      url: `${SITE_URL}/politica-privacidad`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/terminos-condiciones`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/sostenibilidad`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.45,
+    },
   ];
 
   const blogPages: MetadataRoute.Sitemap = blogPosts.map(post => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
+    url: `${SITE_URL}/blog/${post.slug}`,
     lastModified: post.publishedAt,
     changeFrequency: 'monthly',
     priority: 0.65,
   }));
 
-  return [...staticPages, ...blogPages];
+  const projectPages: MetadataRoute.Sitemap = Object.values(projectsData).map(project => ({
+    url: `${SITE_URL}/proyectos/${project.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...projectPages, ...blogPages];
 }

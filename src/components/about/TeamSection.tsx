@@ -8,6 +8,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Linkedin, Mail, Award } from 'lucide-react';
+import { CONTACT_EMAIL } from '@/lib/site-config';
 
 interface TeamMember {
   name: string;
@@ -27,7 +28,7 @@ const teamMembers: TeamMember[] = [
       '~31 años de experiencia. Ingeniero Mecánico y T.S.U. en Metalurgia. Especialista en inspección bajo códigos ASME, AWS, ANSI y API.',
     certifications: ['CICB', 'NDT Nivel II', 'ISO 17020'],
     linkedin: '#',
-    email: 'sinpetca68@gmail.com',
+    email: CONTACT_EMAIL,
   },
   {
     name: 'Leonardo José Yépez Escalona',
@@ -36,7 +37,7 @@ const teamMembers: TeamMember[] = [
       'Más de 20 años de experiencia. T.S.U. en Mecánica Aeronáutica. Especialista en mantenimiento de aeronaves Boeing y Sukhoi.',
     certifications: ['ISO 9001 Lead Auditor', 'NDT Nivel I', 'Trinorma'],
     linkedin: '#',
-    email: 'sinpetca68@gmail.com',
+    email: CONTACT_EMAIL,
   },
   {
     name: 'Klevis Andrea Caldera',
@@ -45,7 +46,7 @@ const teamMembers: TeamMember[] = [
       '~11 años de experiencia. Licenciada en Administración de Empresas.',
     certifications: ['ISO 9001 Lead Auditor', 'ISO 17020', 'NDT Nivel I'],
     linkedin: '#',
-    email: 'sinpetca68@gmail.com',
+    email: CONTACT_EMAIL,
   },
   {
     name: 'Yaniber Estefanía García Martínez',
@@ -54,7 +55,7 @@ const teamMembers: TeamMember[] = [
       '~3 años de experiencia. Ingeniero de Mantenimiento Industrial y Técnico en Mantenimiento de Aeronaves. Diplomada en Confiabilidad Industrial.',
     certifications: ['ISO 17020 / 9001', 'SMS y MCM', 'Factores Humanos'],
     linkedin: '#',
-    email: 'sinpetca68@gmail.com',
+    email: CONTACT_EMAIL,
   },
 ];
 

@@ -6,8 +6,7 @@
  */
 
 import type { MetadataRoute } from 'next';
-
-const BASE_URL = 'https://www.sinpetca.com';
+import { SITE_URL } from '@/lib/site-config';
 
 /**
  * Generates robots.txt metadata for search engine crawlers.
@@ -39,7 +38,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: `${BASE_URL}/sitemap.xml`,
-    host: BASE_URL,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

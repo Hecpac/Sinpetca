@@ -21,13 +21,12 @@ import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   ArrowRight,
-  Star,
-  Plus,
   Shield,
   Award,
 } from 'lucide-react';
 import { useParallax } from '@/hooks/useParallax';
 import { trackEvent } from '@/lib/analytics';
+import { COMPANY_EXPERIENCE_COPY, COMPANY_EXPERIENCE_LABEL } from '@/lib/site-config';
 
 // ============================================================================
 // TYPES
@@ -57,7 +56,7 @@ const slides: Slide[] = [
     eyebrow: 'INSPECCIÓN INDUSTRIAL',
     headline: 'Precisión y Confiabilidad en Cada Inspección',
     description:
-      'Más de 12 años garantizando la integridad de activos industriales con tecnología de vanguardia y certificaciones internacionales.',
+      `${COMPANY_EXPERIENCE_COPY} garantizando la integridad de activos industriales con tecnología de vanguardia y certificaciones internacionales.`,
     ctaText: 'Solicitar Cotización',
     ctaLink: '/contacto',
     backgroundImage: '/images/hero/hero-ndt.jpg',
@@ -97,12 +96,6 @@ const slides: Slide[] = [
       { image: '/images/proyectos/turbinas-pertigalete.jpg', label: 'Turbinas Industriales' },
     ],
   },
-];
-
-const clientAvatars = [
-  { id: 1, image: '/images/avatars/client-1.jpg', name: 'Cliente 1' },
-  { id: 2, image: '/images/avatars/client-2.jpg', name: 'Cliente 2' },
-  { id: 3, image: '/images/avatars/client-3.jpg', name: 'Cliente 3' },
 ];
 
 // ============================================================================
@@ -226,6 +219,7 @@ export default function HeroCarousel() {
   };
 
   const currentSlideData = slides[currentSlide];
+  const headlineWords = currentSlideData.headline.split(' ');
 
   return (
     <section
@@ -312,32 +306,32 @@ export default function HeroCarousel() {
 
                   {/* Headline */}
                   <motion.h1
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-text-primary leading-[1.1] mb-6 max-w-[600px] flex flex-wrap gap-x-[0.25em]"
-                    aria-label={currentSlideData.headline}
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-text-primary leading-[1.1] mb-6 max-w-[600px]"
+                    aria-live="polite"
                   >
+                    <span className="sr-only">{currentSlideData.headline}</span>
                     {prefersReducedMotion ? (
-                      currentSlideData.headline
+                      <span aria-hidden="true">{currentSlideData.headline}</span>
                     ) : (
-                      currentSlideData.headline.split(' ').map((word, wordIndex) => (
-                        <span key={wordIndex} className="inline-flex overflow-hidden">
-                          {word.split('').map((char, charIndex) => (
+                      <span aria-hidden="true" className="flex flex-wrap gap-x-[0.25em] gap-y-[0.12em]">
+                        {headlineWords.map((word, wordIndex) => (
+                          <span key={`${word}-${wordIndex}`} className="inline-flex overflow-hidden">
                             <motion.span
-                              key={charIndex}
                               initial={{ y: '100%', opacity: 0 }}
                               animate={{ y: 0, opacity: 1 }}
                               exit={{ y: '-100%', opacity: 0 }}
                               transition={{
                                 duration: 0.5,
                                 ease: [0.25, 0.1, 0.25, 1],
-                                delay: 0.3 + (wordIndex * 0.1) + (charIndex * 0.02),
+                                delay: 0.3 + (wordIndex * 0.08),
                               }}
                               className="inline-block"
                             >
-                              {char}
+                              {word}
                             </motion.span>
-                          ))}
-                        </span>
-                      ))
+                          </span>
+                        ))}
+                      </span>
                     )}
                   </motion.h1>
 
@@ -373,43 +367,19 @@ export default function HeroCarousel() {
                   <motion.div
                     custom={1.0}
                     variants={contentVariants}
-                    className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-6 mt-8 sm:mt-10 md:mt-12"
+                    className="mt-8 grid max-w-[520px] grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-3 md:mt-12"
                   >
-                    {/* Rating */}
-                    <div className="flex items-center gap-2">
-                      <Star className="w-4 h-4 sm:w-5 sm:h-5 text-sinpetca-orange fill-sinpetca-orange" />
-                      <span className="text-text-primary text-xs sm:text-sm font-medium">
-                        Calificación 4.9/5
-                      </span>
-                      <span className="text-text-muted text-xs sm:text-sm">de 127 proyectos</span>
+                    <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-md">
+                      <span className="block text-lg font-bold text-text-primary">127</span>
+                      <span className="text-xs text-text-secondary">proyectos ejecutados</span>
                     </div>
-
-                    {/* Separator */}
-                    <div className="hidden md:block w-px h-8 bg-industrial-gray-medium" />
-
-                    {/* Client Avatars */}
-                    <div className="flex items-center">
-                      <div className="flex -space-x-2 sm:-space-x-3">
-                        {clientAvatars.map((avatar, index) => (
-                          <div
-                            key={avatar.id}
-                            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border-2 border-white overflow-hidden"
-                            style={{ zIndex: clientAvatars.length - index }}
-                          >
-                            <Image
-                              src={avatar.image}
-                              alt={avatar.name}
-                              width={48}
-                              height={48}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        ))}
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border-2 border-white bg-sinpetca-orange flex items-center justify-center">
-                          <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-industrial-dark" />
-                        </div>
-                      </div>
-                      <span className="ml-3 sm:ml-4 text-text-secondary text-xs sm:text-sm">+100 clientes</span>
+                    <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-md">
+                      <span className="block text-lg font-bold text-text-primary">50+</span>
+                      <span className="text-xs text-text-secondary">profesionales certificados</span>
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-md">
+                      <span className="block text-lg font-bold text-text-primary">3</span>
+                      <span className="text-xs text-text-secondary">sectores industriales atendidos</span>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -454,7 +424,9 @@ export default function HeroCarousel() {
         </div>
         <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg">
           <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sinpetca-orange" />
-          <span className="text-text-primary text-[10px] sm:text-xs font-medium">+12 Años</span>
+          <span className="text-text-primary text-[10px] sm:text-xs font-medium">
+            {COMPANY_EXPERIENCE_LABEL} Años
+          </span>
         </div>
       </div>
 

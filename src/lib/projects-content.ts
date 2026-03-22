@@ -21,8 +21,8 @@ export type FeaturedProject = {
 };
 
 export const projectsData: Record<string, ProjectDetail> = {
-  refineria: {
-    slug: 'refineria',
+  'inspeccion-cojinetes-turbina': {
+    slug: 'inspeccion-cojinetes-turbina',
     title: 'Inspección a Cojinetes de Turbina',
     category: 'Generación Eléctrica',
     summary:
@@ -40,8 +40,8 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Disminución de paradas no programadas en la unidad',
     ],
   },
-  tuberias: {
-    slug: 'tuberias',
+  'eddy-current-cojinetes': {
+    slug: 'eddy-current-cojinetes',
     title: 'Inspección Eddy Current en Cojinetes',
     category: 'Industria Petrolera',
     summary:
@@ -59,8 +59,8 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Mayor confiabilidad operativa de equipos inspeccionados',
     ],
   },
-  aeronautica: {
-    slug: 'aeronautica',
+  'certificacion-grua-offshore': {
+    slug: 'certificacion-grua-offshore',
     title: 'Certificación de Grúa Offshore',
     category: 'Industria Petrolera',
     summary:
@@ -78,8 +78,8 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Soporte documental para continuidad de maniobras críticas',
     ],
   },
-  'alabes-turbina': {
-    slug: 'alabes-turbina',
+  'calibracion-maquinas-soldar': {
+    slug: 'calibracion-maquinas-soldar',
     title: 'Calibración de Máquinas de Soldar',
     category: 'Equipos Especiales',
     summary:
@@ -97,8 +97,8 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Reducción de desviaciones en parámetros de soldadura',
     ],
   },
-  motores: {
-    slug: 'motores',
+  'inspeccion-grua-puente': {
+    slug: 'inspeccion-grua-puente',
     title: 'Inspección de Grúa Puente',
     category: 'Aeronáutica',
     summary:
@@ -116,8 +116,8 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Cumplimiento con estándares de seguridad en hangar',
     ],
   },
-  'grua-puente': {
-    slug: 'grua-puente',
+  'recertificacion-grua-pedestal-whp': {
+    slug: 'recertificacion-grua-pedestal-whp',
     title: 'Recertificación de Grúa de Pedestal en Plataforma WHP',
     category: 'Industria Petrolera',
     summary:
@@ -135,8 +135,8 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Mayor control sobre maniobras de carga en plataforma',
     ],
   },
-  toberas: {
-    slug: 'toberas',
+  'evaluacion-estructural-toberas': {
+    slug: 'evaluacion-estructural-toberas',
     title: 'Evaluación Estructural de Toberas',
     category: 'Generación Eléctrica',
     summary:
@@ -154,8 +154,8 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Mejor desempeño de la unidad termoeléctrica inspeccionada',
     ],
   },
-  estructuras: {
-    slug: 'estructuras',
+  'evaluacion-estructuras-metalicas': {
+    slug: 'evaluacion-estructuras-metalicas',
     title: 'Evaluación de Estructuras Metálicas',
     category: 'Industria Naval',
     summary:
@@ -173,8 +173,8 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Soporte para renovación de clase de embarcación',
     ],
   },
-  izamiento: {
-    slug: 'izamiento',
+  'inspeccion-certificacion-grua-pedestal': {
+    slug: 'inspeccion-certificacion-grua-pedestal',
     title: 'Inspección y Certificación de Grúa de Pedestal',
     category: 'Equipos Especiales',
     summary:
@@ -192,8 +192,8 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Soporte documental para continuidad operativa en campo',
     ],
   },
-  'ndt-estructural': {
-    slug: 'ndt-estructural',
+  'evaluacion-ndt-estructural': {
+    slug: 'evaluacion-ndt-estructural',
     title: 'Evaluación No Destructiva Estructural',
     category: 'Infraestructura',
     summary:
@@ -211,8 +211,8 @@ export const projectsData: Record<string, ProjectDetail> = {
       'Liberación oportuna de componentes para instalación',
     ],
   },
-  'inspeccion-visual': {
-    slug: 'inspeccion-visual',
+  'inspeccion-visual-tuberias': {
+    slug: 'inspeccion-visual-tuberias',
     title: 'Inspección Visual de Tuberías',
     category: 'Industria Petrolera',
     summary:
@@ -233,12 +233,12 @@ export const projectsData: Record<string, ProjectDetail> = {
 };
 
 const featuredProjectSlugs = [
-  'tuberias',
-  'aeronautica',
-  'alabes-turbina',
-  'motores',
-  'toberas',
-  'izamiento',
+  'eddy-current-cojinetes',
+  'certificacion-grua-offshore',
+  'calibracion-maquinas-soldar',
+  'inspeccion-grua-puente',
+  'evaluacion-estructural-toberas',
+  'inspeccion-certificacion-grua-pedestal',
 ] as const;
 
 export const featuredProjects: FeaturedProject[] = featuredProjectSlugs.map((slug) => {

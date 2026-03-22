@@ -10,14 +10,24 @@ import type {
   ContactPointSchema,
   PostalAddressSchema,
 } from '@/types/schema';
+import {
+  COMPANY_EXPERIENCE_COPY,
+  COMPANY_FOUNDING_YEAR,
+  CONTACT_EMAIL,
+  CONTACT_PHONE_SCHEMA,
+  PRIMARY_OFFICE,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_LINKS,
+} from '@/lib/site-config';
 
 // Company Address
 export const sinpetcaAddress: PostalAddressSchema = {
   '@type': 'PostalAddress',
-  streetAddress: 'Calle Guarnica, Qta. Adriana, s/n, Urb. Santa Fe', // Update with actual address
-  addressLocality: 'Punto Fijo',
-  addressRegion: 'Falcón',
-  postalCode: '6023',
+  streetAddress: PRIMARY_OFFICE.shortAddress,
+  addressLocality: PRIMARY_OFFICE.locality,
+  addressRegion: PRIMARY_OFFICE.region,
+  postalCode: PRIMARY_OFFICE.postalCode,
   addressCountry: 'VE',
 };
 
@@ -25,17 +35,17 @@ export const sinpetcaAddress: PostalAddressSchema = {
 export const sinpetcaContactPoints: ContactPointSchema[] = [
   {
     '@type': 'ContactPoint',
-    telephone: '+58-414-1995127',
+    telephone: CONTACT_PHONE_SCHEMA,
     contactType: 'customer service',
-    email: 'sinpetca68@gmail.com',
+    email: CONTACT_EMAIL,
     areaServed: ['VE', 'CO', 'MX', 'US'],
     availableLanguage: ['Spanish', 'English'],
   },
   {
     '@type': 'ContactPoint',
-    telephone: '+58-414-1995127',
+    telephone: CONTACT_PHONE_SCHEMA,
     contactType: 'sales',
-    email: 'sinpetca68@gmail.com',
+    email: CONTACT_EMAIL,
     areaServed: ['VE', 'CO', 'MX', 'US'],
     availableLanguage: ['Spanish', 'English'],
   },
@@ -44,23 +54,23 @@ export const sinpetcaContactPoints: ContactPointSchema[] = [
 // Main Organization Schema
 export const sinpetcaOrganization: OrganizationSchema = {
   '@type': 'Organization',
-  name: 'SINPETCA, C.A.',
+  name: SITE_NAME,
   alternateName: 'Servicios de Inspección y Ensayos No Destructivos',
-  url: 'https://sinpetca.com',
-  logo: 'https://sinpetca.com/logo.png',
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/brand/logo-sinpetca-white.png`,
   description:
-    'Empresa líder en servicios de inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. Más de 12 años de experiencia con certificaciones ISO 17020.',
-  foundingDate: '1989', // Update with actual founding date
+    `Empresa líder en servicios de inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. ${COMPANY_EXPERIENCE_COPY} de experiencia con certificaciones ISO 17020.`,
+  foundingDate: String(COMPANY_FOUNDING_YEAR),
   address: sinpetcaAddress,
   contactPoint: sinpetcaContactPoints,
   sameAs: [
-    'https://www.linkedin.com/company/sinpetca', // Update with actual URLs
-    'https://www.instagram.com/sinpetca',
+    SOCIAL_LINKS.linkedin,
+    SOCIAL_LINKS.instagram,
+    SOCIAL_LINKS.facebook,
   ],
   areaServed: ['Venezuela', 'Colombia', 'México', 'Estados Unidos', 'Caribe'],
   award: [
     'Certificación ISO 17020',
-    'Certificación ',
     'Certificación API',
     'Certificación ASME',
   ],
@@ -86,14 +96,14 @@ export const sinpetcaOrganization: OrganizationSchema = {
 // LocalBusiness Schema
 export const sinpetcaLocalBusiness: LocalBusinessSchema = {
   '@type': 'ProfessionalService',
-  name: 'SINPETCA, C.A.',
+  name: SITE_NAME,
   image: [
-    'https://sinpetca.com/images/facility-1.jpg',
-    'https://sinpetca.com/images/facility-2.jpg',
+    `${SITE_URL}/images/hero/hero-ndt.jpg`,
+    `${SITE_URL}/images/hero/hero-petrolera.jpg`,
   ],
-  url: 'https://sinpetca.com',
-  telephone: '+58-414-1995127',
-  email: 'sinpetca68@gmail.com',
+  url: SITE_URL,
+  telephone: CONTACT_PHONE_SCHEMA,
+  email: CONTACT_EMAIL,
   address: sinpetcaAddress,
   geo: {
     '@type': 'GeoCoordinates',
@@ -132,12 +142,12 @@ export const petroleumInspectionService: ServiceSchema = {
     'Servicios especializados de inspección para la industria petrolera incluyendo inspección de soldaduras, tanques API, tuberías y equipos de presión bajo normas API y ASME.',
   provider: {
     '@type': 'Organization',
-    name: 'SINPETCA, C.A.',
-    url: 'https://sinpetca.com',
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   serviceType: 'Industrial Inspection',
   category: 'Petroleum Industry Services',
-  url: 'https://sinpetca.com/servicios/petrolera',
+  url: `${SITE_URL}/servicios/petrolera`,
   areaServed: [
     { '@type': 'Country', name: 'Venezuela' },
     { '@type': 'Country', name: 'Colombia' },
@@ -182,12 +192,12 @@ export const navalInspectionService: ServiceSchema = {
     'Servicios de inspección y certificación para embarcaciones, estructuras marítimas, grúas portuarias y equipos navales.',
   provider: {
     '@type': 'Organization',
-    name: 'SINPETCA, C.A.',
-    url: 'https://sinpetca.com',
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   serviceType: 'Naval Inspection',
   category: 'Maritime Industry Services',
-  url: 'https://sinpetca.com/servicios/naval',
+  url: `${SITE_URL}/servicios/naval`,
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Servicios de Inspección Naval',
@@ -219,13 +229,12 @@ export const aeronauticalInspectionService: ServiceSchema = {
     'Servicios de ensayos no destructivos certificados  para componentes y estructuras aeronáuticas.',
   provider: {
     '@type': 'Organization',
-    name: 'SINPETCA, C.A.',
-    url: 'https://sinpetca.com',
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   serviceType: 'Aeronautical NDT Inspection',
   category: 'Aviation Industry Services',
-  url: 'https://sinpetca.com/servicios/aeronautica',
-  award: ['Certificación '],
+  url: `${SITE_URL}/servicios/aeronautica`,
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Servicios de Inspección Aeronáutica',
@@ -257,12 +266,12 @@ export const ndtServices: ServiceSchema = {
     'Servicios completos de ensayos no destructivos: ultrasonido, radiografía, líquidos penetrantes, partículas magnéticas y más.',
   provider: {
     '@type': 'Organization',
-    name: 'SINPETCA, C.A.',
-    url: 'https://sinpetca.com',
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   serviceType: 'Non-Destructive Testing',
   category: 'NDT Services',
-  url: 'https://sinpetca.com/servicios/ndt',
+  url: `${SITE_URL}/servicios/ndt`,
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Métodos de Ensayos No Destructivos',
