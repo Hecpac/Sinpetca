@@ -8,6 +8,7 @@ import {
   CONTACT_PHONE_MAX_LENGTH,
   getContactMessageLengthError,
 } from '@/lib/contact-form';
+import { CONTACT_EMAIL } from '@/lib/site-config';
 
 export const runtime = 'nodejs';
 
@@ -30,7 +31,7 @@ type RateLimitEntry = {
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_MAX_REQUESTS = 5;
 const MIN_SUBMIT_TIME_MS = 3_000;
-const DEFAULT_CONTACT_TO_EMAIL = 'sinpetca68@gmail.com';
+const DEFAULT_CONTACT_TO_EMAIL = CONTACT_EMAIL;
 const DEFAULT_RESEND_FROM_EMAIL = 'contacto@mail.pachanodesign.com';
 const VALID_SERVICES = new Set([
   '',

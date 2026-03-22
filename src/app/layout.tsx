@@ -11,18 +11,25 @@ import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 // SEO Components
 import { OrganizationMarkup } from '@/components/seo/SchemaMarkup';
 import { sinpetcaOrganization } from '@/lib/schema-data';
+import {
+  COMPANY_EXPERIENCE_COPY,
+  SITE_NAME,
+  SITE_URL,
+  getCanonicalUrl,
+} from '@/lib/site-config';
+import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp';
 
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 // SEO Metadata Configuration
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sinpetca.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'SINPETCA, C.A. | Servicios de Inspección y Ensayos No Destructivos',
-    template: '%s | SINPETCA, C.A.',
+    default: `${SITE_NAME} | Servicios de Inspección y Ensayos No Destructivos`,
+    template: `%s | ${SITE_NAME}`,
   },
   description:
-    'Empresa líder en inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. Certificados ISO 17020. Más de 12 años de experiencia en Venezuela e internacionalmente.',
+    `Empresa líder en inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. Certificados ISO 17020. ${COMPANY_EXPERIENCE_COPY} de experiencia en Venezuela e internacionalmente.`,
   keywords: [
     'inspección industrial',
     'ensayos no destructivos',
@@ -55,14 +62,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_VE',
     alternateLocale: 'en_US',
-    url: 'https://sinpetca.com',
-    siteName: 'SINPETCA, C.A.',
-    title: 'SINPETCA, C.A. | Servicios de Inspección y Ensayos No Destructivos',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} | Servicios de Inspección y Ensayos No Destructivos`,
     description:
       'Empresa líder en inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/images/hero/hero-ndt.jpg',
         width: 1200,
         height: 630,
         alt: 'SINPETCA - Inspección Industrial y NDT',
@@ -71,10 +78,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SINPETCA, C.A. | Inspección Industrial y NDT',
+    title: `${SITE_NAME} | Inspección Industrial y NDT`,
     description:
       'Servicios de inspección y ensayos no destructivos para sectores petrolero, naval y aeronáutico.',
-    images: ['/og-image.jpg'],
+    images: ['/images/hero/hero-ndt.jpg'],
   },
   robots: {
     index: true,
@@ -93,7 +100,11 @@ export const metadata: Metadata = {
       }
     : undefined,
   alternates: {
-    canonical: 'https://sinpetca.com',
+    canonical: getCanonicalUrl('/'),
+    languages: {
+      es: getCanonicalUrl('/'),
+      'es-VE': getCanonicalUrl('/'),
+    },
   },
   category: 'Industrial Services',
 };
@@ -152,6 +163,9 @@ export default function RootLayout({
 
         {/* Footer */}
         <Footer />
+
+        {/* Persistent contact CTA */}
+        <FloatingWhatsApp />
       </body>
     </html>
   );

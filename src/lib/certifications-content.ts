@@ -1,3 +1,5 @@
+import { COMPANY_EXPERIENCE_LABEL } from '@/lib/site-config';
+
 export type CertificationMetric = {
   value: string;
   label: string;
@@ -33,7 +35,7 @@ export type VerificationStep = {
 
 export const certificationMetrics: CertificationMetric[] = [
   {
-    value: '12+',
+    value: COMPANY_EXPERIENCE_LABEL,
     label: 'Años en inspección industrial',
     detail: 'Experiencia sostenida en proyectos petroleros, navales, aeronáuticos y de izamiento.',
   },

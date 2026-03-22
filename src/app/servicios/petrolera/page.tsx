@@ -14,6 +14,7 @@ import ServiceList from '@/components/services/ServiceList';
 import ProcessSteps from '@/components/services/ProcessSteps';
 import ServiceFAQ from '@/components/services/ServiceFAQ';
 import ServiceCTA from '@/components/services/ServiceCTA';
+import { COMPANY_EXPERIENCE_COPY, getCanonicalUrl } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Servicios de Inspección Petrolera | API & ASME',
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     'Venezuela',
   ],
   alternates: {
-    canonical: 'https://sinpetca.com/servicios/petrolera',
+    canonical: getCanonicalUrl('/servicios/petrolera'),
   },
 };
 
@@ -153,7 +154,7 @@ export default function PetroleraPage() {
       <ServiceHero
         title="Industria"
         highlight="Petrolera"
-        description="Servicios especializados de inspección garantizando la integridad y seguridad de sus instalaciones petroleras mediante las normas ASME Serie B30, AWS, ASME Sección 5, API 4G y API 650. Más de 12 años de experiencia en el sector."
+        description={`Servicios especializados de inspección garantizando la integridad y seguridad de sus instalaciones petroleras mediante las normas ASME Serie B30, AWS, ASME Sección 5, API 4G y API 650. ${COMPANY_EXPERIENCE_COPY} de experiencia en el sector.`}
         iconName="Fuel"
         certifications={['API 510', 'API 570', 'API 653', 'ASME']}
         backgroundGradient="navy"

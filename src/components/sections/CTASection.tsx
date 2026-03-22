@@ -15,6 +15,13 @@ import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { Phone, Mail, ArrowRight, MessageSquare, Clock, Shield } from 'lucide-react';
 import { useParallax } from '@/hooks/useParallax';
 import { trackEvent } from '@/lib/analytics';
+import {
+  BUSINESS_HOURS,
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+  WHATSAPP_URL,
+} from '@/lib/site-config';
 
 const benefits = [
   {
@@ -109,17 +116,19 @@ export default function CTASection() {
               </Link>
 
               <a
-                href="mailto:sinpetca68@gmail.com"
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() =>
                   trackEvent('cta_secondary_click', {
                     source: 'cta_section',
-                    target: 'mailto:sinpetca68@gmail.com',
+                    target: WHATSAPP_URL,
                   })
                 }
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-text-primary font-semibold rounded-xl transition-all duration-300"
               >
-                <Mail className="w-5 h-5" />
-                sinpetca68@gmail.com
+                <MessageSquare className="w-5 h-5" />
+                WhatsApp
               </a>
             </div>
           </motion.div>
@@ -153,30 +162,30 @@ export default function CTASection() {
             className="mt-12 pt-8 border-t border-white/10 flex flex-wrap justify-center items-center gap-8 text-sm"
           >
             <a
-              href="tel:+584141995127"
+              href={CONTACT_PHONE_TEL}
               onClick={() =>
                 trackEvent('cta_secondary_click', {
                   source: 'cta_section',
-                  target: 'tel:+584141995127',
+                  target: CONTACT_PHONE_TEL,
                 })
               }
               className="flex items-center gap-2 text-text-secondary hover:text-sinpetca-orange transition-colors"
             >
               <Phone className="w-4 h-4" />
-              +58 281 267 1109
+              {CONTACT_PHONE_DISPLAY}
             </a>
             <div className="w-px h-4 bg-white/20 hidden sm:block" />
             <a
-              href="mailto:sinpetca68@gmail.com"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="flex items-center gap-2 text-text-secondary hover:text-sinpetca-orange transition-colors"
             >
               <Mail className="w-4 h-4" />
-              sinpetca68@gmail.com
+              {CONTACT_EMAIL}
             </a>
             <div className="w-px h-4 bg-white/20 hidden sm:block" />
             <span className="flex items-center gap-2 text-text-secondary">
               <Clock className="w-4 h-4" />
-              Lun - Vie: 7:00 AM - 5:00 PM
+              {BUSINESS_HOURS.weekdaysShort}
             </span>
           </motion.div>
         </div>

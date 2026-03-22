@@ -27,7 +27,19 @@ import {
   Award,
   Leaf,
   ClipboardList,
+  MessageCircleMore,
 } from 'lucide-react';
+import {
+  BUSINESS_HOURS,
+  COMPANY_EXPERIENCE_COPY,
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+  PRIMARY_OFFICE,
+  SECONDARY_OFFICE,
+  SOCIAL_LINKS,
+  WHATSAPP_URL,
+} from '@/lib/site-config';
 
 // Quick navigation links
 const quickLinks = [
@@ -54,9 +66,9 @@ const serviceLinks = [
 
 // Social media links
 const socialLinks = [
-  { href: 'https://linkedin.com/company/sinpetca', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'https://instagram.com/sinpetca', icon: Instagram, label: 'Instagram' },
-  { href: 'https://facebook.com/sinpetca', icon: Facebook, label: 'Facebook' },
+  { href: SOCIAL_LINKS.linkedin, icon: Linkedin, label: 'LinkedIn' },
+  { href: SOCIAL_LINKS.instagram, icon: Instagram, label: 'Instagram' },
+  { href: SOCIAL_LINKS.facebook, icon: Facebook, label: 'Facebook' },
 ];
 
 // Certifications
@@ -82,7 +94,11 @@ export default function Footer() {
           {/* Column 1: Company Identity */}
           <div className="lg:col-span-1">
             {/* Logo */}
-            <Link href="/" className="inline-block mb-8 relative w-[180px] h-[50px]">
+            <Link
+              href="/"
+              aria-label="SINPETCA - Ir al inicio"
+              className="inline-block mb-8 relative w-[180px] h-[50px]"
+            >
               <Image
                 src="/images/brand/logo-sinpetca-white.png"
                 alt="SINPETCA Logo"
@@ -97,7 +113,7 @@ export default function Footer() {
             </p>
 
             <p className="text-text-muted text-sm leading-relaxed mb-6">
-              Más de 12 años brindando servicios de inspección industrial y ensayos no
+              {COMPANY_EXPERIENCE_COPY} brindando servicios de inspección industrial y ensayos no
               destructivos con los más altos estándares de calidad y seguridad.
             </p>
 
@@ -210,12 +226,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4">
               <li>
-                <a
-                  href="https://maps.google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 group"
-                >
+                <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-lg bg-sinpetca-navy/30 border border-sinpetca-navy/50 flex items-center justify-center flex-shrink-0 group-hover:bg-sinpetca-orange/20 group-hover:border-sinpetca-orange transition-colors duration-200">
                     <MapPin className="w-5 h-5 text-sinpetca-orange" />
                   </div>
@@ -223,17 +234,32 @@ export default function Footer() {
                     <span className="text-text-muted text-xs uppercase tracking-wider">
                       Sedes
                     </span>
-                    <p className="text-text-secondary text-sm mt-0.5 group-hover:text-text-primary transition-colors">
-                      <strong className="text-sinpetca-orange">Punto Fijo:</strong> Calle Guarnica, Qta. Adriana, s/n.
-                      <br />
-                      <strong className="text-sinpetca-orange">Lechería:</strong> Av. Intercomunal, C.C. MT, Piso 1.
-                    </p>
+                    <div className="mt-1.5 space-y-2 text-sm">
+                      <a
+                        href={PRIMARY_OFFICE.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-text-secondary transition-colors hover:text-text-primary"
+                      >
+                        <strong className="text-sinpetca-orange">{PRIMARY_OFFICE.label}:</strong>{' '}
+                        {PRIMARY_OFFICE.shortAddress}
+                      </a>
+                      <a
+                        href={SECONDARY_OFFICE.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-text-secondary transition-colors hover:text-text-primary"
+                      >
+                        <strong className="text-sinpetca-orange">{SECONDARY_OFFICE.label}:</strong>{' '}
+                        {SECONDARY_OFFICE.shortAddress}
+                      </a>
+                    </div>
                   </div>
-                </a>
+                </div>
               </li>
 
               <li>
-                <a href="tel:+584141995127" className="flex items-start gap-3 group">
+                <a href={CONTACT_PHONE_TEL} className="flex items-start gap-3 group">
                   <div className="w-10 h-10 rounded-lg bg-sinpetca-navy/30 border border-sinpetca-navy/50 flex items-center justify-center flex-shrink-0 group-hover:bg-sinpetca-orange/20 group-hover:border-sinpetca-orange transition-colors duration-200">
                     <Phone className="w-5 h-5 text-sinpetca-orange" />
                   </div>
@@ -242,14 +268,14 @@ export default function Footer() {
                       Teléfono
                     </span>
                     <p className="text-text-secondary text-sm mt-0.5 group-hover:text-text-primary transition-colors">
-                      +58 414-199-5127
+                      {CONTACT_PHONE_DISPLAY}
                     </p>
                   </div>
                 </a>
               </li>
 
               <li>
-                <a href="mailto:sinpetca68@gmail.com" className="flex items-start gap-3 group">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-start gap-3 group">
                   <div className="w-10 h-10 rounded-lg bg-sinpetca-navy/30 border border-sinpetca-navy/50 flex items-center justify-center flex-shrink-0 group-hover:bg-sinpetca-orange/20 group-hover:border-sinpetca-orange transition-colors duration-200">
                     <Mail className="w-5 h-5 text-sinpetca-orange" />
                   </div>
@@ -258,7 +284,28 @@ export default function Footer() {
                       Email
                     </span>
                     <p className="text-text-secondary text-sm mt-0.5 group-hover:text-text-primary transition-colors">
-                      sinpetca68@gmail.com
+                      {CONTACT_EMAIL}
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 group"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-[#25D366]/10 border border-[#25D366]/30 flex items-center justify-center flex-shrink-0 group-hover:bg-[#25D366]/20 transition-colors duration-200">
+                    <MessageCircleMore className="w-5 h-5 text-[#25D366]" />
+                  </div>
+                  <div>
+                    <span className="text-text-muted text-xs uppercase tracking-wider">
+                      WhatsApp
+                    </span>
+                    <p className="text-text-secondary text-sm mt-0.5 group-hover:text-text-primary transition-colors">
+                      Atención comercial directa
                     </p>
                   </div>
                 </a>
@@ -274,9 +321,9 @@ export default function Footer() {
                       Horario
                     </span>
                     <p className="text-text-secondary text-sm mt-0.5">
-                      Lun - Vie: 7:00 AM - 5:00 PM
+                      {BUSINESS_HOURS.weekdaysShort}
                       <br />
-                      Sáb: 8:00 AM - 12:00 PM
+                      {BUSINESS_HOURS.saturdayShort}
                     </p>
                   </div>
                 </div>
@@ -310,7 +357,7 @@ export default function Footer() {
                 <Award className="w-8 h-8 text-sinpetca-orange" />
                 <div>
                   <span className="text-text-primary font-semibold text-sm block">
-                    +12 Años de Experiencia
+                    {COMPANY_EXPERIENCE_COPY} de Experiencia
                   </span>
                   <span className="text-text-muted text-xs">Líderes en Inspección Industrial</span>
                 </div>

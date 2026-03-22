@@ -16,14 +16,18 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { TrendingUp, Users, Briefcase, Award } from 'lucide-react';
 import { useParallax } from '@/hooks/useParallax';
+import {
+  COMPANY_EXPERIENCE_YEARS,
+  COMPANY_FOUNDING_YEAR,
+} from '@/lib/site-config';
 
 // Stats data
 const stats = [
   {
-    value: 12,
+    value: COMPANY_EXPERIENCE_YEARS,
     suffix: '+',
     label: 'Años de Experiencia',
-    description: 'Desde 2012 al servicio de la industria',
+    description: `Desde ${COMPANY_FOUNDING_YEAR} al servicio de la industria`,
     icon: TrendingUp,
   },
   {
@@ -213,8 +217,8 @@ export default function Stats() {
             <span className="text-sinpetca-orange"> Nuestra Experiencia</span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
-            Décadas de compromiso con la calidad y la seguridad industrial nos posicionan como
-            líderes en inspección y ensayos no destructivos.
+            Trayectoria, criterio técnico y respuesta en campo nos posicionan como líderes en
+            inspección y ensayos no destructivos.
           </p>
         </motion.div>
 

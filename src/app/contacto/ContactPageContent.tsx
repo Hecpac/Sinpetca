@@ -7,12 +7,30 @@
 
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import {
+    MapPin,
+    Phone,
+    Mail,
+    Clock,
+    Send,
+    CheckCircle2,
+    AlertCircle,
+    MessageSquare,
+    ArrowUpRight,
+} from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
 import {
     CONTACT_MESSAGE_MAX_LENGTH,
     CONTACT_MESSAGE_MIN_LENGTH,
 } from '@/lib/contact-form';
+import {
+    BUSINESS_HOURS,
+    CONTACT_EMAIL,
+    CONTACT_PHONE_PLAIN,
+    PRIMARY_OFFICE,
+    SECONDARY_OFFICE,
+    WHATSAPP_URL,
+} from '@/lib/site-config';
 
 export default function ContactPageContent() {
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -315,19 +333,11 @@ export default function ContactPageContent() {
                                         <div>
                                             <h3 className="font-semibold text-text-primary mb-1">Sede Principal</h3>
                                             <p className="text-text-secondary leading-relaxed text-sm mb-4">
-                                                Calle Guarnica, Qta. Adriana, s/n,
-                                                <br />
-                                                Urb. Santa Fe, Punto Fijo,
-                                                <br />
-                                                Falcón, Venezuela.
+                                                {PRIMARY_OFFICE.fullAddress}
                                             </p>
                                             <h3 className="font-semibold text-text-primary mb-1">Sucursal</h3>
                                             <p className="text-text-secondary leading-relaxed text-sm">
-                                                Av. Intercomunal Jorge Rodríguez,
-                                                <br />
-                                                C.C. MT, Piso 1, Ofic. P1-26,
-                                                <br />
-                                                Lechería, Anzoátegui, Venezuela.
+                                                {SECONDARY_OFFICE.fullAddress}
                                             </p>
                                         </div>
                                     </div>
@@ -338,7 +348,7 @@ export default function ContactPageContent() {
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-text-primary mb-1">Teléfono</h3>
-                                            <p className="text-text-secondary">+58 414 199 5127</p>
+                                            <p className="text-text-secondary">{CONTACT_PHONE_PLAIN}</p>
                                         </div>
                                     </div>
 
@@ -350,7 +360,27 @@ export default function ContactPageContent() {
                                             <h3 className="font-semibold text-text-primary mb-1">
                                                 Correo electrónico
                                             </h3>
-                                            <p className="text-text-secondary">sinpetca68@gmail.com</p>
+                                            <p className="text-text-secondary">{CONTACT_EMAIL}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-4 group">
+                                        <div className="w-12 h-12 bg-[#25D366]/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#25D366]/20 transition-colors">
+                                            <MessageSquare className="w-6 h-6 text-[#25D366]" />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-semibold text-text-primary mb-1">
+                                                WhatsApp
+                                            </h3>
+                                            <a
+                                                href={WHATSAPP_URL}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors"
+                                            >
+                                                Iniciar conversación comercial
+                                                <ArrowUpRight className="w-4 h-4" />
+                                            </a>
                                         </div>
                                     </div>
 
@@ -361,9 +391,9 @@ export default function ContactPageContent() {
                                         <div>
                                             <h3 className="font-semibold text-text-primary mb-1">Horario</h3>
                                             <p className="text-text-secondary">
-                                                Lunes - Viernes: 7:00 AM - 5:00 PM
+                                                {BUSINESS_HOURS.weekdaysLong}
                                                 <br />
-                                                Sábado: 8:00 AM - 12:00 PM
+                                                {BUSINESS_HOURS.saturdayLong}
                                             </p>
                                         </div>
                                     </div>
@@ -371,18 +401,43 @@ export default function ContactPageContent() {
                             </div>
 
                             {/* Map Placeholder */}
-                            <div className="bg-surface-primary border border-industrial-gray-medium rounded-xl overflow-hidden group">
-                                <div className="aspect-video bg-industrial-gray-medium flex flex-col items-center justify-center p-8 text-center">
-                                    <motion.div
-                                        animate={{ y: [0, -10, 0] }}
-                                        transition={{ duration: 2, repeat: Infinity }}
-                                        className="mb-4"
-                                    >
-                                        <MapPin className="w-12 h-12 text-sinpetca-orange/50" />
-                                    </motion.div>
-                                    <p className="text-text-muted">Mapa interactivo de ubicación física</p>
-                                    <p className="text-text-muted text-sm mt-2">Punto Fijo, Falcón, Venezuela</p>
-                                </div>
+                            <div className="grid gap-6 md:grid-cols-2">
+                                <a
+                                    href={PRIMARY_OFFICE.mapUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-surface-primary border border-industrial-gray-medium rounded-xl overflow-hidden group"
+                                >
+                                    <div className="aspect-video bg-industrial-gray-medium flex flex-col items-center justify-center p-8 text-center">
+                                        <motion.div
+                                            animate={{ y: [0, -10, 0] }}
+                                            transition={{ duration: 2, repeat: Infinity }}
+                                            className="mb-4"
+                                        >
+                                            <MapPin className="w-12 h-12 text-sinpetca-orange/50" />
+                                        </motion.div>
+                                        <p className="text-text-muted">Abrir sede de {PRIMARY_OFFICE.label} en Google Maps</p>
+                                        <p className="text-text-muted text-sm mt-2">{PRIMARY_OFFICE.shortAddress}</p>
+                                    </div>
+                                </a>
+                                <a
+                                    href={SECONDARY_OFFICE.mapUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-surface-primary border border-industrial-gray-medium rounded-xl overflow-hidden group"
+                                >
+                                    <div className="aspect-video bg-industrial-gray-medium flex flex-col items-center justify-center p-8 text-center">
+                                        <motion.div
+                                            animate={{ y: [0, -10, 0] }}
+                                            transition={{ duration: 2, repeat: Infinity }}
+                                            className="mb-4"
+                                        >
+                                            <MapPin className="w-12 h-12 text-sinpetca-orange/50" />
+                                        </motion.div>
+                                        <p className="text-text-muted">Abrir sede de {SECONDARY_OFFICE.label} en Google Maps</p>
+                                        <p className="text-text-muted text-sm mt-2">{SECONDARY_OFFICE.shortAddress}</p>
+                                    </div>
+                                </a>
                             </div>
                         </motion.div>
                     </div>

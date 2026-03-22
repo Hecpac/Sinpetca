@@ -13,6 +13,7 @@ import type { Metadata } from 'next';
 import { CompletePageSchema } from '@/components/seo/SchemaMarkup';
 import { sinpetcaOrganization } from '@/lib/schema-data';
 import type { WebPageSchema } from '@/types/schema';
+import { COMPANY_EXPERIENCE_COPY, getCanonicalUrl, SITE_NAME, SITE_URL } from '@/lib/site-config';
 
 // Section Components
 import HeroCarousel from '@/components/sections/HeroCarousel';
@@ -25,24 +26,24 @@ import CTASection from '@/components/sections/CTASection';
 export const metadata: Metadata = {
   title: 'SINPETCA, C.A. | Inspección Industrial y Ensayos No Destructivos',
   description:
-    'Líderes en servicios de inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. Más de 12 años de excelencia. Certificados ISO 17020.',
+    `Líderes en servicios de inspección industrial y ensayos no destructivos (NDT) para los sectores petrolero, naval y aeronáutico. ${COMPANY_EXPERIENCE_COPY} de excelencia. Certificados ISO 17020.`,
   alternates: {
-    canonical: 'https://sinpetca.com',
+    canonical: getCanonicalUrl('/'),
   },
 };
 
 // WebPage Schema for the homepage
 const homePageSchema: WebPageSchema = {
   '@type': 'WebPage',
-  name: 'SINPETCA - Servicios de Inspección Industrial y Ensayos No Destructivos',
+  name: `${SITE_NAME} - Servicios de Inspección Industrial y Ensayos No Destructivos`,
   description:
     'Empresa líder en inspección industrial y ensayos no destructivos para sectores petrolero, naval y aeronáutico. Certificados ISO 17020.',
-  url: 'https://sinpetca.com',
+  url: SITE_URL,
   inLanguage: 'es-VE',
   isPartOf: {
     '@type': 'WebSite',
-    name: 'SINPETCA, C.A.',
-    url: 'https://sinpetca.com',
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   speakable: {
     '@type': 'SpeakableSpecification',
@@ -61,13 +62,10 @@ export default function HomePage() {
       />
 
       <div className="home-flow relative">
-        {/* Sticky Hero Section (Section 1) */}
-        <div className="sticky top-0 h-screen min-h-[600px] sm:min-h-[700px] max-h-[1200px] w-full z-0 overflow-hidden">
-          <HeroCarousel />
-        </div>
+        <HeroCarousel />
 
-        {/* Content over Hero (Section 2 onwards acting like a card sliding up) */}
-        <div className="relative z-10 bg-industrial-gray rounded-t-[2.5rem] sm:rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.5)] border-t border-white/10 overflow-hidden">
+        {/* Content over Hero */}
+        <div className="relative z-10 -mt-6 sm:-mt-10 md:-mt-12 bg-industrial-gray rounded-t-[2.5rem] sm:rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.5)] border-t border-white/10 overflow-hidden">
           {/* Services Overview */}
           <Services />
 

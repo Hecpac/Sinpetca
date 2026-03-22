@@ -20,6 +20,11 @@ import {
   Clock,
   Briefcase,
 } from 'lucide-react';
+import {
+  COMPANY_EXPERIENCE_COPY,
+  COMPANY_EXPERIENCE_LABEL,
+  COMPANY_FOUNDING_YEAR,
+} from '@/lib/site-config';
 
 import { CompanyTimeline, MissionVision, TeamSection } from '@/components/about';
 
@@ -28,8 +33,8 @@ import { CompanyTimeline, MissionVision, TeamSection } from '@/components/about'
 // ============================================================================
 
 const highlights = [
-  { value: '2012', label: 'Año de Fundación', icon: Building2 },
-  { value: '12+', label: 'Años de Experiencia', icon: Clock },
+  { value: String(COMPANY_FOUNDING_YEAR), label: 'Año de Fundación', icon: Building2 },
+  { value: COMPANY_EXPERIENCE_LABEL, label: 'Años de Experiencia', icon: Clock },
   { value: '127', label: 'Proyectos Completados', icon: Briefcase },
   { value: '4', label: 'Sectores Industriales', icon: Globe },
 ];
@@ -127,9 +132,9 @@ export default function AboutPageContent() {
             </h1>
 
             <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-12">
-              Servicios de Inspección Petrolera C.A. - Más de tres décadas dedicados a garantizar
-              la seguridad e integridad de activos industriales con los más altos estándares de
-              calidad.
+              Servicios de Inspección Petrolera C.A. - {COMPANY_EXPERIENCE_COPY} dedicados a
+              garantizar la seguridad e integridad de activos industriales con los más altos
+              estándares de calidad.
             </p>
 
             {/* Highlights */}
@@ -182,9 +187,10 @@ export default function AboutPageContent() {
               <div className="prose prose-lg prose-invert max-w-none">
                 <p className="text-text-secondary text-lg leading-relaxed mb-6">
                   <strong className="text-text-primary">SINPETCA</strong> (Servicios de Inspección
-                  Petrolera C.A.) es una empresa venezolana fundada en 2012, especializada en
-                  servicios de inspección industrial de alta calidad. A lo largo de más de una
-                  década, nos hemos consolidado como un referente en el sector, brindando
+                  Petrolera C.A.) es una empresa venezolana fundada en {COMPANY_FOUNDING_YEAR},
+                  especializada en servicios de inspección industrial de alta calidad. A lo largo
+                  de {COMPANY_EXPERIENCE_COPY.toLowerCase()}, nos hemos consolidado como un
+                  referente en el sector, brindando
                   soluciones integrales para las industrias petrolera, petroquímica, naval y
                   aeronáutica.
                 </p>

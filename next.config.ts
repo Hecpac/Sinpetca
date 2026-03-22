@@ -58,6 +58,61 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: '/proyectos/tuberias',
+        destination: '/proyectos/eddy-current-cojinetes',
+        permanent: true,
+      },
+      {
+        source: '/proyectos/aeronautica',
+        destination: '/proyectos/certificacion-grua-offshore',
+        permanent: true,
+      },
+      {
+        source: '/proyectos/alabes-turbina',
+        destination: '/proyectos/calibracion-maquinas-soldar',
+        permanent: true,
+      },
+      {
+        source: '/proyectos/motores',
+        destination: '/proyectos/inspeccion-grua-puente',
+        permanent: true,
+      },
+      {
+        source: '/proyectos/grua-puente',
+        destination: '/proyectos/recertificacion-grua-pedestal-whp',
+        permanent: true,
+      },
+      {
+        source: '/proyectos/toberas',
+        destination: '/proyectos/evaluacion-estructural-toberas',
+        permanent: true,
+      },
+      {
+        source: '/proyectos/refineria',
+        destination: '/proyectos/inspeccion-cojinetes-turbina',
+        permanent: true,
+      },
+      {
+        source: '/proyectos/estructuras',
+        destination: '/proyectos/evaluacion-estructuras-metalicas',
+        permanent: true,
+      },
+      {
+        source: '/proyectos/izamiento',
+        destination: '/proyectos/inspeccion-certificacion-grua-pedestal',
+        permanent: true,
+      },
+      {
+        source: '/proyectos/ndt-estructural',
+        destination: '/proyectos/evaluacion-ndt-estructural',
+        permanent: true,
+      },
+      {
+        source: '/proyectos/inspeccion-visual',
+        destination: '/proyectos/inspeccion-visual-tuberias',
+        permanent: true,
+      },
       // 301 redirect: sinpetca.com → www.sinpetca.com (consolidate domain authority)
       {
         source: '/:path*',

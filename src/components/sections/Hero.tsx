@@ -21,6 +21,7 @@ import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Phone, Play, ChevronDown, Shield, Award, Clock } from 'lucide-react';
 import { useParallax } from '@/hooks/useParallax';
+import { COMPANY_EXPERIENCE_COPY, COMPANY_EXPERIENCE_LABEL, COMPANY_FOUNDING_YEAR } from '@/lib/site-config';
 
 // Animation variants
 const containerVariants = {
@@ -72,7 +73,7 @@ const pulseVariants = {
 // Trust badges data
 const trustBadges = [
   { icon: Shield, label: 'ISO 17020', sublabel: 'Certificado' },
-  { icon: Award, label: '+12 Años', sublabel: 'Experiencia' },
+  { icon: Award, label: `${COMPANY_EXPERIENCE_LABEL} Años`, sublabel: 'Experiencia' },
   { icon: Clock, label: '24/7', sublabel: 'Disponibilidad' },
 ];
 
@@ -169,9 +170,9 @@ export default function Hero() {
         >
           {/* Badge */}
           <motion.div variants={itemVariants} className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-sinpetca-orange/10 border border-sinpetca-orange/30 rounded-full text-sinpetca-orange text-sm font-medium">
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-sinpetca-orange/10 border border-sinpetca-orange/30 rounded-full text-sinpetca-orange text-sm font-medium">
               <span className="w-2 h-2 bg-sinpetca-orange rounded-full animate-pulse" />
-              Líderes en Inspección Industrial y NDT desde 2012
+              Líderes en Inspección Industrial y NDT desde {COMPANY_FOUNDING_YEAR}
             </span>
           </motion.div>
 
@@ -193,7 +194,7 @@ export default function Hero() {
             Servicios especializados de{' '}
             <span className="text-text-primary font-medium">Ensayos No Destructivos (END)</span> y{' '}
             <span className="text-text-primary font-medium">Certificación Industrial</span> para
-            los sectores Petrolero, Naval y Aeronáutico. Certificados ISO 17020.
+            los sectores Petrolero, Naval y Aeronáutico. Certificados ISO 17020 y {COMPANY_EXPERIENCE_COPY.toLowerCase()} de experiencia.
           </motion.p>
 
           {/* CTA Buttons */}

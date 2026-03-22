@@ -1,8 +1,5 @@
 'use client';
 
-import React from 'react';
-import { Download } from 'lucide-react';
-
 const experienceData = [
   { year: '2016', client: 'Y&V Ingeniería / Petrocedeño', contract: '4500011935 / 4500011931', desc: 'Certificación de equipos de izamiento y carga.', type: 'Privado' },
   { year: '2016', client: 'PDVSA - Petrocedeño', contract: 'OT 19930 / 2200010616', desc: 'Certificación de grúa y pruebas hidrostáticas en macollas.', type: 'Público' },

@@ -11,18 +11,19 @@
 
 import type { Metadata } from 'next';
 import AboutPageContent from './AboutPageContent';
+import { COMPANY_EXPERIENCE_COPY, getCanonicalUrl } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Nosotros',
   description:
-    'Conozca la historia de SINPETCA, nuestra misión, visión y el equipo de profesionales que nos respalda. Más de 12 años de excelencia en inspección industrial.',
+    `Conozca la historia de SINPETCA, nuestra misión, visión y el equipo de profesionales que nos respalda. ${COMPANY_EXPERIENCE_COPY} de excelencia en inspección industrial.`,
   alternates: {
-    canonical: 'https://sinpetca.com/nosotros',
+    canonical: getCanonicalUrl('/nosotros'),
   },
   openGraph: {
     title: 'Sobre Nosotros | SINPETCA',
     description:
-      'Más de 12 años de excelencia en servicios de inspección industrial. Conozca nuestra historia, equipo y compromiso con la calidad.',
+      `${COMPANY_EXPERIENCE_COPY} de excelencia en servicios de inspección industrial. Conozca nuestra historia, equipo y compromiso con la calidad.`,
     type: 'website',
   },
 };
